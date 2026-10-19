@@ -1,0 +1,36 @@
+1. REGISTRO DE PETICIÓN LOCAL (Live Server)
+
+* URL Completa:     http://127.0.0.1:5500/favicon.ico
+* Protocolo:        HTTP Hypertext Transfer Protocol
+* Host:             127.0.0.1 
+* Puerto:           5500
+* Ruta (Path):      /index.html
+* Método:           GET
+* Código de Estado: 200 OK La petición ha tenido éxito y el documento se cargó correctamente
+
+2. PRUEBA DE RUTA INEXISTENTE
+
+* Ruta intentada:   http://127.0.0.1:5500/favicon.ico
+* Código devuelto:  404 Not Found
+* Significado:      Es un código de error del lado del cliente. Significa que el servidor web 
+                    se comunicó correctamente, pero no pudo encontrar el archivo específico 
+                    solicitado en la ruta indicada.
+
+3. ROLES DE LAS TECNOLOGÍAS WEB EN RUEDA LIBRE
+
+* HTML HyperText Markup Language:
+  - Rol: Define la estructura lógica, el esqueleto y el contenido semántico del sitio web.
+  - Ejemplo concreto: El uso de las etiquetas <h1> para el nombre del negocio y <ul> junto 
+    a <li> para desplegar el listado de los servicios disponibles de bicicletas.
+
+* CSS Cascading Style Sheets:
+  - Rol: Controla la presentación visual, el diseño estético, los colores, las fuentes y la 
+    adaptabilidad a dispositivos (Layout).
+  - Ejemplo concreto: Definir un color de fondo verde ecológico (#4CAF50) para el menú, cambiar 
+    el tamaño de letra de los precios y ocultar elementos en pantallas móviles para que sea responsive.
+
+* JavaScript:
+  - Rol: Aporta interactividad dinámica, lógica de programación del lado del cliente y control 
+    de comportamientos en tiempo real.
+  - Ejemplo concreto: Programar un formulario de reserva interactivo que calcule automáticamente 
+    el precio total del alquiler basándose en el número de horas seleccionadas por el usuario.
