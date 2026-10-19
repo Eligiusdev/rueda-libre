@@ -36,3 +36,26 @@
     el precio total del alquiler basándose en el número de horas seleccionadas por el usuario.
 * TOKEN:
 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
+
+3. MATRIZ DE RUTAS RELATIVAS (SITIO NAVEGABLE v0.1)
+----------------------------------------------------------------------
+A continuación se detalla el comportamiento del mapeo de enlaces del menú
+y flujos transversales comprobados mediante DevTools (Network) con estado 200:
+
+Archivo Origen         | Archivo Destino        | Ruta Escrita (href)
+-----------------------|------------------------|---------------------------------
+index.html             | index.html             | index.html
+index.html             | tarifas.html           | paginas/tarifas.html
+index.html             | reservas.html          | paginas/reservas.html
+index.html (Cuerpo)    | reservas.html          | paginas/reservas.html
+index.html (Cuerpo)    | index.html (Ancla)     | #encuentranos
+-----------------------|------------------------|---------------------------------
+paginas/tarifas.html   | index.html             | ../index.html
+paginas/tarifas.html   | tarifas.html           | tarifas.html
+paginas/tarifas.html   | reservas.html          | reservas.html
+paginas/tarifas.html   | reservas.html (Cuerpo) | reservas.html
+-----------------------|------------------------|---------------------------------
+paginas/reservas.html  | index.html             | ../index.html
+paginas/reservas.html  | tarifas.html           | tarifas.html
+paginas/reservas.html  | reservas.html          | reservas.html
+----------------------------------------------------------------------
