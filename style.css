@@ -1,0 +1,240 @@
+/* ==========================================================================
+   VARIABLES DE COLOR Y CONFIGURACIÓN GLOBAL (Estilo Azul Negro Oscuro)
+   ========================================================================== */
+:root {
+    --bg-principal: #0a0e17;      
+    --bg-tarjetas: #131a26;       
+    --texto-blanco: #f0f4f8;     
+    --texto-mutado: #94a3b8;     
+    --acento-brillo: #f5d061;     
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-blanco);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   MENÚ DE NAVEGACIÓN (HEADER)
+   ========================================================================== */
+nav {
+    background-color: var(--bg-tarjetas);
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--borde-sutil);
+    margin-bottom: 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--texto-blanco);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--acento-dorado);
+}
+
+/* ==========================================================================
+   TIPOGRAFÍAS Y ENCABEZADOS
+   ========================================================================== */
+h1 {
+    font-size: 2.2rem;
+    color: var(--texto-blanco);
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--acento-dorado);
+    margin-top: 35px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--borde-sutil);
+    padding-bottom: 8px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--texto-blanco);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--texto-mutado);
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* Elementos de énfasis internos */
+strong {
+    color: var(--texto-blanco);
+    font-weight: 600;
+}
+
+em {
+    color: var(--acento-dorado);
+    font-style: italic;
+}
+
+/* Enlaces globales del cuerpo */
+a {
+    color: var(--acento-dorado);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--acento-brillo);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   LISTAS (BENEFICIOS, PASOS Y HORARIOS)
+   ========================================================================== */
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--texto-mutado);
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Lista de definiciones (Horarios de reservas.html) */
+dl {
+    background-color: var(--bg-tarjetas);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--borde-sutil);
+    margin-bottom: 25px;
+}
+
+dt {
+    font-weight: 600;
+    color: var(--acento-dorado);
+    margin-top: 10px;
+}
+
+dt:first-child {
+    margin-top: 0;
+}
+
+dd {
+    color: var(--texto-blanco);
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   TABLAS ACCESIBLES DE TARIFAS Y RUTAS
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--bg-tarjetas);
+    border-radius: 8px;
+    overflow: hidden; 
+    border: 1px solid var(--borde-sutil);
+}
+
+caption {
+    font-size: 0.85rem;
+    color: var(--texto-mutated);
+    font-style: italic;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+thead {
+    background-color: #1a2436; 
+    border-bottom: 2px solid var(--borde-sutil);
+}
+
+thead th {
+    color: var(--acento-dorado);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--borde-sutil);
+    transition: background-color 0.15s ease;
+}
+
+tbody tr:hover {
+    background-color: #172233; /* Resaltado sutil al pasar el mouse por la fila */
+}
+
+tbody th {
+    color: var(--texto-blanco);
+    font-weight: 600;
+}
+
+tbody td {
+    color: var(--texto-mutado);
+}
+
+/* ==========================================================================
+   IMÁGENES Y BLOQUES MULTIMEDIA
+   ========================================================================== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--borde-sutil);
+    margin: 15px 0 25px 0;
+    display: block;
+}
+
+/* Reducción estética del separador hr */
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--borde-sutil);
+    margin: 30px 0;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 5px;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: var(--texto-mutado);
+}
