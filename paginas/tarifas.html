@@ -9,115 +9,124 @@
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN COMÚN (Desde subcarpeta) -->
-    <nav>
-        <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="tarifas.html">Tarifas y rutas</a></li>
-            <li><a href="reservas.html">Reservas</a></li>
-        </ul>
-    </nav>
+    <!-- 1. ENCABEZADO GLOBAL -->
+    <header>
+        <!-- MENÚ DE NAVEGACIÓN COMÚN (Desde subcarpeta) -->
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="tarifas.html">Tarifas y rutas</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <p><img src="../img/portada.jpg" alt="Logo oficial de Rueda Libre" width="200"></p>
+        <h1>Tarifas y Planes</h1>
+    </header>
+
+    <!-- 2. CONTENIDO PRINCIPAL ÚNICO -->
+    <main>
+
+        <!-- Cada tabla se ubica de forma independiente en su propia sección -->
+        <section>
+            <h2>Alquiler de Bicicletas</h2>
+            <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
+                <caption>Lista de precios de alquiler según el tipo de bicicleta y duración del servicio</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo de bicicleta</th>
+                        <th scope="col">1 hora</th>
+                        <th scope="col">Medio día (4 h)</th>
+                        <th scope="col">Día completo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Urbana</th>
+                        <td>$10.000</td>
+                        <td>$30.000</td>
+                        <td>$50.000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Montaña</th>
+                        <td>$15.000</td>
+                        <td>$45.000</td>
+                        <td>$70.000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Eléctrica</th>
+                        <td>$25.000</td>
+                        <td>$70.000</td>
+                        <td>$110.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><em>Nota importante: Todas las tarifas de alquiler incluyen casco de seguridad y candado.</em></p>
+        </section>
+
+        <br>
+
+        <section id="tabla-recorridos">
+            <h2>Nuestros Recorridos Guiados</h2>
+            <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
+                <caption>Detalle de rutas guiadas disponibles, especificaciones técnicas y costos por persona</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Recorrido</th>
+                        <th scope="col">Distancia</th>
+                        <th scope="col">Duración</th>
+                        <th scope="col">Nivel</th>
+                        <th scope="col">Precio por persona</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Río y Parques</th>
+                        <td>12 km</td>
+                        <td>2 h</td>
+                        <td>Fácil</td>
+                        <td>$45.000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sabores de Barrio</th>
+                        <td>18 km</td>
+                        <td>3 h</td>
+                        <td>Medio</td>
+                        <td>$60.000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reto Las Palmas</th>
+                        <td>25 km</td>
+                        <td>4 h</td>
+                        <td>Difícil</td>
+                        <td>$85.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Horarios de salida:</strong> Los recorridos salen los días sábados y domingos estrictamente a las 7:00 a. m.</p>
+            
+            <!-- Enlace requerido debajo de la tabla hacia reservas -->
+            <p><a href="reservas.html"><strong>¿Te interesa una ruta? Reserva tu cupo aquí</strong></a></p>
+        </section>
+
+        <br>
+
+        <!-- 3. CONTENIDO COMPLEMENTARIO (Qué llevar) -->
+        <aside>
+            <h2>¿Qué llevar a tu aventura?</h2>
+            <ul>
+                <li>Ropa cómoda y deportiva.</li>
+                <li>Agua o bebida hidratante.</li>
+                <li>Protector solar.</li>
+                <li>Documento de identidad original.</li>
+            </ul>
+        </aside>
+
+    </main>
+
     <hr>
-
-    <p><img src="../img/portada.jpg" alt="Logo oficial de Rueda Libre" width="200"></p>
-
-    <h1>Tarifas y Planes</h1>
-
-    <section>
-        <h2>Alquiler de Bicicletas</h2>
-        <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
-            <caption>Lista de precios de alquiler según el tipo de bicicleta y duración del servicio</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Tipo de bicicleta</th>
-                    <th scope="col">1 hora</th>
-                    <th scope="col">Medio día (4 h)</th>
-                    <th scope="col">Día completo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Urbana</th>
-                    <td>$10.000</td>
-                    <td>$30.000</td>
-                    <td>$50.000</td>
-                </tr>
-                <tr>
-                    <th scope="row">Montaña</th>
-                    <td>$15.000</td>
-                    <td>$45.000</td>
-                    <td>$70.000</td>
-                </tr>
-                <tr>
-                    <th scope="row">Eléctrica</th>
-                    <td>$25.000</td>
-                    <td>$70.000</td>
-                    <td>$110.000</td>
-                </tr>
-            </tbody>
-        </table>
-        <p><em>Nota importante: Todas las tarifas de alquiler incluyen casco de seguridad y candado.</em></p>
-    </section>
-
-    <br>
-
-    <section id="tabla-recorridos">
-        <h2>Nuestros Recorridos Guiados</h2>
-        <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
-            <caption>Detalle de rutas guiadas disponibles, especificaciones técnicas y costos por persona</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Recorrido</th>
-                    <th scope="col">Distancia</th>
-                    <th scope="col">Duración</th>
-                    <th scope="col">Nivel</th>
-                    <th scope="col">Precio por persona</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Río y Parques</th>
-                    <td>12 km</td>
-                    <td>2 h</td>
-                    <td>Fácil</td>
-                    <td>$45.000</td>
-                </tr>
-                <tr>
-                    <th scope="row">Sabores de Barrio</th>
-                    <td>18 km</td>
-                    <td>3 h</td>
-                    <td>Medio</td>
-                    <td>$60.000</td>
-                </tr>
-                <tr>
-                    <th scope="row">Reto Las Palmas</th>
-                    <td>25 km</td>
-                    <td>4 h</td>
-                    <td>Difícil</td>
-                    <td>$85.000</td>
-                </tr>
-            </tbody>
-        </table>
-        <p><strong>Horarios de salida:</strong> Los recorridos salen los días sábados y domingos estrictamente a las 7:00 a. m.</p>
-        
-        <!-- Enlace requerido debajo de la tabla hacia reservas -->
-        <p><a href="reservas.html"><strong>¿Te interesa una ruta? Reserva tu cupo aquí</strong></a></p>
-    </section>
-
-    <br>
-
-    <section>
-        <h2>¿Qué llevar a tu aventura?</h2>
-        <ul>
-            <li>Ropa cómoda y deportiva.</li>
-            <li>Agua o bebida hidratante.</li>
-            <li>Protector solar.</li>
-            <li>Documento de identidad original.</li>
-        </ul>
-    </section>
-
-    <hr>
-    <!-- PIE DE PÁGINA COMÚN -->
+    
+    <!-- 4. PIE DE PÁGINA COMÚN -->
     <footer>
         <p>&copy; 2026 Rueda Libre | Contacto: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
     </footer>

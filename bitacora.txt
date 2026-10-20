@@ -59,3 +59,13 @@ paginas/reservas.html  | index.html             | ../index.html
 paginas/reservas.html  | tarifas.html           | tarifas.html
 paginas/reservas.html  | reservas.html          | reservas.html
 ----------------------------------------------------------------------
+1. Hallazgo (Idioma): El atributo <html lang="es"> fue verificado en los tres archivos para asegurar que los sintetizadores de voz utilicen la pronunciación correcta en español de Medellín.
+2. Hallazgo (Textos alternativos descriptivos): Se corrigieron los atributos alt de las imágenes en index.html y tarifas.html. No se usaron descripciones genéricas como "imagen de bicicleta", sino detalladas para que usuarios invidentes comprendan el contexto del negocio.
+3. Hallazgo (Enlaces contextuales): Se evitó el uso de textos de enlace vagos como "haz clic aquí" o "más información". Se implementaron textos significativos por sí mismos como: <strong>¿Te interesa una ruta? Reserva tu cupo aquí</strong>.
+4. Hallazgo (Uso de tablas semánticas): Se verificó que las tablas de tarifas.html incluyeran correctamente las etiquetas <caption>, <thead>, y el atributo scope="col" / scope="row" para que los lectores de pantalla puedan leer los precios de forma bidimensional comprensible.
+5. Hallazgo (Navegación secuencial por teclado): Se probó el formulario de reservas por completo usando solo la tecla Tab y las flechas de dirección. Se constató que el orden sigue estrictamente el flujo visual lógico del documento sin saltos inesperados.
+Hallazgo (Rutas de navegación): Se detectó que los enlaces del menú <nav> estaban rotos 
+al navegar entre subcarpetas debido a una mala referencia relativa. Se corrigieron 
+los atributos href implementando selectores de salida de directorio (../) 
+para las páginas secundarias, garantizando que el sitio sea 100% navegable tanto en entorno local 
+como en producción dentro de GitHub Pages sin enlaces rotos (Error 404).

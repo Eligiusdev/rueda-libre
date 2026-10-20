@@ -238,3 +238,49 @@ footer p {
     font-size: 0.85rem;
     color: var(--texto-mutado);
 }
+
+/* ==========================================================================
+   ESTILOS COMPLEMENTARIOS PARA FORMULARIOS Y CAPAS SEMÁNTICAS (MINIRETO 8)
+   ========================================================================== */
+
+/* Fondo general del cuerpo basado en la paleta de la marca */
+body {
+    background-color: #FAF6EF; /* Color Crema oficial */
+    color: #14213D;            /* Texto base en Azul Noche */
+}
+
+/* Título de los grupos de campos (Tus datos, Tu alquiler, Confirmación) */
+legend {
+    color: #1E7A4F;            /* Verde Ruta: Destaca con elegancia sobre el crema */
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0 10px;
+}
+
+/* Configuración estética y accesible para todas las etiquetas del formulario */
+label {
+    color: #14213D;            /* Azul Noche: Máximo contraste y legibilidad (14.28:1) */
+    font-weight: 600;          /* Un poco más gruesas para que se lean de un vistazo */
+    display: inline-block;
+    margin-bottom: 6px;
+    margin-top: 10px;
+}
+
+/* Color especial para resaltar los asteriscos de campos obligatorios (*) */
+label::after {
+    color: #F39A2B;            /* Naranja Pedal: Ideal para alertas visuales discretas */
+}
+
+/* Texto secundario o aclaratorio dentro del formulario */
+.label-falso, p em, form p {
+    color: #5B6470;            /* Gris Asfalto: Suave, limpio y apto para textos secundarios */
+    font-weight: 500;
+}
+
+/* Estilo para los bordes de las cajas de agrupación */
+fieldset {
+    border: 2px solid #14213D; /* Línea del recuadro en Azul Noche para dar estructura */
+    border-radius: 8px;        /* Bordes sutilmente redondeados modernos */
+    padding: 15px;
+    margin-bottom: 20px;
+}
