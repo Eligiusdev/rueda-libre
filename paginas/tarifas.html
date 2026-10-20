@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consulta las tarifas de alquiler de bicicletas urbanas, de montaña y eléctricas en Medellín, así como los precios de nuestros recorridos guiados.">
-    <title>Tarifas y Recorridos | Rueda Libre</title>
+    <meta name="description" content="Reserva tu bicicleta urbana, de montaña o eléctrica en Rueda Libre Medellín y asegura tu cupo para nuestros recorridos guiados.">
+    <title>Reserva tu bicicleta | Rueda Libre</title>
+    <!-- CORRECCIÓN: Direcciones oficiales completas de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
-    <!-- 1. ENCABEZADO GLOBAL -->
+    
     <header>
-        <!-- MENÚ DE NAVEGACIÓN COMÚN (Desde subcarpeta) -->
+
         <nav>
-            <ul>
+            <ul id="menu">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="tarifas.html">Tarifas y rutas</a></li>
+                <li><a href="tarifas.html" class="activo">Tarifas y rutas</a></li>
                 <li><a href="reservas.html">Reservas</a></li>
             </ul>
         </nav>
@@ -24,13 +28,10 @@
         <h1>Tarifas y Planes</h1>
     </header>
 
-    <!-- 2. CONTENIDO PRINCIPAL ÚNICO -->
     <main>
-
-        <!-- Cada tabla se ubica de forma independiente en su propia sección -->
         <section>
             <h2>Alquiler de Bicicletas</h2>
-            <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
+            <table>
                 <caption>Lista de precios de alquiler según el tipo de bicicleta y duración del servicio</caption>
                 <thead>
                     <tr>
@@ -64,11 +65,9 @@
             <p><em>Nota importante: Todas las tarifas de alquiler incluyen casco de seguridad y candado.</em></p>
         </section>
 
-        <br>
-
         <section id="tabla-recorridos">
             <h2>Nuestros Recorridos Guiados</h2>
-            <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
+            <table>
                 <caption>Detalle de rutas guiadas disponibles, especificaciones técnicas y costos por persona</caption>
                 <thead>
                     <tr>
@@ -104,14 +103,9 @@
                 </tbody>
             </table>
             <p><strong>Horarios de salida:</strong> Los recorridos salen los días sábados y domingos estrictamente a las 7:00 a. m.</p>
-            
-            <!-- Enlace requerido debajo de la tabla hacia reservas -->
             <p><a href="reservas.html"><strong>¿Te interesa una ruta? Reserva tu cupo aquí</strong></a></p>
         </section>
 
-        <br>
-
-        <!-- 3. CONTENIDO COMPLEMENTARIO (Qué llevar) -->
         <aside>
             <h2>¿Qué llevar a tu aventura?</h2>
             <ul>
@@ -121,12 +115,10 @@
                 <li>Documento de identidad original.</li>
             </ul>
         </aside>
-
     </main>
 
-    <hr>
-    
-    <!-- 4. PIE DE PÁGINA COMÚN -->
+    <a href="https://wa.me/573000000000" class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+
     <footer>
         <p>&copy; 2026 Rueda Libre | Contacto: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
     </footer>

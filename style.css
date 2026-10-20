@@ -1,286 +1,235 @@
 /* ==========================================================================
-   VARIABLES DE COLOR Y CONFIGURACIÓN GLOBAL (Estilo Azul Negro Oscuro)
+   CONFIGURACIÓN COMPACTA DE COLORES Y TIPOGRAFÍAS DE MARCA
    ========================================================================== */
-:root {
-    --bg-principal: #0a0e17;      
-    --bg-tarjetas: #131a26;       
-    --texto-blanco: #f0f4f8;     
-    --texto-mutado: #94a3b8;     
-    --acento-brillo: #f5d061;     
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*, *::before, *::after {
+    box-sizing: border-box; /* Evita que los rellenos deformen el diseño */
 }
 
 body {
-    background-color: var(--bg-principal);
-    color: var(--texto-blanco);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FAF6EF; /* Color Crema oficial de fondo */
+    color: #14213D;            /* Texto principal en Azul Noche */
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    padding: 20px;
-    max-width: 900px;
+    margin: 0;
+    padding: 1.5rem;
+}
+
+/* Limitador de ancho para pantallas grandes (evita líneas eternas) */
+main {
+    max-width: 55rem;
     margin: 0 auto;
+    padding: 1rem 0;
 }
 
 /* ==========================================================================
-   MENÚ DE NAVEGACIÓN (HEADER)
+   ENCABEZADOS Y TÍTULOS DE SECCIÓN
    ========================================================================== */
-nav {
-    background-color: var(--bg-tarjetas);
-    padding: 15px 20px;
-    border-radius: 8px;
-    border: 1px solid var(--borde-sutil);
-    margin-bottom: 30px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-nav a {
-    color: var(--texto-blanco);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease;
-}
-
-nav a:hover {
-    color: var(--acento-dorado);
-}
-
-/* ==========================================================================
-   TIPOGRAFÍAS Y ENCABEZADOS
-   ========================================================================== */
-h1 {
-    font-size: 2.2rem;
-    color: var(--texto-blanco);
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #14213D; /* Azul Noche */
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 1.5rem;
-    color: var(--acento-dorado);
-    margin-top: 35px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--borde-sutil);
-    padding-bottom: 8px;
-}
-
-h3 {
-    font-size: 1.2rem;
-    color: var(--texto-blanco);
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-p {
-    color: var(--texto-mutado);
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-/* Elementos de énfasis internos */
-strong {
-    color: var(--texto-blanco);
-    font-weight: 600;
-}
-
-em {
-    color: var(--acento-dorado);
-    font-style: italic;
-}
-
-/* Enlaces globales del cuerpo */
-a {
-    color: var(--acento-dorado);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: var(--acento-brillo);
-    text-decoration: underline;
+    color: #1E7A4F; /* Verde Ruta (Contraste aprobado para títulos) */
 }
 
 /* ==========================================================================
-   LISTAS (BENEFICIOS, PASOS Y HORARIOS)
+   SISTEMA DE NAVEGACIÓN (MENÚ HORIZONTAL DE UNA SOLA FILA)
    ========================================================================== */
-ul, ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
-    color: var(--texto-mutado);
+#menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-li {
-    margin-bottom: 8px;
+#menu li {
+    display: inline-block; /* Fuerza a los elementos a ir en fila */
+    margin-right: 1rem;
 }
 
-
-dl {
-    background-color: var(--bg-tarjetas);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--borde-sutil);
-    margin-bottom: 25px;
-}
-
-dt {
+#menu a {
+    color: #5B6470; /* Gris Asfalto secundario */
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    color: var(--acento-dorado);
-    margin-top: 10px;
+    padding: 0.5rem;
+    display: block;
 }
 
-dt:first-child {
-    margin-top: 0;
+#menu a:hover {
+    color: #14213D; /* Cambia a Azul Noche al pasar el mouse */
 }
 
-dd {
-    color: var(--texto-blanco);
-    margin-left: 15px;
-    margin-bottom: 5px;
+/* Indicador de página activa con alta especificidad (111 puntos) */
+#menu a.activo {
+    color: #1E7A4F; /* Verde Ruta */
+    font-weight: 700;
+    border-bottom: 3px solid #1E7A4F;
 }
 
 /* ==========================================================================
-   TABLAS ACCESIBLES DE TARIFAS Y RUTAS
+   TARJETAS DE SERVICIOS (INICIO) Y CONTENIDOS COMPLEMENTARIOS
+   ========================================================================== */
+article, aside {
+    background-color: #FFFFFF; /* Fondo Blanco para destacar del crema */
+    border: 1px solid #5B6470;  /* Borde fino Gris Asfalto */
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Control estricto de las imágenes dentro de las tarjetas */
+article img, section img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+}
+
+/* ==========================================================================
+   TABLAS DE PRECIOS Y RUTAS (TARIFAS)
    ========================================================================== */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    background-color: var(--bg-tarjetas);
-    border-radius: 8px;
-    overflow: hidden; 
-    border: 1px solid var(--borde-sutil);
-}
-
-caption {
-    font-size: 0.85rem;
-    color: var(--texto-mutated);
-    font-style: italic;
-    margin-bottom: 10px;
-    text-align: left;
+    margin: 1rem 0;
+    background-color: #FFFFFF;
 }
 
 th, td {
-    padding: 12px 15px;
+    border: 1px solid #5B6470;
+    padding: 0.75rem;
     text-align: left;
 }
 
-thead {
-    background-color: #1a2436; 
-    border-bottom: 2px solid var(--borde-sutil);
-}
-
-thead th {
-    color: var(--acento-dorado);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-tbody tr {
-    border-bottom: 1px solid var(--borde-sutil);
-    transition: background-color 0.15s ease;
-}
-
-tbody tr:hover {
-    background-color: #172233; /* Resaltado sutil al pasar el mouse por la fila */
-}
-
-tbody th {
-    color: var(--texto-blanco);
-    font-weight: 600;
-}
-
-tbody td {
-    color: var(--texto-mutado);
+thead tr {
+    background-color: #14213D; /* Encabezado oscuro Azul Noche */
+    color: #FFFFFF;            /* Texto blanco de alta visibilidad */
 }
 
 /* ==========================================================================
-   IMÁGENES Y BLOQUES MULTIMEDIA
+   FORMULARIO DE RESERVAS
    ========================================================================== */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid var(--borde-sutil);
-    margin: 15px 0 25px 0;
-    display: block;
-}
-
-/* Reducción estética del separador hr */
-hr {
-    border: 0;
-    height: 1px;
-    background: var(--borde-sutil);
-    margin: 30px 0;
-}
-
-/* ==========================================================================
-   PIE DE PÁGINA (FOOTER)
-   ========================================================================== */
-footer {
-    text-align: center;
-    padding: 25px 0;
-    margin-top: 5px;
-}
-
-footer p {
-    font-size: 0.85rem;
-    color: var(--texto-mutado);
-}
-
-/* ==========================================================================
-   ESTILOS COMPLEMENTARIOS PARA FORMULARIOS Y CAPAS SEMÁNTICAS (MINIRETO 8)
-   ========================================================================== */
-
-/* Fondo general del cuerpo basado en la paleta de la marca */
-body {
-    background-color: #FAF6EF; /* Color Crema oficial */
-    color: #14213D;            /* Texto base en Azul Noche */
-}
-
-/* Título de los grupos de campos (Tus datos, Tu alquiler, Confirmación) */
-legend {
-    color: #1E7A4F;            /* Verde Ruta: Destaca con elegancia sobre el crema */
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 0 10px;
-}
-
-/* Configuración estética y accesible para todas las etiquetas del formulario */
-label {
-    color: #14213D;            /* Azul Noche: Máximo contraste y legibilidad (14.28:1) */
-    font-weight: 600;          /* Un poco más gruesas para que se lean de un vistazo */
-    display: inline-block;
-    margin-bottom: 6px;
-    margin-top: 10px;
-}
-
-/* Color especial para resaltar los asteriscos de campos obligatorios (*) */
-label::after {
-    color: #F39A2B;            /* Naranja Pedal: Ideal para alertas visuales discretas */
-}
-
-/* Texto secundario o aclaratorio dentro del formulario */
-.label-falso, p em, form p {
-    color: #5B6470;            /* Gris Asfalto: Suave, limpio y apto para textos secundarios */
-    font-weight: 500;
-}
-
-/* Estilo para los bordes de las cajas de agrupación */
 fieldset {
-    border: 2px solid #14213D; /* Línea del recuadro en Azul Noche para dar estructura */
-    border-radius: 8px;        /* Bordes sutilmente redondeados modernos */
-    padding: 15px;
-    margin-bottom: 20px;
+    border: 2px solid #14213D; /* Marco estructurado Azul Noche */
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #FFFFFF;
+}
+
+legend {
+    font-family: 'Montserrat', sans-serif;
+    color: #1E7A4F; /* Verde Ruta */
+    font-weight: 700;
+    padding: 0 0.5rem;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block; /* Posiciona cada etiqueta encima de su campo */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Estilizado uniforme para todas las cajas de texto y menús del formulario */
+input[type="text"], input[type="email"], input[type="tel"], 
+input[type="date"], input[type="number"], select, textarea {
+    width: 100%; /* Estira el campo a todo el ancho disponible */
+    padding: 0.5rem;
+    border: 1px solid #5B6470;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #FFFFFF;
+}
+
+/* Indicador de foco de alto contraste al usar el teclado */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #1E7A4F; /* Verde Ruta */
+    box-shadow: 0 0 0 3px rgba(30, 122, 79, 0.25);
+}
+
+/* ==========================================================================
+   BOTONES, ELEMENTOS FLOTANTES Y PIE DE PÁGINA
+   ========================================================================== */
+.btn-cta, button[type="submit"] {
+    display: inline-block;
+    background-color: #1E7A4F; /* Verde Ruta */
+    color: #FFFFFF;            /* Texto blanco (Contraste aprobado 4.61:1) */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;   /* Relleno generoso */
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover, button[type="submit"]:hover {
+    background-color: #14213D; /* Cambia a Azul Noche al pasar el mouse */
+}
+
+/* Enlace fijo de WhatsApp en la esquina inferior */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #25D366; /* Verde WhatsApp oficial */
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+footer {
+    margin-top: 4rem; /* Evita que el botón flotante tape el texto final */
+    padding-top: 1rem;
+    border-top: 1px solid #5B6470;
+    color: #5B6470; /* Gris Asfalto secundario */
+}
+
+/* Estilos para la barra de navegación */
+nav {
+    background-color: #333; /* Color de fondo oscuro para el menú */
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style-type: none;  /* Quita los puntitos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex;          /* Alinea los elementos de forma horizontal */
+    gap: 20px;              /* Separa las opciones del menú */
+}
+
+nav li {
+    /* Mantiene los elementos ordenados en línea */
+}
+
+nav a {
+    color: white;           /* Color del texto */
+    text-decoration: none;  /* Quita el subrayado de los enlaces */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+    display: inline-block;
+    transition: background 0.3s; /* Efecto suave al pasar el mouse */
+}
+
+/* Efecto visual cuando el usuario pasa el mouse por encima */
+nav a:hover {
+    background-color: #333;; /* Cambia el fondo a un gris más claro */
+    border-radius: 4px;     /* Redondea un poco las esquinas del fondo */
 }
