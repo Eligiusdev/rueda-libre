@@ -295,8 +295,7 @@ auto-fit y un ancho minimo de 15rem; cada tarjeta usa Flexbox en columna para
 mantener el enlace al final. Al agregar el modelo Tandem no fue necesario
 modificar el CSS.
 
-Comprobacion visual en Chromium, ajustando el viewport como en el modo
-dispositivo de DevTools:
+Comprobacion visual en Chromium, ajustando el ancho del viewport:
 * 1280 px: 3 columnas.
 * 900 px: 3 columnas.
 * 500 px: 1 columna.
