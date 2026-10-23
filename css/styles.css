@@ -55,31 +55,18 @@ article, aside {
     margin-bottom: 1rem;
 }
 
-/* Portada: foto de fondo con una capa que mantiene legible el texto. */
+/* Portada y contenido destacado. */
 .portada {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
     min-height: 24rem;
     overflow: hidden;
     padding: 4rem;
     border-radius: 8px;
     color: #FFFFFF;
     background-color: #14213D;
-    background-image: linear-gradient(90deg, rgba(20, 33, 61, 0.88), rgba(20, 33, 61, 0.48)), url("../img/portada.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-.portada img[src*="portada.jpg"] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
 }
 
 .portada h2 {
@@ -88,6 +75,15 @@ article, aside {
 
 .portada > p {
     max-width: 42rem;
+}
+
+.portada-imagen {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 /* Presentación de inicio: bloques, servicios y pasos de alquiler. */
@@ -183,8 +179,11 @@ article, aside {
     min-height: 26rem;
     padding: clamp(1.5rem, 6vw, 4rem);
     border: 0;
-    background-image: linear-gradient(90deg, rgba(20, 33, 61, 0.92), rgba(20, 33, 61, 0.5)), url("../img/portada.jpg");
     box-shadow: 0 12px 30px rgba(20, 33, 61, 0.18);
+}
+
+.portada-contenido {
+    align-self: center;
 }
 
 .presentacion .portada h2 {
@@ -232,6 +231,44 @@ article, aside {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
+}
+
+.rutas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: stretch;
+    margin-top: 1.5rem;
+}
+
+.ruta-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    margin: 0;
+    padding: 1rem;
+    border-color: #E4E7EB;
+    border-radius: 10px;
+}
+
+.ruta-card img {
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.ruta-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+}
+
+.ruta-card p {
+    flex: 1;
+    margin: 0 0 1rem;
+    color: #5B6470;
 }
 
 .servicio-card {
@@ -484,6 +521,10 @@ article, aside {
     transition: transform 200ms ease-out, background-color 200ms ease-out, box-shadow 200ms ease-out;
 }
 
+.ruta-card .pricing-card__button {
+    margin-top: auto;
+}
+
 .pricing-card__button:hover,
 .pricing-card__button:focus-visible {
     transform: translateY(-1px);
@@ -499,6 +540,23 @@ article, aside {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.reservas-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.reservas-layout > section,
+.reservas-layout > aside {
+    min-width: 0;
+}
+
+.reservas-layout > section h2,
+.reservas-layout > aside h2 {
+    margin-top: 0;
 }
 
 .page-header {
@@ -552,6 +610,20 @@ fieldset {
     padding: 1rem;
     margin-bottom: 1.5rem;
     background-color: #FFFFFF;
+}
+
+.datos-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1rem;
+}
+
+form .datos-form-grid .form-field {
+    min-width: 0;
+}
+
+form .datos-form-grid .form-field--full {
+    grid-column: 1 / -1;
 }
 
 legend {
@@ -708,6 +780,27 @@ nav a:hover {
     .page-header > h1 {
         margin-bottom: 0.75rem;
         font-size: clamp(1.4rem, 7vw, 1.8rem);
+    }
+
+    .presentacion .portada {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .portada-imagen {
+        aspect-ratio: 16 / 10;
+    }
+
+    .rutas-grid,
+    .reservas-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .datos-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    form .datos-form-grid .form-field--full {
+        grid-column: auto;
     }
 
     .page-header nav {

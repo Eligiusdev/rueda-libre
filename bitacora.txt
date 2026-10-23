@@ -303,3 +303,28 @@ Comprobacion visual en Chromium, ajustando el ancho del viewport:
 En los tres anchos se mostraron las siete tarjetas y no se detecto
 desbordamiento horizontal. Los botones de cada fila quedaron alineados al
 final de las tarjetas.
+
+10. DISTRIBUCION GENERAL CON GRID Y FLEXBOX (2026-10-23)
+---------------------------------------------------------
+
+La seleccion entre Grid y Flexbox se hizo segun las dimensiones que organiza
+cada componente: Grid para filas y columnas; Flexbox para alinear elementos
+principalmente en una sola dimension.
+
+* Portada (Grid): organiza texto e imagen en dos columnas con unidades fr y
+  centra verticalmente el contenido frente a la foto. Es una composicion en
+  dos dimensiones; en movil las columnas se apilan.
+* Galeria "Nuestras rutas" (Grid): mantiene tres tarjetas en una fila en
+  escritorio con columnas iguales; cada tarjeta apila su imagen, nombre,
+  nivel y enlace. En pantallas estrechas pasan a una columna.
+* Reservas (Grid): reparte el formulario y el contacto en una proporcion 2:1
+  mediante fr, porque son dos areas en columnas que deben dimensionarse juntas.
+  En movil se apilan.
+* Fila de campos (Grid): documento y celular ocupan dos columnas de la misma
+  fila, mientras nombre y correo abarcan ambas columnas; Grid permite definir
+  ambas dimensiones. En movil los campos quedan en una columna.
+* Encabezado (Flexbox): alinea marca y navegacion a lo largo de una fila y
+  centra ambos verticalmente; es distribucion de una dimension.
+* Pie (Flexbox): distribuye marca, contacto y horario en una fila con espacios
+  uniformes y alineacion superior; al estrecharse, los bloques pueden
+  envolverse sin definir una cuadricula.

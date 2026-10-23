@@ -27,17 +27,18 @@
     <!-- Presentación por bloques: portada, servicios, pasos y contacto. -->
     <main class="presentacion">
         <section class="portada presentacion-panel">
-            <p class="presentacion-etiqueta">Movilidad sostenible en Medellín</p>
-            <h2>Descubre Medellín a tu propio ritmo</h2>
-            <p>
-                Alquila una bicicleta, únete a un recorrido guiado y disfruta la ciudad sobre dos ruedas. Tenemos opciones para cada plan y acompañamiento para que solo te preocupes por pedalear.
-            </p>
-            <div class="presentacion-acciones">
-                <a class="btn-cta" href="paginas/reservas.html">Reserva tu bicicleta</a>
-                <a class="btn-cta btn-cta--claro" href="paginas/tarifas.html">Ver tarifas y rutas</a>
+            <div class="portada-contenido">
+                <p class="presentacion-etiqueta">Movilidad sostenible en Medellín</p>
+                <h2>Descubre Medellín a tu propio ritmo</h2>
+                <p>
+                    Alquila una bicicleta, únete a un recorrido guiado y disfruta la ciudad sobre dos ruedas. Tenemos opciones para cada plan y acompañamiento para que solo te preocupes por pedalear.
+                </p>
+                <div class="presentacion-acciones">
+                    <a class="btn-cta" href="paginas/reservas.html">Reserva tu bicicleta</a>
+                    <a class="btn-cta btn-cta--claro" href="paginas/tarifas.html">Ver tarifas y rutas</a>
+                </div>
             </div>
-            <!-- Conserva una descripción accesible de la foto usada como fondo CSS. -->
-            <img src="img/portada.jpg" alt="Fachada del local comercial de Rueda Libre en Medellín con bicicletas alineadas">
+            <img class="portada-imagen" src="img/portada.jpg" alt="Fachada del local comercial de Rueda Libre en Medellín con bicicletas alineadas">
         </section>
 
         <section class="presentacion-panel" aria-labelledby="flota-titulo">
@@ -100,6 +101,33 @@
                     <p class="flota-card__descripcion">Para dos personas; perfecta para pasear en pareja.</p>
                     <p class="flota-card__precio">$20.000 <span>por hora</span></p>
                     <a class="pricing-card__button" href="paginas/reservas.html">Reservar</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="presentacion-panel" aria-labelledby="rutas-titulo">
+            <p class="presentacion-etiqueta">Recorridos guiados</p>
+            <h2 id="rutas-titulo">Nuestras rutas</h2>
+            <p>Descubre Medellín acompañado por guías locales y elige el nivel que mejor se adapte a ti.</p>
+
+            <div class="rutas-grid">
+                <article class="ruta-card">
+                    <img src="img/portada.jpg" alt="Vista urbana de Medellín para la ruta Río y Parques">
+                    <h3>Río y Parques</h3>
+                    <p><strong>Nivel:</strong> Fácil</p>
+                    <a class="pricing-card__button" href="paginas/tarifas.html#tabla-recorridos">Ver recorrido</a>
+                </article>
+                <article class="ruta-card">
+                    <img src="img/bicicleta-urbana.svg" alt="Bicicleta urbana para la ruta Sabores de Barrio">
+                    <h3>Sabores de Barrio</h3>
+                    <p><strong>Nivel:</strong> Medio</p>
+                    <a class="pricing-card__button" href="paginas/tarifas.html#tabla-recorridos">Ver recorrido</a>
+                </article>
+                <article class="ruta-card">
+                    <img src="img/bicicleta-montana.svg" alt="Bicicleta de montaña para el Reto Las Palmas">
+                    <h3>Reto Las Palmas</h3>
+                    <p><strong>Nivel:</strong> Difícil</p>
+                    <a class="pricing-card__button" href="paginas/tarifas.html#tabla-recorridos">Ver recorrido</a>
                 </article>
             </div>
         </section>
