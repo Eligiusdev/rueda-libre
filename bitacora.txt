@@ -1,71 +1,287 @@
-1. REGISTRO DE PETICIÓN LOCAL (Live Server)
+BITACORA DEL PROYECTO RUEDA LIBRE
+================================
 
-* URL Completa:     http://127.0.0.1:5500/favicon.ico
-* Protocolo:        HTTP Hypertext Transfer Protocol
-* Host:             127.0.0.1 
-* Puerto:           5500
-* Ruta (Path):      /index.html
-* Método:           GET
-* Código de Estado: 200 OK La petición ha tenido éxito y el documento se cargó correctamente
+Este documento registra las rutas, tecnologias, decisiones de accesibilidad y
+cambios realizados en el sitio. Las pruebas que se describen como realizadas
+corresponden a los datos anotados previamente en esta bitacora; no representan
+una nueva prueba del servidor en esta edicion.
 
-2. PRUEBA DE RUTA INEXISTENTE
+1. REGISTRO DE PETICIONES LOCALES (LIVE SERVER)
+------------------------------------------------
 
-* Ruta intentada:   http://127.0.0.1:5500/favicon.ico
-* Código devuelto:  404 Not Found
-* Significado:      Es un código de error del lado del cliente. Significa que el servidor web 
-                    se comunicó correctamente, pero no pudo encontrar el archivo específico 
-                    solicitado en la ruta indicada.
+Peticion del documento principal:
+* URL registrada:       http://127.0.0.1:5500/
+* Protocolo:             HTTP (Hypertext Transfer Protocol)
+* Host:                  127.0.0.1 (el propio equipo)
+* Puerto:                5500 (puerto usado por Live Server)
+* Recurso esperado:      /index.html (si index.html es el documento de inicio)
+* Metodo:                GET (el navegador solicita el recurso al servidor)
+* Estado registrado:    200 OK
+* Significado:           El servidor encontro el documento solicitado y lo
+                         entrego correctamente.
 
-3. ROLES DE LAS TECNOLOGÍAS WEB EN RUEDA LIBRE
+Nota sobre la ruta:
+El registro original mezclaba la URL /favicon.ico con la ruta /index.html.
+Son recursos distintos: /index.html corresponde a la pagina principal y
+/favicon.ico corresponde al icono de la pestana. Se deben registrar por
+separado para que URL y ruta coincidan.
 
-* HTML HyperText Markup Language:
-  - Rol: Define la estructura lógica, el esqueleto y el contenido semántico del sitio web.
-  - Ejemplo concreto: El uso de las etiquetas <h1> para el nombre del negocio y <ul> junto 
-    a <li> para desplegar el listado de los servicios disponibles de bicicletas.
+Peticion del favicon:
+* Ruta intentada:        /favicon.ico
+* Estado registrado:    404 Not Found
+* Significado:           El servidor respondio, pero no encontro el archivo
+                         favicon.ico en esa ubicacion. Esto no significa que
+                         index.html haya fallado; solo falta el icono pedido.
+* Accion posible:        Agregar un favicon y enlazarlo desde el <head>, o
+                         aceptar que el navegador registre ese 404 si no se
+                         desea incluir un icono.
 
-* CSS Cascading Style Sheets:
-  - Rol: Controla la presentación visual, el diseño estético, los colores, las fuentes y la 
-    adaptabilidad a dispositivos (Layout).
-  - Ejemplo concreto: Definir un color de fondo verde ecológico (#4CAF50) para el menú, cambiar 
-    el tamaño de letra de los precios y ocultar elementos en pantallas móviles para que sea responsive.
+2. ROLES DE LAS TECNOLOGIAS WEB
+--------------------------------
 
-* JavaScript:
-  - Rol: Aporta interactividad dinámica, lógica de programación del lado del cliente y control 
-    de comportamientos en tiempo real.
-  - Ejemplo concreto: Programar un formulario de reserva interactivo que calcule automáticamente 
-    el precio total del alquiler basándose en el número de horas seleccionadas por el usuario.
-* TOKEN:
-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
+HTML (HyperText Markup Language)
+* Funcion:               Define la estructura y el significado del contenido.
+* Uso en el proyecto:    <header> agrupa la cabecera, <nav> la navegacion,
+                         <main> el contenido principal y <footer> el cierre.
+                         Los encabezados <h1>, <h2> y <h3> organizan los temas;
+                         <ul>/<ol> representan listas y <a> crea enlaces.
+* Ejemplos:              index.html presenta el negocio y sus servicios;
+                         tarifas.html usa tablas para los precios; reservas.html
+                         contiene el formulario de alquiler.
 
-3. MATRIZ DE RUTAS RELATIVAS (SITIO NAVEGABLE v0.1)
-----------------------------------------------------------------------
-A continuación se detalla el comportamiento del mapeo de enlaces del menú
-y flujos transversales comprobados mediante DevTools (Network) con estado 200:
+CSS (Cascading Style Sheets)
+* Funcion:               Controla la presentacion visual sin mezclarla con el
+                         contenido: colores, tipografia, espacios, bordes y
+                         distribucion de los elementos.
+* Archivo compartido:    style.css, ubicado en la raiz del proyecto.
+* En index.html:         Se carga con href="style.css".
+* En paginas/tarifas.html y paginas/reservas.html:
+                         Se carga con href="../style.css". El segmento ../
+                         sube desde la carpeta paginas a la raiz.
+* Ejemplos de reglas:    body define el fondo, texto y tipografia; #menu
+                         presenta la navegacion; table y th/td dan formato a
+                         las tarifas; fieldset y los controles estilizan el
+                         formulario; .whatsapp-flotante posiciona el enlace
+                         de WhatsApp.
+* Resultado buscado:     Las tres paginas utilizan la misma hoja de estilos
+                         para mantener colores, tipografia y componentes
+                         visuales consistentes.
 
-Archivo Origen         | Archivo Destino        | Ruta Escrita (href)
------------------------|------------------------|---------------------------------
-index.html             | index.html             | index.html
-index.html             | tarifas.html           | paginas/tarifas.html
-index.html             | reservas.html          | paginas/reservas.html
-index.html (Cuerpo)    | reservas.html          | paginas/reservas.html
-index.html (Cuerpo)    | index.html (Ancla)     | #encuentranos
------------------------|------------------------|---------------------------------
-paginas/tarifas.html   | index.html             | ../index.html
-paginas/tarifas.html   | tarifas.html           | tarifas.html
-paginas/tarifas.html   | reservas.html          | reservas.html
-paginas/tarifas.html   | reservas.html (Cuerpo) | reservas.html
------------------------|------------------------|---------------------------------
-paginas/reservas.html  | index.html             | ../index.html
-paginas/reservas.html  | tarifas.html           | tarifas.html
-paginas/reservas.html  | reservas.html          | reservas.html
-----------------------------------------------------------------------
-1. Hallazgo (Idioma): El atributo <html lang="es"> fue verificado en los tres archivos para asegurar que los sintetizadores de voz utilicen la pronunciación correcta en español de Medellín.
-2. Hallazgo (Textos alternativos descriptivos): Se corrigieron los atributos alt de las imágenes en index.html y tarifas.html. No se usaron descripciones genéricas como "imagen de bicicleta", sino detalladas para que usuarios invidentes comprendan el contexto del negocio.
-3. Hallazgo (Enlaces contextuales): Se evitó el uso de textos de enlace vagos como "haz clic aquí" o "más información". Se implementaron textos significativos por sí mismos como: <strong>¿Te interesa una ruta? Reserva tu cupo aquí</strong>.
-4. Hallazgo (Uso de tablas semánticas): Se verificó que las tablas de tarifas.html incluyeran correctamente las etiquetas <caption>, <thead>, y el atributo scope="col" / scope="row" para que los lectores de pantalla puedan leer los precios de forma bidimensional comprensible.
-5. Hallazgo (Navegación secuencial por teclado): Se probó el formulario de reservas por completo usando solo la tecla Tab y las flechas de dirección. Se constató que el orden sigue estrictamente el flujo visual lógico del documento sin saltos inesperados.
-Hallazgo (Rutas de navegación): Se detectó que los enlaces del menú <nav> estaban rotos 
-al navegar entre subcarpetas debido a una mala referencia relativa. Se corrigieron 
-los atributos href implementando selectores de salida de directorio (../) 
-para las páginas secundarias, garantizando que el sitio sea 100% navegable tanto en entorno local 
-como en producción dentro de GitHub Pages sin enlaces rotos (Error 404).
+JavaScript
+* Funcion:               Permite agregar comportamiento programado en el
+                         navegador, como calculos o actualizaciones dinamicas.
+* Ejemplo futuro:         Calcular el precio de una reserva segun el tipo de
+                         bicicleta, el plan y la cantidad seleccionada.
+* Estado actual:          El ejemplo es una posibilidad, no una funcionalidad
+                         implementada. Las validaciones existentes del
+                         formulario se realizan con atributos HTML.
+
+Token
+* Significado general:   Cadena de caracteres que puede servir como credencial,
+                         identificador o dato de acceso, segun el sistema.
+* Estado en este sitio:  No se identifica en el codigo revisado un token de
+                         autenticacion necesario para navegar o mostrar las
+                         paginas.
+* Seguridad:              No guardar tokens reales, contrasenas ni claves
+                         privadas en esta bitacora ni en archivos publicos.
+                         El texto "******" del registro anterior era solo un
+                         marcador, no un valor util para la aplicacion.
+
+3. MATRIZ DE RUTAS DEL SITIO
+-----------------------------
+
+Las rutas relativas se interpretan desde la carpeta de la pagina que contiene
+el enlace. La matriz describe los destinos definidos en el HTML:
+
+Archivo origen              | Destino                     | Ruta relativa
+----------------------------|-----------------------------|----------------------------
+index.html                  | Inicio                      | index.html
+index.html                  | Tarifas                     | paginas/tarifas.html
+index.html                  | Reservas                    | paginas/reservas.html
+index.html                  | Seccion "Encuentranos"      | #encuentranos
+index.html                  | Formulario de reservas     | paginas/reservas.html
+index.html                  | Recorridos en tarifas       | paginas/tarifas.html#tabla-recorridos
+index.html                  | Hoja de estilos compartida  | style.css
+paginas/tarifas.html        | Inicio                      | ../index.html
+paginas/tarifas.html        | Tarifas                     | tarifas.html
+paginas/tarifas.html        | Reservas                    | reservas.html
+paginas/tarifas.html        | Hoja de estilos compartida  | ../style.css
+paginas/reservas.html       | Inicio                      | ../index.html
+paginas/reservas.html       | Tarifas                     | tarifas.html
+paginas/reservas.html       | Reservas                    | reservas.html
+paginas/reservas.html       | Hoja de estilos compartida  | ../style.css
+
+La ruta ../ se usa unicamente desde las paginas dentro de paginas/. Si se usa
+../index.html desde index.html, el navegador intentaria subir fuera de la raiz
+del sitio y el enlace podria fallar.
+
+4. HALLAZGOS Y EXPLICACION DE CADA PUNTO
+-----------------------------------------
+
+4.1 Idioma del documento
+Se utiliza <html lang="es"> para declarar que el contenido esta en espanol.
+Esto ayuda a lectores de pantalla a pronunciar correctamente el contenido y
+permite a navegadores y buscadores interpretar el idioma de la pagina.
+
+4.2 Textos alternativos de imagenes
+Las imagenes de contenido incluyen el atributo alt con una descripcion de lo
+que muestran. Por ejemplo, la imagen de portada se describe como la fachada
+del local con bicicletas. El texto alternativo hace que la informacion visual
+sea comprensible para personas que usan lectores de pantalla y tambien puede
+mostrarse cuando una imagen no carga.
+
+4.3 Enlaces contextuales
+Los enlaces usan textos que indican su destino o proposito. Por ejemplo,
+"¿Te interesa una ruta? Reserva tu cupo aquí" informa que el enlace lleva a
+reservar, a diferencia de expresiones aisladas como "haz clic aquí".
+
+4.4 Tablas semanticas de tarifas
+Las tablas de tarifas incluyen <caption> para describir su contenido,
+<thead>/<tbody> para separar encabezado y datos, y scope="col" o scope="row"
+en las celdas de encabezado. Esto permite relacionar cada precio con su tipo
+de bicicleta, duracion o recorrido, tambien al navegar con tecnologias de
+asistencia.
+
+4.5 Navegacion por teclado y formulario
+Los controles HTML nativos pueden recorrerse con Tab y, cuando corresponde,
+con las teclas de direccion. Los <label> se asocian a los campos mediante for
+e id. El formulario usa required, minlength, pattern, min y max para validar
+datos basicos en el navegador. El registro anterior indica que se hizo una
+prueba de navegacion con teclado; una prueba posterior debe volver a confirmar
+el comportamiento si se modifica el formulario.
+
+4.6 Correccion de rutas de navegacion
+Se ajustaron enlaces relativos para que las paginas secundarias puedan volver
+a index.html y navegar entre tarifas.html y reservas.html. Desde paginas/, la
+ruta ../index.html sube a la raiz; los enlaces entre tarifas y reservas usan
+solo el nombre del archivo porque ambas estan en la misma carpeta.
+
+4.7 Correccion de la hoja de estilos
+El problema era una diferencia entre el nombre enlazado y el archivo real:
+las paginas secundarias apuntaban a ../styles.css (plural), pero el archivo
+disponible se llama style.css (singular). Se corrigio a ../style.css.
+Asimismo, index.html enlaza style.css desde la raiz. Asi, las tres paginas
+cargan la misma hoja de estilos.
+
+4.8 Consistencia visual de Inicio
+Para que las reglas compartidas tambien se apliquen a Inicio, su menu usa el
+mismo id="menu" que las otras paginas; ese id es el selector utilizado por
+style.css. La estructura de Inicio agrupa la cabecera en <header> y el
+contenido principal en <main>, como en las paginas secundarias.
+
+4.9 Tipografias compartidas
+Las tres paginas enlazan Montserrat y Open Sans desde Google Fonts. Montserrat
+se utiliza en encabezados y elementos de navegacion; Open Sans, en el texto
+general. Los enlaces preconnect permiten iniciar la conexion con el servicio
+de fuentes con anticipacion. Si no hay conexion o el servicio no responde,
+las familias alternativas declaradas en CSS permiten mostrar texto igualmente.
+
+5. ALCANCE Y ESTADO DE LAS PRUEBAS
+-----------------------------------
+
+* Los codigos 200 OK y 404 Not Found se conservaron como observaciones del
+  registro anterior; no se volvieron a generar durante la edicion de esta
+  bitacora.
+* La matriz refleja las rutas escritas en los enlaces HTML. Para confirmar
+  respuestas HTTP reales se debe abrir el sitio con Live Server y revisar la
+  pestana Network del navegador.
+* La correccion visual y las rutas de CSS se revisaron en los archivos del
+  proyecto. La carga de Google Fonts depende de la conexion a Internet.
+
+6. ACTUALIZACION DE TARJETAS DE BICICLETAS (2026-10-21)
+-------------------------------------------------------
+
+6.1 Hallazgo sobre los recursos de imagen
+Al revisar la carpeta img/ para incorporar una imagen diferente en cada
+tarjeta, se encontro portada.jpg como unico recurso de imagen disponible.
+Reutilizar la portada en las tres tarjetas no diferenciaria los tipos de
+bicicleta y las referencias anteriores a bicicleta.jpg y ruta.jpg no estaban
+disponibles en la carpeta. Para evitar imagenes rotas o dependencias de
+servicios externos, se crearon tres ilustraciones vectoriales locales:
+
+* img/bicicleta-urbana.svg: ilustracion de bicicleta urbana en tonos verdes.
+* img/bicicleta-montana.svg: ilustracion de bicicleta de montana en tonos
+  azules, con elementos graficos que sugieren un recorrido exterior.
+* img/bicicleta-electrica.svg: ilustracion de bicicleta electrica en tonos
+  violetas, con bateria y rayo.
+
+Los archivos SVG son recursos locales y escalables. No se anadio una biblioteca
+de iconos, una fuente de imagenes externa ni JavaScript para mostrar los fondos.
+
+6.2 Cambios en la presentacion de tarifas
+En paginas/tarifas.html, cada tarjeta de alquiler recibe una clase especifica:
+pricing-card--urbana, pricing-card--montana o pricing-card--electrica.
+style.css usa esas clases para asignar una ilustracion distinta como imagen de
+fondo en la parte superior de cada tarjeta. Una capa blanca con degradado
+suaviza la imagen hacia el contenido y mantiene legibles el nombre, precio,
+duraciones y boton de reserva. La franja de color superior existente se
+conserva.
+
+Las tarjetas de recorridos no reciben estas imagenes, porque la solicitud
+corresponde a las tres tarjetas de bicicletas y las ilustraciones describen
+esos tipos de bicicleta, no las rutas.
+
+6.3 Accesibilidad y comportamiento
+Las ilustraciones se presentan como imagenes de fondo CSS decorativas, no como
+contenido que aporte informacion adicional. Los nombres, tarifas y detalles
+siguen estando escritos en HTML y permanecen disponibles para tecnologias de
+asistencia. La capa de degradado evita que el fondo compita con la lectura.
+Como son fondos, no requieren atributos alt.
+
+6.4 Verificacion realizada durante esta actualizacion
+* Se abrio paginas/tarifas.html en Chromium y se comprobo que cada tarjeta
+  declara la URL SVG local que corresponde a su tipo.
+* La captura de la tarjeta Urbana mostro la ilustracion de fondo, la franja
+  verde y el contenido de precio y reserva legible.
+* Se revisaron las tarjetas a 320, 375, 768, 1024 y 1440 px. No se detecto
+  desbordamiento horizontal y los botones de reserva permanecieron visibles.
+* El analizador no reporto errores en style.css, paginas/tarifas.html ni en
+  los tres archivos SVG.
+* git diff --check se utilizo para revisar espacios y formato de los cambios.
+
+Las comprobaciones visuales anteriores corresponden a la vista del navegador
+disponible en esta edicion. La bitacora no afirma una prueba en otros
+navegadores ni una respuesta HTTP de Live Server.
+
+7. MANTENIMIENTO Y CLARIDAD DEL CODIGO (2026-10-21)
+---------------------------------------------------
+
+7.1 Limpieza de estilos y estructura
+Se consolidaron los estilos del menu en reglas compartidas, se eliminaron
+selectores de imagen y espaciado que ya no se utilizaban y se unifico la
+preferencia de movimiento reducido para todas las animaciones. El menu usa
+un fondo azul oscuro, enlaces claros y un indicador activo de alto contraste.
+
+Se agregaron comentarios breves en los bloques principales de CSS, las
+secciones de inicio, tarifas y reservas y el comportamiento de los scripts.
+El campo de tipo de bicicleta se agrupo en un fieldset con su leyenda para
+mejorar la navegacion asistida. Los estilos que tenia en linea se trasladaron
+a clases reutilizables.
+
+Tambien se corrigieron el titulo y la descripcion de la pagina de tarifas,
+que antes describian una reserva en lugar de comparar precios y recorridos.
+
+7.2 Verificacion de esta pasada
+* Las tres paginas respondieron con HTTP 200 al servir el sitio localmente.
+* Chromium recorrio inicio, tarifas y reservas a 320, 375, 768 y 1440 px;
+  no se detecto desbordamiento horizontal en esos anchos.
+* El enlace con tipo_bicicleta=montana y recorrido_guiado=rio_parques marco
+  correctamente la bicicleta Montaña y la ruta Río y Parques.
+* Los analizadores no encontraron errores en los HTML, CSS ni JavaScript
+  revisados y git diff --check paso sin errores.
+* No se hicieron afirmaciones de compatibilidad en navegadores distintos de
+  Chromium.
+
+8. DISTRIBUCION FLEXIBLE DEL ENCABEZADO Y EL PIE (2026-10-23)
+----------------------------------------------------------------
+
+La hoja compartida se ubico en css/styles.css y se enlazo desde las tres
+paginas. El encabezado usa Flexbox para mantener la marca y la navegacion en
+extremos opuestos y centradas verticalmente. Los enlaces se separan con gap y
+pueden pasar a la siguiente linea cuando el ancho ya no alcanza.
+
+El pie presenta marca, contacto y horario como tres bloques en fila en
+pantallas anchas; en ventanas estrechas los bloques pueden envolverse para
+evitar el desbordamiento. Al reducir el ancho, primero se ajustan los enlaces
+del menu y, cuando ya no caben junto a la marca, la navegacion pasa a otra
+linea; el pie tambien puede distribuir sus bloques en varias lineas.
