@@ -643,3 +643,66 @@ claro alcanza 4.55:1.
 
 Capturas de inicio antes y despues de la personalizacion: `img/capturas/antes.png`
 y `img/capturas/despues.png`.
+
+19. CIERRE DE SEMANA: RUEDA LIBRE V2.0 (2026-10-23)
+----------------------------------------------------
+
+Integracion de los 12 MiniRetos en el producto:
+
+MiniReto | Aporte al producto final | Commit local principal
+---------|--------------------------|-----------------------
+1. Encabezado Flexbox | Estructura compartida de encabezado y pie | 9cc20cf
+2. Flota Grid | Catalogo responsive de bicicletas | 4bab040
+3. Layout en dos dimensiones | Portada, rutas y reservas con Grid | c30c437
+4. Version mobile-first | Base responsive de la v1.5 | ff31a11
+5. Catalogo Bootstrap | Comparativa y pagina de pruebas | 5c7e6c7
+6. Utilidades Bootstrap | Beneficios y llamada a la accion | 5c7e6c7
+7. Inicio Bootstrap | Grilla y utilidades de inicio | 7768080
+8. Migracion Bootstrap | Tarifas y reservas en la base migrada | 7768080
+9. Navbar y botones | Navegacion colapsable y CTA comunes | 4a94684
+10. Cards y promociones | Cards de flota/rutas y carrusel | 79c090a
+11. Reservas confiables | Validacion, aviso y modal de politicas | 2a9dfd6
+12. Identidad y lanzamiento | Variables, iconos, contraste y capturas | 9b7bda9
+
+La implementacion se conserva en commits locales y en orden cronologico. Los
+MiniRetos 5/6 comparten el commit 5c7e6c7, y los retos 7/8 comparten
+7768080; hubo tambien commits de correccion/documentacion entre entregas. Por
+eso el historial no es estrictamente un commit de codigo distinto por cada
+uno de los doce retos y no se reescribio para fingir esa separacion. El commit
+de lanzamiento es 9b7bda9; el arbol de trabajo quedo limpio despues del
+commit.
+
+Cierre de comparativas, conflictos y pruebas:
+* Comparativa de CSS propio/Bootstrap, tiempo registrado, ventajas,
+  desventajas y conflictos del MiniReto 8: ver seccion 15. La version v1.5
+  tenia 865 lineas y v2.0-beta 406 (459 menos, 53.1%). El tiempo de v1.5 no se
+  registro y se mantiene como dato desconocido; la prueba aislada de catalogo
+  tomo 86 segundos y la migracion completa 8 min 44 s.
+* Conflictos de cascada documentados en seccion 15; la personalizacion final
+  agrega variables Bootstrap sin `!important` ni modificar el CDN.
+* Pruebas responsive de la migracion: seccion 15; validacion/modal: seccion
+  17; paleta, accesibilidad, iconos y contraste: seccion 18.
+* Pruebas finales locales en Chromium: inicio, tarifas y reservas a 360, 768
+  y 1280 px, sin scroll horizontal; menu de inicio operable con Enter; iconos
+  y fotos cargados; un solo bundle por pagina y styles.css al final de la
+  cascada. Contrastes medidos, todos >= 4.5:1, se enumeran en seccion 18.
+* Capturas comparativas: `img/capturas/antes.png` y
+  `img/capturas/despues.png`.
+
+Estado de version y publicacion:
+* Version objetivo: Rueda Libre v2.0.
+* URL prevista de GitHub Pages: https://eligiusdev.github.io/rueda-libre/
+* Estado comprobado el 2026-10-23: la URL responde 404; v2.0 NO esta
+  publicada. El `main` remoto aun apunta a 3c68e681, mientras el commit local
+  de lanzamiento es 9b7bda9 y la rama local tiene commits pendientes de push.
+  Los intentos de push respondieron `unable to get password from user`; este
+  entorno no dispone de credenciales GitHub. La publicacion y actualizacion
+  remota quedan pendientes de autenticar Git y confirmar Pages. No se presenta
+  la URL prevista como un sitio ya disponible.
+
+Conclusion semanal: Rueda Libre integra Flexbox y Grid, la migracion a
+Bootstrap 5.3, componentes accesibles y una paleta propia en las mismas tres
+paginas. La comprobacion visual y funcional local esta hecha y se conservaron
+capturas. El producto queda listo en el commit local de lanzamiento, pero el
+cierre de publicacion no puede darse por terminado hasta sincronizar el
+repositorio y verificar que GitHub Pages sirva la v2.0.
