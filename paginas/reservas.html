@@ -15,14 +15,19 @@
 <body>
 
     <!-- Navegación principal para volver a inicio o consultar tarifas. -->
-    <header class="page-header container d-flex flex-column flex-md-row justify-content-between align-items-center flex-wrap gap-3">
-        <h1>Rueda Libre</h1>
-        <nav class="flex-grow-1" aria-label="Navegación principal">
-            <ul id="menu" class="d-flex flex-wrap justify-content-center justify-content-md-end gap-3 list-unstyled m-0 p-0">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="tarifas.html">Tarifas y rutas</a></li>
-                <li><a href="reservas.html" class="activo">Reservas</a></li>
-            </ul>
+    <header class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark site-navbar" aria-label="Navegación principal">
+            <h1 class="mb-0"><a class="navbar-brand" href="../index.html">Rueda Libre</a></h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Abrir o cerrar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="siteNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tarifas.html">Tarifas y rutas</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="reservas.html" aria-current="page">Reservas</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <hr>
@@ -117,7 +122,7 @@
                 </fieldset>
 
                 <div>
-                    <button type="submit">Enviar Reserva</button>
+                    <button class="btn btn-success btn-lg" type="submit">Enviar Reserva</button>
                 </div>
             </form>
         </section>
@@ -133,7 +138,7 @@
         </div>
     </main>
 
-    <a href="https://wa.me" class="whatsapp-flotante position-fixed bottom-0 end-0 m-4 z-3" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="https://wa.me" class="btn btn-success btn-sm whatsapp-flotante position-fixed bottom-0 end-0 m-4 z-3" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 
     <!-- Información de contacto común del sitio. -->
     <footer class="site-footer container d-flex flex-column flex-md-row justify-content-between align-items-start flex-wrap gap-4 mt-5 pt-3">

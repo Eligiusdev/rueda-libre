@@ -515,6 +515,28 @@ enviar porque GitHub solicita credenciales que no estan disponibles. La URL
 prevista para GitHub Pages es https://eligiusdev.github.io/rueda-libre/; no se
 afirma que esta version este publicada hasta que el push y Pages se verifiquen.
 
+16. NAVBAR RESPONSIVE Y BOTONES BOOTSTRAP (2026-10-23)
+-------------------------------------------------------
+
+El encabezado de inicio, tarifas y reservas usa `navbar-expand-lg`; cada
+navbar comparte el destino `#siteNav` y marca la pagina actual con
+`nav-link active` y `aria-current="page"`. Las llamadas principales usan
+`btn-success`; las consultas usan `btn-outline-success`; en tarjetas se usa
+`btn-sm` y en las llamadas destacadas `btn-lg`. Se retiraron las clases
+propias btn-cta y pricing-card__button para que el componente Bootstrap sea
+el estilo compartido.
+
+Comprobaciones en Chromium a 360 px:
+* El menu inicia colapsado. El click del toggler abre y vuelve a cerrar la
+  lista de enlaces.
+* Con teclado, Tab enfoca el toggler, Enter abre, Tab recorre los enlaces y
+  Enter en el toggler cierra. La lista mantiene el orden de foco.
+* A 991 px se muestra el toggler; desde 992 px los enlaces aparecen en fila.
+* Cada documento incluye una sola etiqueta del bundle Bootstrap antes del
+  cierre de body; el recurso se solicito una vez por pagina.
+* Las tres paginas marcan el enlace actual con aria-current; todos los enlaces
+  de accion de reserva, consulta y WhatsApp usan `btn` y una variante Bootstrap.
+
 13. PRUEBAS MOBILE-FIRST A 360, 768 Y 1200 PX (2026-10-23)
 ------------------------------------------------------------
 

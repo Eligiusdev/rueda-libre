@@ -34,39 +34,34 @@ h2 {
     color: var(--color-verde-ruta);
 }
 
-.page-header {
-    padding-top: 1rem;
-}
-
-.page-header h1 {
-    margin: 0;
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
-}
-
-nav {
+.site-navbar {
     background-color: var(--color-azul-noche);
-    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
 }
 
-nav a {
-    display: block;
-    padding: 0.5rem 0.75rem;
+.site-navbar .navbar-brand {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+}
+
+.site-navbar .nav-link {
+    border-radius: 4px;
     color: #FFFFFF;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    text-decoration: none;
-    transition: background-color 200ms ease-out;
+    transition: background-color 200ms ease-out, color 200ms ease-out;
 }
 
-nav a:hover,
-nav a:focus-visible {
-    border-radius: 4px;
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible {
     background-color: #263A5E;
     color: #FFFFFF;
 }
 
-#menu a.activo {
-    border-bottom: 3px solid var(--color-verde-ruta);
+.site-navbar .nav-link.active {
     color: var(--color-verde-claro);
     font-weight: 700;
 }
@@ -120,42 +115,28 @@ nav a:focus-visible {
     object-fit: cover;
 }
 
-.btn-cta,
-button[type="submit"] {
-    border: 0;
+.btn {
     border-radius: 999px;
-    background-color: var(--color-verde-ruta);
-    color: #FFFFFF;
-    cursor: pointer;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    transition: transform 200ms ease-out, background-color 200ms ease-out, box-shadow 200ms ease-out;
 }
 
-.btn-cta:hover,
-.btn-cta:focus-visible,
-button[type="submit"]:hover,
-button[type="submit"]:focus-visible {
-    background-color: var(--color-azul-noche);
-    color: #FFFFFF;
+.btn-success {
+    --bs-btn-bg: var(--color-verde-ruta);
+    --bs-btn-border-color: var(--color-verde-ruta);
+    --bs-btn-hover-bg: #17613E;
+    --bs-btn-hover-border-color: #17613E;
+    --bs-btn-active-bg: #14213D;
+    --bs-btn-active-border-color: #14213D;
 }
 
-.presentacion .btn-cta:hover,
-.presentacion .btn-cta:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(30, 122, 79, 0.25);
-}
-
-.btn-cta--claro {
-    border: 1px solid rgba(255, 255, 255, 0.75);
-    background-color: rgba(255, 255, 255, 0.12);
-}
-
-.btn-cta--claro:hover,
-.btn-cta--claro:focus-visible {
-    background-color: rgba(255, 255, 255, 0.24);
+.btn-outline-success {
+    --bs-btn-color: var(--color-verde-ruta);
+    --bs-btn-border-color: var(--color-verde-ruta);
+    --bs-btn-hover-bg: var(--color-verde-ruta);
+    --bs-btn-hover-border-color: var(--color-verde-ruta);
+    --bs-btn-active-bg: #17613E;
+    --bs-btn-active-border-color: #17613E;
 }
 
 .flota-card,
@@ -300,31 +281,6 @@ button[type="submit"]:focus-visible {
     box-shadow: 0 4px 14px rgba(20, 33, 61, 0.08);
 }
 
-.pricing-card__button {
-    border: 0;
-    border-radius: 999px;
-    background-color: var(--color-verde-ruta);
-    color: #FFFFFF;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    padding: 0.7rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    transition: transform 200ms ease-out, background-color 200ms ease-out, box-shadow 200ms ease-out;
-}
-
-.pricing-card__button:hover,
-.pricing-card__button:focus-visible {
-    transform: translateY(-1px);
-    background-color: #17613E;
-    box-shadow: 0 8px 20px rgba(30, 122, 79, 0.25);
-    color: #FFFFFF;
-}
-
-.pricing-card__button:active {
-    transform: scale(0.97);
-}
-
 .tarifas-logo {
     width: clamp(6rem, 15vw, 9rem);
     animation: entrada-imagen-tarifas 600ms ease-out both;
@@ -370,14 +326,7 @@ form label {
 }
 
 .whatsapp-flotante {
-    border-radius: 50px;
-    background-color: #25D366;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    color: #FFFFFF;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
 }
 
 .site-footer {
