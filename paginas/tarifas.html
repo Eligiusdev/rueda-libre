@@ -1,172 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Compara las tarifas de alquiler de bicicletas y los recorridos guiados de Rueda Libre en Medellín.">
     <title>Tarifas y rutas | Rueda Libre</title>
-    <!-- CORRECCIÓN: Direcciones oficiales completas de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    
-    <!-- Navegación y marca de la página de tarifas. -->
-    <header class="page-header">
-       <h1>Rueda Libre</h1>
-        <nav aria-label="Navegación principal">
-            <ul id="menu">
+    <header class="page-header container d-flex flex-column flex-md-row justify-content-between align-items-center flex-wrap gap-3">
+        <h1>Rueda Libre</h1>
+        <nav class="flex-grow-1" aria-label="Navegación principal">
+            <ul id="menu" class="d-flex flex-wrap justify-content-center justify-content-md-end gap-3 list-unstyled m-0 p-0">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="tarifas.html" class="activo">Tarifas y rutas</a></li>
                 <li><a href="reservas.html">Reservas</a></li>
             </ul>
         </nav>
     </header>
-    <hr>
-    <div class="tarifas-imagen">
-        <img class="tarifas-logo" src="../img/portada.jpg" alt="Logo oficial de Rueda Libre">
-    </div>
 
-    <main>
-        <!-- Planes de alquiler con precio, detalles y acceso a la reserva. -->
-        <section>
-            <h2>Alquiler de Bicicletas</h2>
+    <main class="container py-4">
+        <div class="tarifas-imagen text-center mb-4">
+            <img class="tarifas-logo img-fluid" src="../img/portada.jpg" alt="Fachada de Rueda Libre en Medellín">
+        </div>
+
+        <section class="mb-5" aria-labelledby="alquiler-titulo">
+            <h2 id="alquiler-titulo">Alquiler de Bicicletas</h2>
             <p>Elige tu bicicleta y compara las opciones de alquiler.</p>
-            <div class="pricing-grid">
-                <article class="pricing-card pricing-card--urbana">
-                    <span aria-hidden="true" class="pricing-card__accent"></span>
-                    <div class="pricing-card__heading">
-                        <h3>Urbana</h3>
-                        <span class="pricing-card__badge">Bicicleta</span>
+            <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle pricing-table">
+                            <caption>Tarifas de alquiler de bicicletas por modelo y duración</caption>
+                            <thead>
+                                <tr><th scope="col">Bicicleta</th><th scope="col">1 hora</th><th scope="col">Medio día</th><th scope="col">Día completo</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">Urbana</th><td>$10.000</td><td>$30.000</td><td>$50.000</td></tr>
+                                <tr><th scope="row">Montaña</th><td>$15.000</td><td>$45.000</td><td>$70.000</td></tr>
+                                <tr><th scope="row">Eléctrica</th><td>$25.000</td><td>$70.000</td><td>$110.000</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <p class="pricing-card__price"><strong>$10.000</strong><span>por hora</span></p>
-                    <p class="pricing-card__description">Escoge la duración que mejor se ajuste a tu recorrido.</p>
-                    <div class="pricing-card__chips" aria-label="Otras duraciones">
-                        <span>Medio día · $30.000</span>
-                        <span>Día completo · $50.000</span>
+                </div>
+                <aside class="col-12 col-lg-4">
+                    <div class="info-panel h-100 p-4">
+                        <h3>Incluido en cada alquiler</h3>
+                        <p>Todos los planes incluyen casco de seguridad y candado.</p>
+                        <p>Elige la duración que mejor se ajuste a tu recorrido.</p>
+                        <a class="pricing-card__button d-inline-block" href="reservas.html">Reservar bicicleta</a>
                     </div>
-                    <a class="pricing-card__button" href="reservas.html?tipo_bicicleta=urbana">Reservar bicicleta</a>
-                </article>
-
-                <article class="pricing-card pricing-card--montana">
-                    <span aria-hidden="true" class="pricing-card__accent"></span>
-                    <div class="pricing-card__heading">
-                        <h3>Montaña</h3>
-                        <span class="pricing-card__badge">Bicicleta</span>
-                    </div>
-                    <p class="pricing-card__price"><strong>$15.000</strong><span>por hora</span></p>
-                    <p class="pricing-card__description">Escoge la duración que mejor se ajuste a tu recorrido.</p>
-                    <div class="pricing-card__chips" aria-label="Otras duraciones">
-                        <span>Medio día · $45.000</span>
-                        <span>Día completo · $70.000</span>
-                    </div>
-                    <a class="pricing-card__button" href="reservas.html?tipo_bicicleta=montana">Reservar bicicleta</a>
-                </article>
-
-                <article class="pricing-card pricing-card--electrica">
-                    <span aria-hidden="true" class="pricing-card__accent"></span>
-                    <div class="pricing-card__heading">
-                        <h3>Eléctrica</h3>
-                        <span class="pricing-card__badge">Bicicleta</span>
-                    </div>
-                    <p class="pricing-card__price"><strong>$25.000</strong><span>por hora</span></p>
-                    <p class="pricing-card__description">Escoge la duración que mejor se ajuste a tu recorrido.</p>
-                    <div class="pricing-card__chips" aria-label="Otras duraciones">
-                        <span>Medio día · $70.000</span>
-                        <span>Día completo · $110.000</span>
-                    </div>
-                    <a class="pricing-card__button" href="reservas.html?tipo_bicicleta=electric">Reservar bicicleta</a>
-                </article>
+                </aside>
             </div>
-            <p><em>Nota importante: Todas las tarifas de alquiler incluyen casco de seguridad y candado.</em></p>
         </section>
 
-        <!-- Opciones de recorridos guiados y sus condiciones. -->
-        <section id="tabla-recorridos">
-            <h2>Nuestros Recorridos Guiados</h2>
+        <section class="mb-5" id="tabla-recorridos" aria-labelledby="recorridos-titulo">
+            <h2 id="recorridos-titulo">Nuestros Recorridos Guiados</h2>
             <p>Compara las rutas disponibles y elige el recorrido que mejor se adapte a ti.</p>
-            <div class="pricing-grid">
-                <article class="pricing-card">
-                    <span aria-hidden="true" class="pricing-card__accent"></span>
-                    <div class="pricing-card__heading">
-                        <h3>Río y Parques</h3>
-                        <span class="pricing-card__badge">Fácil</span>
+            <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle pricing-table">
+                            <caption>Tarifas y datos de los recorridos guiados</caption>
+                            <thead>
+                                <tr><th scope="col">Recorrido</th><th scope="col">Nivel</th><th scope="col">Distancia</th><th scope="col">Duración</th><th scope="col">Precio</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">Río y Parques</th><td>Fácil</td><td>12 km</td><td>2 h</td><td>$45.000</td></tr>
+                                <tr><th scope="row">Sabores de Barrio</th><td>Medio</td><td>18 km</td><td>3 h</td><td>$60.000</td></tr>
+                                <tr><th scope="row">Reto Las Palmas</th><td>Difícil</td><td>25 km</td><td>4 h</td><td>$85.000</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <p class="pricing-card__price"><strong>$45.000</strong><span>por persona</span></p>
-                    <p class="pricing-card__description">Recorrido guiado para disfrutar los parques de la ciudad.</p>
-                    <div class="pricing-card__chips" aria-label="Detalles del recorrido">
-                        <span>12 km</span>
-                        <span>2 h</span>
+                </div>
+                <aside class="col-12 col-lg-4">
+                    <div class="info-panel h-100 p-4">
+                        <h3>Planea tu salida</h3>
+                        <p><strong>Horarios:</strong> sábados y domingos a las 7:00 a. m.</p>
+                        <p>Trae ropa cómoda, agua, protector solar y documento de identidad.</p>
+                        <a class="pricing-card__button d-inline-block" href="reservas.html">Reservar recorrido</a>
                     </div>
-                    <a class="pricing-card__button" href="reservas.html?recorrido_guiado=rio_parques">Reservar recorrido</a>
-                </article>
-
-                <article class="pricing-card">
-                    <span aria-hidden="true" class="pricing-card__accent"></span>
-                    <div class="pricing-card__heading">
-                        <h3>Sabores de Barrio</h3>
-                        <span class="pricing-card__badge">Medio</span>
-                    </div>
-                    <p class="pricing-card__price"><strong>$60.000</strong><span>por persona</span></p>
-                    <p class="pricing-card__description">Una ruta guiada para explorar y conocer los sabores de Medellín.</p>
-                    <div class="pricing-card__chips" aria-label="Detalles del recorrido">
-                        <span>18 km</span>
-                        <span>3 h</span>
-                    </div>
-                    <a class="pricing-card__button" href="reservas.html?recorrido_guiado=sabores_barrio">Reservar recorrido</a>
-                </article>
-
-                <article class="pricing-card">
-                    <span aria-hidden="true" class="pricing-card__accent"></span>
-                    <div class="pricing-card__heading">
-                        <h3>Reto Las Palmas</h3>
-                        <span class="pricing-card__badge">Difícil</span>
-                    </div>
-                    <p class="pricing-card__price"><strong>$85.000</strong><span>por persona</span></p>
-                    <p class="pricing-card__description">Un desafío guiado para ciclistas con experiencia.</p>
-                    <div class="pricing-card__chips" aria-label="Detalles del recorrido">
-                        <span>25 km</span>
-                        <span>4 h</span>
-                    </div>
-                    <a class="pricing-card__button" href="reservas.html?recorrido_guiado=reto_palmas">Reservar recorrido</a>
-                </article>
+                </aside>
             </div>
-            <p><strong>Horarios de salida:</strong> Los recorridos salen los días sábados y domingos estrictamente a las 7:00 a. m.</p>
-            <p><a class="pricing-card__button" href="reservas.html">¿Te interesa una ruta? Reserva tu cupo aquí</a></p>
         </section>
 
-        <!-- Recomendaciones prácticas para preparar la salida. -->
-        <aside>
+        <section class="presentacion-panel p-4 mb-4">
             <h2>¿Qué llevar a tu aventura?</h2>
-            <ul>
+            <ul class="mb-0">
                 <li>Ropa cómoda y deportiva.</li>
                 <li>Agua o bebida hidratante.</li>
                 <li>Protector solar.</li>
                 <li>Documento de identidad original.</li>
             </ul>
-        </aside>
+        </section>
     </main>
 
-    <a href="https://wa.me/573000000000" class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="https://wa.me/573000000000" class="whatsapp-flotante position-fixed bottom-0 end-0 m-4 z-3" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 
-    <!-- Información de contacto común del sitio. -->
-    <footer class="site-footer">
-        <div class="footer-block">
-            <h2>Rueda Libre</h2>
-            <p>&copy; 2026 Rueda Libre</p>
-        </div>
-        <div class="footer-block">
-            <h2>Contacto</h2>
-            <p><a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
-        </div>
-        <div class="footer-block">
-            <h2>Horario</h2>
-            <p>Lunes a viernes: 6:00 a. m. a 8:00 p. m.<br>Sábados y domingos: 6:30 a. m. a 4:00 p. m.</p>
-        </div>
+    <footer class="site-footer container d-flex flex-column flex-md-row justify-content-between align-items-start flex-wrap gap-4 mt-5 pt-3">
+        <div class="footer-block"><h2>Rueda Libre</h2><p>&copy; 2026 Rueda Libre</p></div>
+        <div class="footer-block"><h2>Contacto</h2><p><a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p></div>
+        <div class="footer-block"><h2>Horario</h2><p>Lunes a viernes: 6:00 a. m. a 8:00 p. m.<br>Sábados y domingos: 6:30 a. m. a 4:00 p. m.</p></div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

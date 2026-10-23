@@ -435,6 +435,86 @@ Las decisiones de layout se mantienen: Grid organiza las dos dimensiones de
 portada, galeria, reservas y campos relacionados; Flexbox resuelve la fila de
 marca y navegacion, los bloques del pie y la alineacion interna de tarjetas.
 
+15. MIGRACION DE TARIFAS Y RESERVAS A BOOTSTRAP (2026-10-23)
+-------------------------------------------------------------
+
+Las tres paginas principales cargan Bootstrap 5.3.8 antes de css/styles.css.
+El bundle JavaScript se incluye al final de cada pagina. Inicio utiliza la
+grilla y utilidades Bootstrap en portada, flota, rutas, beneficios, servicios,
+pasos, encabezado y pie. Tarifas usa filas y columnas, tablas responsivas con
+los precios y la informacion complementaria en una columna desde lg.
+Reservas reparte formulario y contacto en columnas 8/4 desde md; documento y
+celular comparten fila con columnas de Grid. Sus atributos required,
+minlength, pattern, min y max se conservaron.
+
+Comparativa medida de styles.css:
+* v1.5: 865 lineas en el snapshot local del commit ff31a113
+  (Make responsive styles mobile-first, 2026-10-23).
+* v2.0-beta: 406 lineas despues de la migracion.
+* Diferencia: 459 lineas menos, una reduccion de 53.1%.
+* Fuente del dato anterior: `wc -l` sobre el archivo versionado en Git local.
+  La consulta al historial remoto de GitHub solo encontro commits hasta
+  3c68e681; ff31a113 y los siguientes commits locales no se habian publicado.
+  Por eso no es posible afirmar que el conteo v1.5 se obtuvo del historial
+  remoto; el dato se pudo recuperar del historial local exacto.
+
+Tiempo de trabajo:
+* Migracion Bootstrap actual, desde el inicio de edicion hasta la validacion
+  responsive y del formulario: 8 minutos y 44 segundos, medidos por reloj.
+* Tiempo total de implementacion v1.5: no se registro en la bitacora ni puede
+  reconstruirse con fiabilidad a partir de las fechas de commit; queda como
+  dato no disponible, no como cero.
+* La prueba independiente del catalogo Bootstrap se cronometro en 86 segundos
+  en el registro 14; no es el tiempo de la migracion completa y no se compara
+  como si lo fuera.
+
+Conflictos observados en Styles y como se resolvieron sin !important:
+* Titulos: Bootstrap normaliza margenes y tamanos, mientras la hoja de marca
+  define Montserrat, azul/verde y el tamano de portada. Se conservaron las
+  reglas tipograficas despues de Bootstrap y se limitaron los ajustes de
+  portada al componente correspondiente.
+* Navegacion: los colores de enlace de Bootstrap chocaban con el fondo azul
+  noche. `nav a` y `#menu a.activo`, cargados despues, recuperan el contraste
+  blanco/verde y el estado activo.
+* Tablas: las franjas y estados hover de Bootstrap podian ocultar los colores
+  de marca. `.pricing-table` define sus variables de tabla y el encabezado
+  azul con texto blanco, conservando bordes y relleno de las tablas previas.
+* Foco de formulario: el selector general `input:focus` perdia contra la
+  especificidad de `.form-control:focus`. Se ajusto a `.form-control:focus`
+  y `.form-select:focus`; el foco vuelve a mostrar borde y halo verde.
+
+Ventajas observadas: la grilla, sus gutters y los breakpoints responsive se
+resuelven con clases declarativas; tambien se reutilizan controles de
+formulario, tabla, espaciado y flex sin mantener media queries propias.
+Desventajas: aumenta el marcado HTML, los breakpoints y gutters siguen la
+escala predefinida de Bootstrap, y la hoja propia aun necesita selectores
+despues del CDN para mantener tipografia, paleta y estados de marca. Las
+tablas se mantienen dentro de `.table-responsive`; en celular el desplazamiento
+horizontal, si hace falta, queda limitado al contenedor de la tabla.
+
+Conclusion: en esta migracion se redujo la hoja compartida en 459 lineas
+(53.1%) y Bootstrap acelero la composicion de layouts responsive, pero no hay
+un tiempo historico v1.5 medido para concluir con datos si redujo el tiempo
+total de trabajo. La comparacion temporal queda pendiente de cronometrar otra
+implementacion equivalente; no se infiere a partir de duraciones de commits.
+
+Verificacion local en Chromium:
+* 360, 768 y 1280 px en inicio, tarifas y reservas: sin desbordamiento
+  horizontal de pagina; imagenes cargadas dentro de sus contenedores.
+* Flota: 1, 2 y 4 columnas respectivamente; rutas: 1, 2 y 3.
+* Tarifas: tablas e informacion complementaria pasan a dos columnas desde
+  lg; el contenedor de tabla mantiene el desplazamiento local en celular.
+* Reservas: 1 columna en celular y proporcion 8/4 desde md. El formulario
+  vacio no valida, un documento con formato correcto y el resto de los datos
+  validos pasan, y un documento de tres digitos sigue fallando `pattern`.
+* Las solicitudes del CSS y bundle Bootstrap 5.3.8 respondieron HTTP 200.
+
+Publicacion: no se pudo publicar v2.0-beta desde este entorno. El historial
+remoto aun apunta a 3c68e681, el commit v1.5 y estos cambios no se han podido
+enviar porque GitHub solicita credenciales que no estan disponibles. La URL
+prevista para GitHub Pages es https://eligiusdev.github.io/rueda-libre/; no se
+afirma que esta version este publicada hasta que el push y Pages se verifiquen.
+
 13. PRUEBAS MOBILE-FIRST A 360, 768 Y 1200 PX (2026-10-23)
 ------------------------------------------------------------
 

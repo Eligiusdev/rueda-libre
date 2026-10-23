@@ -1,113 +1,85 @@
-/* Base: caja, colores de marca, tipografía y ancho de lectura. */
+/* Identidad visual compartida; la distribución de páginas usa utilidades Bootstrap. */
+:root {
+    --color-crema: #FAF6EF;
+    --color-azul-noche: #14213D;
+    --color-verde-ruta: #1E7A4F;
+    --color-verde-claro: #D7F4E8;
+    --color-gris-asfalto: #5B6470;
+    --color-borde: #E4E7EB;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
 img {
-    display: block;
     max-width: 100%;
     height: auto;
 }
 
 body {
-    background-color: #FAF6EF; /* Color Crema oficial de fondo */
-    color: #14213D;            /* Texto principal en Azul Noche */
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
     margin: 0;
-    padding: 1rem;
+    background-color: var(--color-crema);
+    color: var(--color-azul-noche);
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.6;
 }
 
-main {
-    max-width: 55rem;
-    margin: 0 auto;
-    padding: 1rem 0;
-}
-
-/* Jerarquía tipográfica compartida por todas las páginas. */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: #14213D; /* Azul Noche */
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    color: var(--color-azul-noche);
+    font-family: "Montserrat", sans-serif;
 }
 
 h2 {
-    color: #1E7A4F; /* Verde Ruta (Contraste aprobado para títulos) */
+    color: var(--color-verde-ruta);
 }
 
-/* Navegación común; puede ajustarse en móvil sin cambiar el orden. */
-#menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    list-style: none;
-    padding: 0;
+.page-header {
+    padding-top: 1rem;
+}
+
+.page-header h1 {
     margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+nav {
+    background-color: var(--color-azul-noche);
+    padding: 0.625rem 1.25rem;
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 200ms ease-out;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    border-radius: 4px;
+    background-color: #263A5E;
+    color: #FFFFFF;
 }
 
 #menu a.activo {
-    color: #D7F4E8;
+    border-bottom: 3px solid var(--color-verde-ruta);
+    color: var(--color-verde-claro);
     font-weight: 700;
-    border-bottom: 3px solid #1E7A4F;
-}
-
-/* Tarjetas de contenido y paneles laterales. */
-article, aside {
-    background-color: #FFFFFF;
-    border: 1px solid #5B6470;
-    border-radius: 6px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
-/* Portada y contenido destacado. */
-.portada {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    align-items: center;
-    gap: 1.25rem;
-    overflow: hidden;
-    padding: clamp(1.25rem, 5vw, 2rem);
-    border-radius: 8px;
-    color: #FFFFFF;
-    background-color: #14213D;
-}
-
-.portada h2 {
-    color: #FFFFFF;
-}
-
-.portada > p {
-    max-width: 42rem;
-}
-
-.portada-imagen {
-    display: block;
-    width: 100%;
-    min-width: 0;
-    aspect-ratio: 16 / 10;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-/* Presentación de inicio: bloques, servicios y pasos de alquiler. */
-.presentacion {
-    display: grid;
-    gap: clamp(1.5rem, 4vw, 3rem);
 }
 
 .presentacion-panel {
-    min-width: 0;
-    padding: clamp(1.25rem, 4vw, 2.5rem);
-    border: 1px solid #E4E7EB;
+    border: 1px solid var(--color-borde);
     border-radius: 12px;
     background-color: #FFFFFF;
     box-shadow: 0 8px 24px rgba(20, 33, 61, 0.07);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
 }
 
 .presentacion-panel h2 {
-    margin-top: 0;
     font-size: clamp(1.5rem, 3.5vw, 2rem);
 }
 
@@ -115,103 +87,59 @@ article, aside {
     max-width: 48rem;
 }
 
-.flota-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-    gap: 1.25rem;
-    align-items: stretch;
-    margin: 1.5rem 0 0;
-}
-
-.flota-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-width: 0;
-    margin: 0;
-    padding: 1rem;
-    border: 1px solid #D6D9DE;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 14px rgba(20, 33, 61, 0.08);
-}
-
-.flota-card__imagen {
-    width: 100%;
-    height: 9rem;
-    margin-bottom: 1rem;
-    border-radius: 6px;
-    background-color: #F2F1FA;
-    object-fit: cover;
-}
-
-.flota-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.15rem;
-}
-
-.flota-card__descripcion {
-    margin: 0 0 1rem;
-    color: #5B6470;
-    font-size: 0.9rem;
-}
-
-.flota-card__precio {
-    margin: 0 0 1rem;
-    color: #1E7A4F;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-}
-
-.flota-card__precio span {
-    color: #5B6470;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-}
-
 .presentacion-etiqueta {
-    margin: 0 0 0.5rem;
-    color: #1E7A4F;
+    color: var(--color-verde-ruta);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
-.presentacion .portada {
-    padding: clamp(1.25rem, 5vw, 2rem);
+.portada {
+    overflow: hidden;
     border: 0;
+    border-radius: 8px;
+    background-color: var(--color-azul-noche);
     box-shadow: 0 12px 30px rgba(20, 33, 61, 0.18);
+    color: #FFFFFF;
 }
 
-.portada-contenido {
-    align-self: center;
-}
-
-.presentacion .portada h2 {
-    max-width: 38rem;
-    margin-bottom: 0.75rem;
+.portada h2 {
+    color: #FFFFFF;
     font-size: clamp(2rem, 5vw, 3.25rem);
     line-height: 1.12;
 }
 
-.presentacion .portada .presentacion-etiqueta {
-    color: #D7F4E8;
+.portada .presentacion-etiqueta {
+    color: var(--color-verde-claro);
 }
 
-.presentacion-acciones {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.25rem;
+.portada-imagen {
+    min-height: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
 }
 
-.presentacion .btn-cta {
+.btn-cta,
+button[type="submit"] {
+    border: 0;
     border-radius: 999px;
-    text-align: center;
+    background-color: var(--color-verde-ruta);
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
     transition: transform 200ms ease-out, background-color 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible,
+button[type="submit"]:hover,
+button[type="submit"]:focus-visible {
+    background-color: var(--color-azul-noche);
+    color: #FFFFFF;
 }
 
 .presentacion .btn-cta:hover,
@@ -220,134 +148,105 @@ article, aside {
     box-shadow: 0 8px 20px rgba(30, 122, 79, 0.25);
 }
 
-.presentacion .btn-cta--claro {
+.btn-cta--claro {
     border: 1px solid rgba(255, 255, 255, 0.75);
     background-color: rgba(255, 255, 255, 0.12);
 }
 
-.presentacion .btn-cta--claro:hover,
-.presentacion .btn-cta--claro:focus-visible {
+.btn-cta--claro:hover,
+.btn-cta--claro:focus-visible {
     background-color: rgba(255, 255, 255, 0.24);
 }
 
-.servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.rutas-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
-    align-items: stretch;
-    margin-top: 1.5rem;
-}
-
-.ruta-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-width: 0;
-    margin: 0;
-    padding: 1rem;
-    border-color: #E4E7EB;
+.flota-card,
+.ruta-card,
+.servicio-card {
+    border: 1px solid var(--color-borde);
     border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(20, 33, 61, 0.08);
 }
 
+.flota-card__imagen,
 .ruta-card img {
     width: 100%;
-    height: 10rem;
-    margin-bottom: 1rem;
     border-radius: 6px;
+    background-color: #F2F1FA;
     object-fit: cover;
 }
 
-.ruta-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.15rem;
+.flota-card__imagen {
+    height: 9rem;
 }
 
-.ruta-card p {
-    flex: 1;
-    margin: 0 0 1rem;
-    color: #5B6470;
+.ruta-card img {
+    height: 10rem;
 }
 
-.servicio-card {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 1rem;
-    border-color: #E4E7EB;
-    border-radius: 10px;
-}
-
+.flota-card h3,
+.ruta-card h3,
 .servicio-card h3 {
-    margin: 0 0 0.5rem;
+    color: var(--color-azul-noche);
     font-size: 1.15rem;
 }
 
+.flota-card__descripcion,
+.ruta-card p,
 .servicio-card p {
-    flex: 1;
-    margin-top: 0;
-    color: #5B6470;
+    color: var(--color-gris-asfalto);
 }
 
-.servicio-card .btn-cta {
-    align-self: flex-start;
-    margin-top: 0.5rem;
-    padding: 0.65rem 1rem;
-}
-
-.servicio-icono {
-    align-self: flex-start;
-    margin: 0 0 1rem;
-    padding: 0.4rem 0.75rem;
-    border-radius: 999px;
-    background-color: #EAF5F0;
-    color: #1E7A4F;
-    font-size: 0.8rem;
+.flota-card__precio {
+    color: var(--color-verde-ruta);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.35rem;
     font-weight: 700;
 }
 
-.pasos-alquiler {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0;
-    padding: 0;
-    list-style: none;
-    counter-reset: pasos;
+.flota-card__precio span {
+    color: var(--color-gris-asfalto);
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.servicio-icono {
+    border-radius: 999px;
+    background-color: #EAF5F0;
+    color: var(--color-verde-ruta);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.4rem 0.75rem;
 }
 
 .pasos-alquiler li {
     position: relative;
     min-height: 8rem;
-    padding: 3rem 1rem 1rem;
-    border: 1px solid #E4E7EB;
+    border: 1px solid var(--color-borde);
     border-radius: 10px;
-    background-color: #FAF6EF;
-    color: #5B6470;
+    background-color: var(--color-crema);
+    color: var(--color-gris-asfalto);
     counter-increment: pasos;
+    padding: 3rem 1rem 1rem;
+}
+
+.pasos-alquiler {
+    counter-reset: pasos;
 }
 
 .pasos-alquiler li::before {
-    content: "0" counter(pasos);
     position: absolute;
     top: 0.75rem;
     left: 1rem;
-    color: #1E7A4F;
-    font-family: 'Montserrat', sans-serif;
+    color: var(--color-verde-ruta);
+    content: "0" counter(pasos);
+    font-family: "Montserrat", sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
 }
 
 .pasos-alquiler li span {
-    display: block;
-    margin-bottom: 0.35rem;
-    color: #14213D;
+    color: var(--color-azul-noche);
     font-weight: 700;
 }
 
@@ -360,173 +259,58 @@ article, aside {
     transform: translateY(1.5rem);
 }
 
-.presentacion-panel {
-    transition: opacity 600ms ease-out, transform 600ms ease-out;
-}
-
 .presentacion-panel.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Tarifas: tarjetas adaptables para bicicletas y recorridos guiados. */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-    gap: 1.25rem;
-    align-items: stretch;
-    margin: 1.5rem 0;
+.pricing-table {
+    --bs-table-color: var(--color-azul-noche);
+    --bs-table-bg: #FFFFFF;
+    --bs-table-striped-bg: #F0F7F3;
+    --bs-table-striped-color: var(--color-azul-noche);
+    --bs-table-hover-bg: #EAF5F0;
+    --bs-table-hover-color: var(--color-azul-noche);
+    width: 100%;
+    margin: 1rem 0;
+    border-collapse: collapse;
+    border-color: var(--color-borde);
+    background-color: #FFFFFF;
 }
 
-.pricing-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 1.75rem 1.5rem 1.5rem;
-    overflow: hidden;
-    border: 1px solid #D6D9DE;
+.pricing-table > :not(caption) > * > * {
+    border: 1px solid var(--color-gris-asfalto);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.pricing-table caption {
+    color: var(--color-gris-asfalto);
+}
+
+.pricing-table thead th {
+    background-color: var(--color-azul-noche);
+    color: #FFFFFF;
+}
+
+.info-panel {
+    border: 1px solid var(--color-borde);
     border-radius: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 4px 14px rgba(20, 33, 61, 0.08);
-    animation: fade-up 600ms ease-out both;
-}
-
-.pricing-card--urbana,
-.pricing-card--montana,
-.pricing-card--electrica {
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100% 10rem;
-}
-
-.pricing-card--urbana {
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.12), #FFFFFF 10rem), url("../img/bicicleta-urbana.svg");
-}
-
-.pricing-card--montana {
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.12), #FFFFFF 10rem), url("../img/bicicleta-montana.svg");
-}
-
-.pricing-card--electrica {
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.12), #FFFFFF 10rem), url("../img/bicicleta-electrica.svg");
-}
-
-.pricing-card__accent {
-    position: absolute;
-    inset: 0 0 auto;
-    height: 0.375rem;
-    background: linear-gradient(90deg, #1E7A4F, #72B7A0, #B8E2D1);
-}
-
-.pricing-card:nth-child(2) {
-    animation-delay: 100ms;
-}
-
-.pricing-card:nth-child(3) {
-    animation-delay: 200ms;
-}
-
-@keyframes fade-up {
-    from {
-        opacity: 0;
-        transform: translateY(1rem);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.pricing-card__heading {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.pricing-card__heading h3 {
-    margin: 0;
-    font-size: 1.25rem;
-}
-
-.pricing-card__badge,
-.pricing-card__chips span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    border-radius: 999px;
-    background-color: #EAF5F0;
-    color: #1E7A4F;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.pricing-card__badge {
-    flex: 0 0 auto;
-    padding: 0.25rem 0.625rem;
-    white-space: nowrap;
-}
-
-.pricing-card__price {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.4rem;
-    margin: 0 0 1rem;
-    color: #1E7A4F;
-}
-
-.pricing-card__price strong {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1.6rem, 3vw, 2rem);
-    line-height: 1.2;
-}
-
-.pricing-card__price span {
-    color: #5B6470;
-    font-size: 0.9rem;
-}
-
-.pricing-card__description {
-    margin: 0 0 1rem;
-    color: #5B6470;
-    font-size: 0.9rem;
-}
-
-.pricing-card__chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0 0 1.5rem;
-}
-
-.pricing-card__chips span {
-    padding: 0.375rem 0.625rem;
 }
 
 .pricing-card__button {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: auto;
-    padding: 0.7rem 1rem;
     border: 0;
     border-radius: 999px;
-    background-color: #1E7A4F;
+    background-color: var(--color-verde-ruta);
     color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
+    padding: 0.7rem 1rem;
     text-align: center;
     text-decoration: none;
     transition: transform 200ms ease-out, background-color 200ms ease-out, box-shadow 200ms ease-out;
-}
-
-.ruta-card .pricing-card__button {
-    margin-top: auto;
 }
 
 .pricing-card__button:hover,
@@ -534,141 +318,44 @@ article, aside {
     transform: translateY(-1px);
     background-color: #17613E;
     box-shadow: 0 8px 20px rgba(30, 122, 79, 0.25);
+    color: #FFFFFF;
 }
 
 .pricing-card__button:active {
     transform: scale(0.97);
 }
 
-.tarifas-imagen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.reservas-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    align-items: start;
-    gap: clamp(1.25rem, 3vw, 2rem);
-}
-
-.reservas-layout > section,
-.reservas-layout > aside {
-    min-width: 0;
-}
-
-.reservas-layout > section h2,
-.reservas-layout > aside h2 {
-    margin-top: 0;
-}
-
-.page-header {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.page-header nav {
-    width: 100%;
-}
-
-.page-header #menu {
-    justify-content: center;
-}
-
-.page-header > h1 {
-    margin: 0;
-    font-size: clamp(1.4rem, 7vw, 1.8rem);
-}
-
-.page-header #menu {
-    justify-content: center;
-    gap: clamp(0.25rem, 2vw, 1.25rem);
-}
-
-.page-header nav a {
-    font-size: clamp(0.75rem, 1.5vw, 1rem);
-}
-
 .tarifas-logo {
-    display: block;
     width: clamp(6rem, 15vw, 9rem);
-    max-width: 100%;
-    height: auto;
     animation: entrada-imagen-tarifas 600ms ease-out both;
 }
 
 @keyframes entrada-imagen-tarifas {
-    from {
-        opacity: 0;
-        transform: scale(0.75);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.75); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-/* Reservas: grupos de campos y foco visible al navegar con teclado. */
 fieldset {
-    border: 2px solid #14213D; /* Marco estructurado Azul Noche */
-    border-radius: 6px;
-    padding: 1rem;
     margin-bottom: 1.5rem;
+    border: 2px solid var(--color-azul-noche);
+    border-radius: 6px;
     background-color: #FFFFFF;
-}
-
-.datos-form-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0 1rem;
-}
-
-form .datos-form-grid .form-field {
-    min-width: 0;
-}
-
-form .datos-form-grid .form-field--full {
-    grid-column: auto;
+    padding: 1rem;
 }
 
 legend {
-    font-family: 'Montserrat', sans-serif;
-    color: #1E7A4F; /* Verde Ruta */
+    color: var(--color-verde-ruta);
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     padding: 0 0.5rem;
 }
 
-form div {
-    margin-bottom: 1rem;
-}
-
 form label {
-    display: block; /* Posiciona cada etiqueta encima de su campo */
-    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-/* Opciones relacionadas en una fila que puede envolver en pantallas estrechas. */
 .form-options {
     margin-bottom: 1rem;
-}
-
-.opciones-bicicleta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 1rem;
-}
-
-.opciones-bicicleta input,
-.opciones-bicicleta label {
-    margin: 0;
 }
 
 .form-label--inline {
@@ -676,76 +363,26 @@ form label {
     font-weight: 400;
 }
 
-.form-group--spaced {
-    margin-top: 0.9375rem;
-}
-
-/* Estilizado uniforme para todas las cajas de texto y menús del formulario */
-input[type="text"], input[type="email"], input[type="tel"],
-input[type="date"], input[type="number"], select, textarea {
-    width: 100%; /* Estira el campo a todo el ancho disponible */
-    padding: 0.5rem;
-    border: 1px solid #5B6470;
-    border-radius: 4px;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #FFFFFF;
-}
-
-/* Indicador de foco de alto contraste al usar el teclado */
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: #1E7A4F; /* Verde Ruta */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-verde-ruta);
     box-shadow: 0 0 0 3px rgba(30, 122, 79, 0.25);
 }
 
-/* Acciones principales, contacto flotante y pie de página. */
-.btn-cta, button[type="submit"] {
-    display: inline-block;
-    background-color: #1E7A4F; /* Verde Ruta */
-    color: #FFFFFF;            /* Texto blanco (Contraste aprobado 4.61:1) */
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;   /* Relleno generoso */
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-cta:hover, button[type="submit"]:hover {
-    background-color: #14213D; /* Cambia a Azul Noche al pasar el mouse */
-}
-
-/* Enlace fijo de WhatsApp en la esquina inferior */
 .whatsapp-flotante {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: #25D366; /* Verde WhatsApp oficial */
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
     border-radius: 50px;
+    background-color: #25D366;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
 }
 
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 1.25rem;
-    margin-top: 4rem; /* Evita que el botón flotante tape el texto final */
-    padding-top: 1rem;
-    border-top: 1px solid #5B6470;
-    color: #5B6470; /* Gris Asfalto secundario */
-}
-
-.footer-block {
-    flex: 0 1 auto;
+.site-footer {
+    border-top: 1px solid var(--color-gris-asfalto);
+    color: var(--color-gris-asfalto);
 }
 
 .footer-block h2 {
@@ -757,110 +394,13 @@ footer {
     margin: 0;
 }
 
-nav {
-    background-color: #14213D;
-    padding: 0.625rem 1.25rem;
-}
-
-nav a {
-    display: block;
-    padding: 0.5rem 0.75rem;
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 200ms ease-out;
-}
-
-nav a:hover {
-    background-color: #263A5E;
-    border-radius: 4px;
-}
-
-@media (min-width: 768px) {
-    body {
-        padding: 1.5rem;
-    }
-
-    .presentacion .portada {
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-        gap: clamp(1.5rem, 4vw, 3rem);
-        min-height: 26rem;
-        padding: clamp(1.5rem, 6vw, 4rem);
-    }
-
-    .portada-imagen {
-        aspect-ratio: 4 / 3;
-    }
-
-    .rutas-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-    }
-
-    .reservas-layout {
-        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    }
-
-    .datos-form-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    form .datos-form-grid .form-field--full {
-        grid-column: 1 / -1;
-    }
-
-    .page-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .page-header nav {
-        width: auto;
-    }
-
-    .page-header #menu {
-        justify-content: flex-end;
-    }
-
-    .page-header > h1 {
-        font-size: clamp(1.5rem, 4vw, 2.25rem);
-    }
-
-    footer {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
-
-    .footer-block {
-        flex: 1 1 12rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    main {
-        max-width: 75rem;
-    }
-
-    .rutas-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .presentacion-panel {
         transition: none;
         transform: none;
     }
 
-    .tarifas-logo,
-    .pricing-card {
+    .tarifas-logo {
         animation: none;
     }
 }
