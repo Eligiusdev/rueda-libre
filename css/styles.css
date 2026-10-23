@@ -4,8 +4,26 @@
     --color-azul-noche: #14213D;
     --color-verde-ruta: #1E7A4F;
     --color-verde-claro: #D7F4E8;
+    --color-naranja-pedal: #F4A261;
     --color-gris-asfalto: #5B6470;
     --color-borde: #E4E7EB;
+    --bs-primary: var(--color-verde-ruta);
+    --bs-primary-rgb: 30, 122, 79;
+    --bs-success: var(--color-verde-ruta);
+    --bs-success-rgb: 30, 122, 79;
+    --bs-body-font-family: "Open Sans", sans-serif;
+    --bs-body-color: var(--color-azul-noche);
+    --bs-body-color-rgb: 20, 33, 61;
+    --bs-body-bg: var(--color-crema);
+    --bs-link-color: var(--color-verde-ruta);
+    --bs-link-color-rgb: 30, 122, 79;
+    --bs-link-hover-color: #17613E;
+    --bs-link-hover-color-rgb: 23, 97, 62;
+    --bs-border-radius: 0.75rem;
+    --bs-border-radius-sm: 0.5rem;
+    --bs-border-radius-lg: 1rem;
+    --bs-border-radius-xl: 1.25rem;
+    --bs-border-radius-xxl: 1.5rem;
 }
 
 *, *::before, *::after {
@@ -47,6 +65,11 @@ h2 {
     font-weight: 700;
 }
 
+.brand-icon {
+    color: var(--color-verde-claro);
+    font-size: 0.85em;
+}
+
 .site-navbar .nav-link {
     border-radius: 4px;
     color: #FFFFFF;
@@ -64,6 +87,11 @@ h2 {
 .site-navbar .nav-link.active {
     color: var(--color-verde-claro);
     font-weight: 700;
+}
+
+.section-heading {
+    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
 }
 
 .presentacion-panel {
@@ -109,10 +137,36 @@ h2 {
     color: var(--color-verde-claro);
 }
 
+.portada .btn-outline-success {
+    --bs-btn-color: var(--color-verde-claro);
+    --bs-btn-border-color: var(--color-verde-claro);
+    --bs-btn-hover-color: var(--color-azul-noche);
+    --bs-btn-hover-bg: var(--color-verde-claro);
+    --bs-btn-hover-border-color: var(--color-verde-claro);
+    --bs-btn-active-color: var(--color-azul-noche);
+    --bs-btn-active-bg: #B8E9D2;
+    --bs-btn-active-border-color: #B8E9D2;
+}
+
 .portada-imagen {
     min-height: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
+}
+
+.benefit-icon {
+    display: inline-grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--color-verde-claro);
+    color: var(--color-verde-ruta);
+    font-size: 1.25rem;
+}
+
+.contact-icon {
+    color: var(--color-verde-ruta);
 }
 
 .btn {
@@ -121,22 +175,44 @@ h2 {
     font-weight: 700;
 }
 
+.btn-primary,
 .btn-success {
+    --bs-btn-color: #FFFFFF;
     --bs-btn-bg: var(--color-verde-ruta);
     --bs-btn-border-color: var(--color-verde-ruta);
     --bs-btn-hover-bg: #17613E;
     --bs-btn-hover-border-color: #17613E;
+    --bs-btn-hover-color: #FFFFFF;
     --bs-btn-active-bg: #14213D;
     --bs-btn-active-border-color: #14213D;
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-focus-shadow-rgb: 30, 122, 79;
 }
 
+.btn-outline-primary,
 .btn-outline-success {
     --bs-btn-color: var(--color-verde-ruta);
     --bs-btn-border-color: var(--color-verde-ruta);
     --bs-btn-hover-bg: var(--color-verde-ruta);
     --bs-btn-hover-border-color: var(--color-verde-ruta);
+    --bs-btn-hover-color: #FFFFFF;
     --bs-btn-active-bg: #17613E;
     --bs-btn-active-border-color: #17613E;
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-focus-shadow-rgb: 30, 122, 79;
+}
+
+.btn-pedal {
+    --bs-btn-color: var(--color-azul-noche);
+    --bs-btn-bg: var(--color-naranja-pedal);
+    --bs-btn-border-color: var(--color-naranja-pedal);
+    --bs-btn-hover-color: var(--color-azul-noche);
+    --bs-btn-hover-bg: #E58B3F;
+    --bs-btn-hover-border-color: #E58B3F;
+    --bs-btn-active-color: var(--color-azul-noche);
+    --bs-btn-active-bg: #D97721;
+    --bs-btn-active-border-color: #D97721;
+    --bs-btn-focus-shadow-rgb: 244, 162, 97;
 }
 
 .servicio-card {

@@ -609,3 +609,37 @@ Eleccion para los seis layouts:
   campos relacionados en la misma fila.
 * Encabezado: Flexbox, porque distribuye marca y menu en un eje.
 * Pie: Flexbox, porque distribuye y alinea sus tres bloques en una fila.
+
+18. IDENTIDAD VISUAL BOOTSTRAP Y LANZAMIENTO 2.0 (2026-10-23)
+---------------------------------------------------------------
+
+Se personalizo Bootstrap desde css/styles.css, cargada despues de Bootstrap:
+Verde Ruta (#1E7A4F) y su RGB se aplican a primary, success y enlaces; se
+configuro Open Sans como fuente base y se unificaron los radios de borde. Los
+botones primary/success verdes tienen estados hover/active oscuros y
+accesibles, incluidas sus variantes de contorno. Se agrego la variante propia
+`.btn-pedal` con Naranja Pedal (#F4A261), texto azul noche y estados coherentes.
+Las clases `.brand-icon`, `.section-heading`,
+`.benefit-icon` y `.contact-icon` complementan Bootstrap sin cambiar sus
+clases.
+
+Bootstrap Icons 1.11.3 se carga por CDN en las tres paginas. Se usa en la
+marca de la navbar, beneficios, datos de contacto y enlace de WhatsApp; los
+iconos decorativos llevan `aria-hidden="true"` y los botones iconicos conservan
+su nombre accesible.
+
+Pruebas finales: en inicio, tarifas y reservas no hubo desbordamiento
+horizontal a 360, 768 y 1280 px; las imagenes cargaron y la fuente de iconos
+estuvo disponible. En inicio, el menu se abrio y cerro con Enter. Cada pagina
+carga styles.css despues de Bootstrap y solicita un solo bundle; no se
+encontraron `!important` ni utilidades antiguas. Las filas Grid conservan sus
+columnas Bootstrap.
+
+Contraste medido (WCAG AA, minimo 4.5:1): texto azul noche/crema 14.83:1;
+enlaces verdes/crema 4.93:1; verde claro/azul noche 13.69:1; texto blanco/
+Verde Ruta 5.31:1 (hover 7.46:1); texto azul noche/Naranja Pedal 7.75:1
+(hover 6.16:1, active 5.03:1). El texto verde de los beneficios sobre verde
+claro alcanza 4.55:1.
+
+Capturas de inicio antes y despues de la personalizacion: `img/capturas/antes.png`
+y `img/capturas/despues.png`.
