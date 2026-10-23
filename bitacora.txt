@@ -537,6 +537,35 @@ Comprobaciones en Chromium a 360 px:
 * Las tres paginas marcan el enlace actual con aria-current; todos los enlaces
   de accion de reserva, consulta y WhatsApp usan `btn` y una variante Bootstrap.
 
+17. CARDS, CARRUSEL Y VALIDACION DE RESERVAS (2026-10-23)
+----------------------------------------------------------
+
+La flota y las rutas de inicio usan el componente Bootstrap `card` dentro de
+las filas Grid existentes. Las imagenes usan `card-img-top`; titulo y cuerpo
+usan `card-title`, `card-text` y `card-body`; `h-100` iguala las tarjetas de
+cada fila y el cuerpo flexible mantiene los botones abajo. Se eliminaron las
+reglas de aspecto propias de las cards de flota/rutas en styles.css; quedan
+solo las reglas visuales que todavia usan las tarjetas de servicios.
+
+La portada incluye un carrusel Bootstrap con tres promociones, imagenes con
+texto alternativo, avance automatico cada 5 segundos y controles anterior y
+siguiente con etiquetas `visually-hidden`. A 360 px se verifico el cambio
+automatico, el control siguiente con Enter y el anterior con flecha izquierda.
+Las siete tarjetas de flota y tres de rutas mantienen igual altura dentro de
+cada fila a 360, 768 y 1280 px; los botones quedan alineados al final.
+
+La pagina de reservas incluye validacion visual de Bootstrap basada en
+checkValidity(), mensajes por campo, una alerta accesible tras una solicitud
+valida y un modal con condiciones de alquiler y seguridad. En Chromium el
+formulario vacio mostro errores; al completarlo con valores validos se mostro
+la alerta y se reiniciaron los campos. El modal se abrio y cerro con Escape.
+La validacion original de required, minlength, pattern, min, max y maxlength
+permanece en los controles.
+
+Pruebas de viewport en Chromium: inicio sin scroll horizontal a 360, 768 y
+1280 px; carga correcta de las imagenes; tres slides, todos con alt; controles
+de carrusel accesibles y cards de la grilla con alturas iguales por fila.
+
 13. PRUEBAS MOBILE-FIRST A 360, 768 Y 1200 PX (2026-10-23)
 ------------------------------------------------------------
 

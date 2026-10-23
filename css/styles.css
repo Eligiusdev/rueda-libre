@@ -139,8 +139,6 @@ h2 {
     --bs-btn-active-border-color: #17613E;
 }
 
-.flota-card,
-.ruta-card,
 .servicio-card {
     border: 1px solid var(--color-borde);
     border-radius: 10px;
@@ -148,47 +146,57 @@ h2 {
     box-shadow: 0 4px 14px rgba(20, 33, 61, 0.08);
 }
 
-.flota-card__imagen,
-.ruta-card img {
-    width: 100%;
-    border-radius: 6px;
-    background-color: #F2F1FA;
+.fleet-card-image,
+.route-card-image {
+    height: 10rem;
     object-fit: cover;
 }
 
-.flota-card__imagen {
-    height: 9rem;
-}
-
-.ruta-card img {
-    height: 10rem;
-}
-
-.flota-card h3,
-.ruta-card h3,
+.card-title,
 .servicio-card h3 {
     color: var(--color-azul-noche);
     font-size: 1.15rem;
 }
 
-.flota-card__descripcion,
-.ruta-card p,
+.card-text,
 .servicio-card p {
     color: var(--color-gris-asfalto);
 }
 
-.flota-card__precio {
+.fleet-card-price {
+    margin-bottom: 1rem;
     color: var(--color-verde-ruta);
     font-family: "Montserrat", sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
 }
 
-.flota-card__precio span {
+.fleet-card-price span {
     color: var(--color-gris-asfalto);
     font-family: "Open Sans", sans-serif;
     font-size: 0.85rem;
     font-weight: 400;
+}
+
+.promo-image {
+    height: clamp(18rem, 38vw, 30rem);
+    background-color: var(--color-azul-noche);
+    filter: brightness(0.72);
+    object-fit: cover;
+}
+
+.promo-caption {
+    max-width: 48rem;
+    margin: 0 auto;
+    border-radius: 0.75rem;
+    background-color: rgba(20, 33, 61, 0.82);
+    color: #FFFFFF;
+    padding: 1rem 1.25rem;
+}
+
+.promo-caption h2 {
+    color: #FFFFFF;
+    font-size: clamp(1.1rem, 3vw, 2rem);
 }
 
 .servicio-icono {
