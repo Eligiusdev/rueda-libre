@@ -394,3 +394,40 @@ Distribuciones observadas con el modo de viewport de Chromium:
 Las decisiones de layout se mantienen: Grid organiza las dos dimensiones de
 portada, galeria, reservas y campos relacionados; Flexbox resuelve la fila de
 marca y navegacion, los bloques del pie y la alineacion interna de tarjetas.
+
+13. PRUEBAS MOBILE-FIRST A 360, 768 Y 1200 PX (2026-10-23)
+------------------------------------------------------------
+
+Se corrigieron y volvieron a medir estos problemas en el viewport de Chromium:
+* A 360 px la portada, las rutas y el area de reservas ya no fuerzan filas
+  estrechas: el estilo base usa una columna; desde 768 px se activan las
+  columnas del layout de escritorio.
+* El encabezado y el pie se apilaban solo en una excepcion max-width; se
+  cambiaron a columna como base y a fila desde 768 px, con el menu centrado
+  debajo de la marca en celular.
+* Los campos de documento y celular se separaban en celular; la fila de Grid
+  ahora tiene una columna base y dos desde 768 px, conservando el apilado
+  adecuado en pantallas estrechas.
+* No existia un limite comun para el ancho de imagenes; la regla global ahora
+  restringe cada imagen a su contenedor y conserva su proporcion.
+* Tarifas no usa tablas HTML sino tarjetas Grid; a 360 px se muestra una
+  tarjeta por fila, se leen las tarjetas completas y no hay scroll horizontal.
+
+Resultados medidos:
+* 360 px: inicio y reservas en una columna; menu y pie apilados. Sin scroll
+  horizontal ni imagenes fuera de su contenedor.
+* 768 px: portada en dos columnas, rutas en dos y reservas en 2:1.
+* 1200 px: portada en dos columnas, rutas en tres, reservas en 2:1 y
+  encabezado/pie en fila. Sin scroll horizontal en inicio, tarifas ni reservas.
+* La flota conserva sus siete tarjetas. La validacion rechazo un documento
+  invalido, acepto datos validos y mantuvo el autollenado por parametros URL.
+
+Eleccion para los seis layouts:
+* Portada: Grid, porque coloca texto e imagen en dos dimensiones.
+* Galeria de rutas: Grid, porque alinea tarjetas en columnas y filas; Flexbox
+  dentro de cada tarjeta apila los elementos en una dimension.
+* Reservas: Grid, porque define dos areas simultaneas en proporcion 2:1.
+* Fila documento/celular: Grid, porque permite definir la ubicacion de varios
+  campos relacionados en la misma fila.
+* Encabezado: Flexbox, porque distribuye marca y menu en un eje.
+* Pie: Flexbox, porque distribuye y alinea sus tres bloques en una fila.
