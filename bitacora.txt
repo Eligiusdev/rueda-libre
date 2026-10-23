@@ -555,12 +555,19 @@ Las siete tarjetas de flota y tres de rutas mantienen igual altura dentro de
 cada fila a 360, 768 y 1280 px; los botones quedan alineados al final.
 
 La pagina de reservas incluye validacion visual de Bootstrap basada en
-checkValidity(), mensajes por campo, una alerta accesible tras una solicitud
-valida y un modal con condiciones de alquiler y seguridad. En Chromium el
-formulario vacio mostro errores; al completarlo con valores validos se mostro
-la alerta y se reiniciaron los campos. El modal se abrio y cerro con Escape.
-La validacion original de required, minlength, pattern, min, max y maxlength
-permanece en los controles.
+checkValidity(), mensajes que explican como corregir cada campo obligatorio,
+una alerta cerrable que recuerda traer el documento y un modal "Politicas de
+alquiler" junto a la casilla de aceptacion. El modal presenta las cinco
+condiciones vigentes del cliente. Se conserva la validacion nativa de required,
+minlength, pattern, min, max y maxlength; el script oficial de validacion de
+Bootstrap se incorporo sin modificaciones.
+
+En Chromium, el envio vacio mantuvo el formulario en la pagina y mostro los
+mensajes junto a nombre, documento, celular, correo, fecha, bicicleta, plan y
+aceptacion. Al completar todos los datos con valores validos, checkValidity()
+fue verdadero, aparecio la confirmacion y el formulario se reinicio. La alerta
+se descarto con su boton; el modal abrio con cinco politicas y cerro con el
+boton de cierre y con Escape.
 
 Pruebas de viewport en Chromium: inicio sin scroll horizontal a 360, 768 y
 1280 px; carga correcta de las imagenes; tres slides, todos con alt; controles

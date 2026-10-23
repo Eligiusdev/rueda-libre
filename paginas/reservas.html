@@ -38,7 +38,12 @@
         <section class="col-12 col-md-8">
             <h2>Formulario de reserva</h2>
             <p>Completa los siguientes datos para procesar el préstamo de tu equipamiento de manera automática:</p>
-            
+
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                Recuerda traer tu documento de identidad original para recoger la bicicleta.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar aviso"></button>
+            </div>
+
             <form class="needs-validation" action="#" method="POST" novalidate>
                 
                 <!-- Identificación y medios de contacto de quien reserva. -->
@@ -130,12 +135,14 @@
                         <textarea class="form-control" id="comentarios" name="comentarios_adicionales" maxlength="300" rows="4" placeholder="Máximo 300 caracteres..."></textarea>
                         <div class="invalid-feedback">El comentario no puede superar los 300 caracteres.</div>
                     </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="politicas" name="aceptacion_politicas" value="aceptado" required>
-                        <label for="politicas" class="form-check-label">Acepto las políticas de alquiler y seguridad *.</label>
-                        <div class="invalid-feedback">Debes aceptar las políticas para continuar.</div>
+                    <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+                        <div class="form-check mb-0">
+                            <input class="form-check-input" type="checkbox" id="politicas" name="aceptacion_politicas" value="aceptado" required>
+                            <label for="politicas" class="form-check-label">Acepto las políticas de alquiler y seguridad *.</label>
+                            <div class="invalid-feedback">Debes aceptar las políticas para continuar.</div>
+                        </div>
+                        <button class="btn btn-outline-success btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#politicasModal">Leer políticas</button>
                     </div>
-                    <button class="btn btn-outline-success btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#politicasModal">Leer políticas</button>
                 </fieldset>
 
                 <div class="alert alert-success d-none" id="reservaConfirmada" role="status" tabindex="-1">
@@ -179,16 +186,16 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title h5" id="politicasModalLabel">Políticas de alquiler y seguridad</h2>
+                    <h2 class="modal-title h5" id="politicasModalLabel">Políticas de alquiler</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
                     <ul class="mb-0">
-                        <li>Usa el casco durante todo el recorrido.</li>
-                        <li>Asegura la bicicleta con el candado cuando la estaciones.</li>
-                        <li>Respeta las normas de tránsito y las indicaciones del personal.</li>
-                        <li>Devuelve la bicicleta en el horario acordado y en una sede habilitada.</li>
-                        <li>Presenta tu documento de identidad al recoger el equipo.</li>
+                        <li>Presenta tu documento de identidad original al recoger la bicicleta.</li>
+                        <li>Revisa la bicicleta con el asesor antes de salir.</li>
+                        <li>Cada 15 minutos de retraso en la devolución tienen un recargo de $5.000.</li>
+                        <li>Los daños por mal uso se cobran según el costo de la reparación.</li>
+                        <li>Los menores de edad deben estar acompañados por un adulto responsable.</li>
                     </ul>
                 </div>
                 <div class="modal-footer">
@@ -199,6 +206,26 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+    </script>
     <script src="../js/reserva-rapida.js" defer></script>
     <script src="../js/reserva-validacion.js" defer></script>
 </body>
