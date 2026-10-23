@@ -329,6 +329,46 @@ principalmente en una sola dimension.
   uniformes y alineacion superior; al estrecharse, los bloques pueden
   envolverse sin definir una cuadricula.
 
+14. COMPARATIVA DE UTILIDADES BOOTSTRAP 5.3 (2026-10-23)
+----------------------------------------------------------
+
+Se inicio y detuvo el cronometro alrededor de la creacion y comprobacion de
+pruebas/catalogo-bootstrap.html. Tiempo invertido, medido desde el inicio
+hasta la verificacion de CDN y breakpoints: 96 segundos (1 minuto y 36
+segundos). La rejilla usa las clases Bootstrap
+row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 y g-4; no se agrego CSS
+propio a la pagina.
+
+Comparativa con la flota propia:
+* CSS de distribucion de .flota-grid: 5 declaraciones de distribucion en 7
+  lineas de regla (styles.css, lineas 118-124).
+* Bootstrap: 6 clases en la fila: row, cuatro row-cols responsivas y g-4.
+  La fila aplica una, dos, tres y cuatro columnas en sus breakpoints.
+* Bootstrap resolvio sin esfuerzo los gutters, los breakpoints responsivos,
+  el espaciado, la tipografia, los colores y la forma de enlace destacado con
+  utilidades.
+* Se pierde control granular de los valores exactos de columnas, separaciones
+  y colores de marca: las utilidades usan breakpoints y escala predefinidos;
+  personalizarlos requiere extender Bootstrap o escribir CSS propio.
+
+Cinco utilidades consultadas en la documentacion oficial de Bootstrap 5.3:
+* row-cols-xl-4: distribuye las columnas hijas en cuatro columnas desde xl.
+* g-4: aplica gutters horizontales y verticales uniformes en una fila.
+* text-bg-success: aplica fondo success y texto con contraste correspondiente.
+* d-none: oculta el elemento en todos los breakpoints hasta que otra utilidad
+  de display responsive, como d-md-block, vuelve a mostrarlo.
+* flex-md-row: orienta los hijos en fila desde md; combinado con flex-column,
+  cambia la franja desde columna en movil a fila en pantallas medianas.
+
+Fuentes consultadas:
+* https://getbootstrap.com/docs/5.3/layout/grid/
+* https://getbootstrap.com/docs/5.3/utilities/spacing/
+* https://getbootstrap.com/docs/5.3/utilities/flex/
+* https://getbootstrap.com/docs/5.3/utilities/display/
+* https://getbootstrap.com/docs/5.3/utilities/colors/
+* https://getbootstrap.com/docs/5.3/utilities/background/
+* https://getbootstrap.com/docs/5.3/utilities/text/
+
 11. AJUSTE RESPONSIVE MOBILE-FIRST (2026-10-23)
 ------------------------------------------------
 
