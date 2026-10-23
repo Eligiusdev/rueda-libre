@@ -285,3 +285,22 @@ pantallas anchas; en ventanas estrechas los bloques pueden envolverse para
 evitar el desbordamiento. Al reducir el ancho, primero se ajustan los enlaces
 del menu y, cuando ya no caben junto a la marca, la navegacion pasa a otra
 linea; el pie tambien puede distribuir sus bloques en varias lineas.
+
+9. CUADRICULA ADAPTABLE PARA LA FLOTA (2026-10-23)
+---------------------------------------------------
+
+La seccion Nuestra flota muestra siete modelos en tarjetas con imagen, nombre,
+descripcion, precio por hora y enlace de reserva. La cuadricula usa Grid con
+auto-fit y un ancho minimo de 15rem; cada tarjeta usa Flexbox en columna para
+mantener el enlace al final. Al agregar el modelo Tandem no fue necesario
+modificar el CSS.
+
+Comprobacion visual en Chromium, ajustando el viewport como en el modo
+dispositivo de DevTools:
+* 1280 px: 3 columnas.
+* 900 px: 3 columnas.
+* 500 px: 1 columna.
+
+En los tres anchos se mostraron las siete tarjetas y no se detecto
+desbordamiento horizontal. Los botones de cada fila quedaron alineados al
+final de las tarjetas.
