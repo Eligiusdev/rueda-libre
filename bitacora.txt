@@ -334,7 +334,7 @@ principalmente en una sola dimension.
 
 Se inicio y detuvo el cronometro alrededor de la creacion y comprobacion de
 pruebas/catalogo-bootstrap.html. Tiempo invertido, medido desde el inicio
-hasta la verificacion de CDN y breakpoints: 96 segundos (1 minuto y 36
+hasta la verificacion de CDN y breakpoints: 86 segundos (1 minuto y 26
 segundos). La rejilla usa las clases Bootstrap
 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 y g-4; no se agrego CSS
 propio a la pagina.
