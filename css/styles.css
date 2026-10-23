@@ -3,13 +3,19 @@
     box-sizing: border-box;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     background-color: #FAF6EF; /* Color Crema oficial de fondo */
     color: #14213D;            /* Texto principal en Azul Noche */
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 main {
@@ -58,12 +64,11 @@ article, aside {
 /* Portada y contenido destacado. */
 .portada {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
-    gap: clamp(1.5rem, 4vw, 3rem);
-    min-height: 24rem;
+    gap: 1.25rem;
     overflow: hidden;
-    padding: 4rem;
+    padding: clamp(1.25rem, 5vw, 2rem);
     border-radius: 8px;
     color: #FFFFFF;
     background-color: #14213D;
@@ -81,7 +86,7 @@ article, aside {
     display: block;
     width: 100%;
     min-width: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
     border-radius: 8px;
     object-fit: cover;
 }
@@ -176,8 +181,7 @@ article, aside {
 }
 
 .presentacion .portada {
-    min-height: 26rem;
-    padding: clamp(1.5rem, 6vw, 4rem);
+    padding: clamp(1.25rem, 5vw, 2rem);
     border: 0;
     box-shadow: 0 12px 30px rgba(20, 33, 61, 0.18);
 }
@@ -235,8 +239,8 @@ article, aside {
 
 .rutas-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
     align-items: stretch;
     margin-top: 1.5rem;
 }
@@ -544,7 +548,7 @@ article, aside {
 
 .reservas-layout {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
     gap: clamp(1.25rem, 3vw, 2rem);
 }
@@ -562,20 +566,27 @@ article, aside {
 .page-header {
     position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.75rem;
+}
+
+.page-header nav {
+    width: 100%;
+}
+
+.page-header #menu {
+    justify-content: center;
 }
 
 .page-header > h1 {
     margin: 0;
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-size: clamp(1.4rem, 7vw, 1.8rem);
 }
 
 .page-header #menu {
-    justify-content: flex-end;
+    justify-content: center;
     gap: clamp(0.25rem, 2vw, 1.25rem);
 }
 
@@ -614,7 +625,7 @@ fieldset {
 
 .datos-form-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 0 1rem;
 }
 
@@ -623,7 +634,7 @@ form .datos-form-grid .form-field {
 }
 
 form .datos-form-grid .form-field--full {
-    grid-column: 1 / -1;
+    grid-column: auto;
 }
 
 legend {
@@ -723,11 +734,10 @@ input:focus, select:focus, textarea:focus {
 
 footer {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1.25rem;
     margin-top: 4rem; /* Evita que el botón flotante tape el texto final */
     padding-top: 1rem;
     border-top: 1px solid #5B6470;
@@ -735,7 +745,7 @@ footer {
 }
 
 .footer-block {
-    flex: 1 1 12rem;
+    flex: 0 1 auto;
 }
 
 .footer-block h2 {
@@ -767,57 +777,79 @@ nav a:hover {
     border-radius: 4px;
 }
 
-/* Ajustes compactos para móviles; el contenido conserva su orden. */
-@media (max-width: 40rem) {
+@media (min-width: 768px) {
     body {
-        padding: 1rem;
-    }
-
-    nav {
-        padding: 0.625rem 0.75rem;
-    }
-
-    .page-header > h1 {
-        margin-bottom: 0.75rem;
-        font-size: clamp(1.4rem, 7vw, 1.8rem);
+        padding: 1.5rem;
     }
 
     .presentacion .portada {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: clamp(1.5rem, 4vw, 3rem);
+        min-height: 26rem;
+        padding: clamp(1.5rem, 6vw, 4rem);
     }
 
     .portada-imagen {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 4 / 3;
     }
 
-    .rutas-grid,
+    .rutas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
     .reservas-layout {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     }
 
     .datos-form-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     form .datos-form-grid .form-field--full {
-        grid-column: auto;
+        grid-column: 1 / -1;
+    }
+
+    .page-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .page-header nav {
-        padding: 0.5rem;
+        width: auto;
     }
 
-    .page-header nav a {
-        padding: 0.5rem 0.35rem;
+    .page-header #menu {
+        justify-content: flex-end;
     }
 
-    .page-header hr {
-        margin: 0.75rem 0;
+    .page-header > h1 {
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
     }
 
-    .whatsapp-flotante {
-        right: 1rem;
-        bottom: 1rem;
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .footer-block {
+        flex: 1 1 12rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    main {
+        max-width: 75rem;
+    }
+
+    .rutas-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 

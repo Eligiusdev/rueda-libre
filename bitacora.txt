@@ -328,3 +328,69 @@ principalmente en una sola dimension.
 * Pie (Flexbox): distribuye marca, contacto y horario en una fila con espacios
   uniformes y alineacion superior; al estrecharse, los bloques pueden
   envolverse sin definir una cuadricula.
+
+11. AJUSTE RESPONSIVE MOBILE-FIRST (2026-10-23)
+------------------------------------------------
+
+Los estilos base ahora corresponden al celular y usan una sola columna. Los
+layouts de tablet se activan desde 768 px y los ajustes de escritorio desde
+1200 px.
+
+Problemas responsive identificados y soluciones:
+* El encabezado y el pie conservaban una fila a 360 px; se cambiaron sus
+  estilos base a columna, con el nombre y el menu centrados, y desde 768 px
+  vuelven a la fila.
+* La portada y las reservas tenian columnas de escritorio como estilos base,
+  con una excepcion estrecha por max-width. Se invirtio el enfoque: una
+  columna por defecto y Grid de dos columnas desde tablet, con proporcion 2:1
+  para el formulario y el contacto.
+* La galeria de rutas definia tres columnas desde el estilo base, apretando las
+  tarjetas en anchos intermedios. Ahora usa una columna en celular, dos en
+  tablet y tres en escritorio.
+* No habia una regla global que limitara el ancho de las imagenes. Se agrego
+  max-width: 100% y height: auto; las imagenes de tarjetas mantienen su recorte
+  dentro de la tarjeta.
+* La pagina de tarifas no contiene tablas HTML: usa tarjetas autoajustables.
+  En 360 px la cuadricula muestra una tarjeta por fila y no requiere
+  desplazamiento lateral.
+
+Verificacion del viewport en Chromium:
+* 360 px: encabezado y pie apilados, portada, rutas, reservas y campos en una
+  columna; sin desbordamiento horizontal.
+* 768 px: portada en dos columnas, galeria en dos columnas y reservas 2:1.
+* 1200 px: galeria en tres columnas, encabezado y pie en fila, reservas 2:1.
+* En las tres paginas las imagenes quedaron dentro del ancho visible.
+* La validacion del formulario rechazo un documento invalido y acepto los
+  datos correctos; los parametros de bicicleta y recorrido siguieron
+  seleccionando las opciones correspondientes.
+
+12. REORGANIZACION MOBILE-FIRST Y PRUEBAS DE DISPOSITIVO (2026-10-23)
+-----------------------------------------------------------------------
+
+Problemas responsive detectados al medir 360, 768 y 1200 px, y sus soluciones:
+* A 360 px el encabezado y el pie seguian en fila. Sus estilos base ahora los
+  apilan; el encabezado centra el nombre y el menu. Desde 768 px se recupera
+  la distribucion en fila.
+* Los estilos de escritorio de portada y reservas eran la base, con una
+  excepcion max-width para moviles. Se invirtio el orden: una columna sin
+  media query, dos columnas desde 768 px y ampliacion del ancho del contenido
+  desde 1200 px.
+* La galeria de rutas intentaba poner tres tarjetas por fila desde el estilo
+  base. Ahora muestra una columna a 360 px, dos a 768 px y tres a 1200 px.
+* Faltaba un limite global para imagenes. Se agrego max-width: 100% y
+  height: auto; en las pruebas ninguna imagen rebaso su contenedor.
+* La pagina de tarifas no usa una tabla HTML, sino tarjetas. La cuadricula
+  autoajustable muestra una columna a 360 px y no produce scroll horizontal.
+
+Distribuciones observadas con el modo de viewport de Chromium:
+* 360 px: encabezado y pie en columna; portada, galeria, reservas y fila de
+  campos en una columna; sin scroll horizontal.
+* 768 px: portada en dos columnas, rutas en dos columnas y reservas 2:1.
+* 1200 px: rutas en tres columnas, encabezado y pie en fila y reservas 2:1.
+  Las imagenes permanecieron dentro de sus contenedores en las tres paginas.
+* La prueba del formulario confirmo el autollenado de bicicleta y recorrido,
+  la aceptacion de valores validos y el rechazo de un documento no numerico.
+
+Las decisiones de layout se mantienen: Grid organiza las dos dimensiones de
+portada, galeria, reservas y campos relacionados; Flexbox resuelve la fila de
+marca y navegacion, los bloques del pie y la alineacion interna de tarjetas.
