@@ -1,3 +1,4 @@
+// Validación local de demostración. No envía datos ni crea una reserva.
 const validatedReservationForm = document.querySelector(".needs-validation");
 const confirmationAlert = document.querySelector("#reservaConfirmada");
 
@@ -13,8 +14,8 @@ if (validatedReservationForm && confirmationAlert) {
             return;
         }
 
-        validatedReservationForm.classList.remove("was-validated");
-        validatedReservationForm.reset();
+        // No borrar los datos: la confirmación solo indica que pasó la validación local.
+        validatedReservationForm.classList.add("was-validated");
         confirmationAlert.classList.remove("d-none");
         confirmationAlert.focus();
     });
