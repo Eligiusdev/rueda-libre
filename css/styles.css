@@ -222,10 +222,16 @@ h2 {
     box-shadow: 0 4px 14px rgba(20, 33, 61, 0.08);
 }
 
-.fleet-card-image,
 .route-card-image {
     height: 10rem;
     object-fit: cover;
+}
+
+.fleet-card-image {
+    height: 12rem;
+    padding: 0.75rem;
+    background-color: #F3F6F4;
+    object-fit: contain;
 }
 
 .card-title,

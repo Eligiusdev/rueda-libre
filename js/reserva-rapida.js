@@ -1,12 +1,19 @@
-// Lee opciones permitidas desde los enlaces de tarifas para agilizar la reserva.
+// Lee opciones permitidas desde los enlaces del catálogo y de tarifas.
 const reservationForm = document.querySelector("form");
 const query = new URLSearchParams(window.location.search);
 
-// Convierte los identificadores simples de URL en los valores del formulario.
+// Conserva los enlaces antiguos y valida el valor frente a las opciones del formulario.
 const bikeValues = {
-    urbana: "urbana",
-    montana: "montaña",
-    electric: "eléctrica"
+    urbana: "urbana_clasica",
+    montana: "montana_trail",
+    electric: "electrica_urbana",
+    urbana_clasica: "urbana_clasica",
+    urbana_plegable: "urbana_plegable",
+    montana_trail: "montana_trail",
+    gravel_aventura: "gravel_aventura",
+    electrica_urbana: "electrica_urbana",
+    infantil: "infantil",
+    tandem: "tandem"
 };
 const bike = bikeValues[query.get("tipo_bicicleta")];
 const route = query.get("recorrido_guiado");
