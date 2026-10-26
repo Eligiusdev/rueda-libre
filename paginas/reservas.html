@@ -38,7 +38,8 @@
         <!-- Formulario agrupado por datos personales, alquiler y confirmación. -->
         <section class="col-12 col-md-8">
             <h2>Formulario de reserva</h2>
-            <p>Completa los siguientes datos para procesar el préstamo de tu equipamiento de manera automática:</p>
+            <div class="alert alert-warning" role="note"><strong>Versión de demostración:</strong> este formulario solo valida los datos en tu navegador. No envía ni guarda reservas. No introduzcas información personal real.</div>
+            <p>Completa los datos de ejemplo para probar la validación del formulario.</p>
 
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                 Recuerda traer tu documento de identidad original para recoger la bicicleta.
@@ -163,8 +164,8 @@
                 </fieldset>
 
                 <div class="alert alert-success d-none" id="reservaConfirmada" role="status" tabindex="-1">
-                    <h3 class="alert-heading h5">¡Solicitud validada!</h3>
-                    <p class="mb-0">Tus datos están completos. Nuestro equipo te contactará para confirmar la reserva.</p>
+                    <h3 class="alert-heading h5">Validación completada (demostración)</h3>
+                    <p class="mb-0">Los campos cumplen las reglas del formulario, pero la solicitud no se ha enviado ni guardado. Esta página no tiene un servicio de reservas conectado.</p>
                 </div>
                 <button class="btn btn-success btn-lg" type="submit">Enviar Reserva</button>
             </form>
