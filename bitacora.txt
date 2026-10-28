@@ -881,3 +881,73 @@ landing y `componentes.html`. Confirmó el cambio de fondo, título, card,
 etiqueta y campos; Montserrat y Open Sans se aplican en el navegador. El
 verificador sobre los textos visibles no encontró combinaciones bajo 4,5:1 en
 ninguna de las dos páginas ni en ambos esquemas.
+
+27. REFACTORIZACION Y COMPARATIVA DE FRAMEWORKS (2026-10-28)
+-------------------------------------------------------------
+
+Antes de refactorizar, conté las listas completas de clases repetidas en
+`nocturna/index.html`. Las repeticiones principales eran:
+
+| Elemento / lista de clases | Apariciones |
+| --- | ---: |
+| Botón principal (misma lista larga de utilidades) | 5 |
+| CTA del encabezado (lista adaptada al tamaño móvil) | 1 |
+| Enlaces de navegación con hover y foco | 4 |
+| Etiquetas de sección y de pasos (dos listas distintas) | 4 cada una |
+| Bloques de cada paso (`space-y-3`) | 4 |
+| Títulos de las rutas y descripciones de pasos | 4 cada lista |
+| Card de ruta (contenedor) | 3 |
+| Imagen de ruta | 3 |
+| Interior de la card | 3 |
+| Etiqueta de dato (`dt`) | 9 |
+| Valor de dato (`dd`) | 9 |
+
+La landing tiene seis acciones principales: cinco comparten exactamente la
+lista larga del botón y el CTA del encabezado añade ajustes responsivos. El
+botón secundario aparece una vez. Las cards conservan sus clases del kit y la
+misma estructura; no las convertí en clases propias.
+
+En `src/input.css` encapsulé las tres variantes del kit en `.btn-primary`,
+`.btn-secondary` y `.btn-outline`, usando `@layer components` y `@apply`. Los
+botones de la landing usan las clases principal y secundaria; el kit conserva
+las tres. No hay más de tres clases propias. Las clases utilitarias restantes
+se ordenaron por elemento como layout, espaciado, tipografía, color y estados
+(hover, focus y dark); los modificadores responsive quedan junto a su utilidad.
+El CTA del encabezado mantiene los ajustes compactos en móvil. Las cards
+siguen compartiendo el mismo marcado y sus clases base.
+
+La CLI generó el CSS de producción con `--minify`. El archivo local
+`nocturna/src/output.css` mide **27.811 bytes (27,2 KiB)**. Para comparar con
+la versión 2.0, cargué `index.html` en Chromium y revisé las respuestas reales
+de Network sin caché en una sesión nueva. La respuesta comprimida Brotli de
+Bootstrap 5.3.8 midió **33.466 bytes de cuerpo CSS** (cabecera
+`Content-Length`: 33.048 bytes) y **25.254 bytes de cuerpo JavaScript**
+(`Content-Length`: 24.469 bytes). Sin compresión, los recursos eran 232.111
+bytes CSS y 80.496 bytes JavaScript. Los bytes de cuerpo reportados por
+Chromium incluyen la transferencia comprimida; no incluyen cabeceras HTTP.
+Tailwind se sirvió localmente sin compresión, por lo que su medida de 27.811
+bytes es el tamaño íntegro del archivo minificado. Bootstrap Icons y otros
+scripts del sitio no se sumaron a Bootstrap.
+
+| Criterio | Bootstrap (sitio v2.0) | Tailwind (landing nocturna) |
+| --- | --- | --- |
+| Curva de aprendizaje | Más directo al reconocer componentes y patrones listos; hay que aprender la estructura y las opciones del framework. | Requiere aprender nombres y composición de utilidades; el prototipo avanzó rápido, pero las listas repetidas pedían una abstracción puntual para los botones. |
+| Personalización | Se adapta mediante variables y estilos añadidos; los componentes prediseñados aportan una apariencia inicial reconocible. | Los tokens `@theme` y las utilidades permitieron aplicar la marca, los breakpoints y el modo oscuro directamente al diseño de la campaña. |
+| Tamaño final medido | El navegador transfirió 33.466 B de CSS y 25.254 B de JavaScript de Bootstrap comprimidos. | La hoja completa minificada mide 27.811 B sin compresión e incluye los estilos detectados para la landing y el kit; no requiere JavaScript de Tailwind en el navegador. |
+| Casos de uso que observé | Adecuado para páginas que necesitan componentes habituales rápido y ya siguen el lenguaje visual de Bootstrap. | Adecuado para interfaces con diseño propio y CSS de producción limitado a las utilidades presentes, como la campaña nocturna. |
+
+**Recomendación para Rueda Libre:** usar Tailwind para la siguiente versión
+integral del sitio y mantener el tema y el kit como base común. En esta
+experiencia, la landing pudo llevar la identidad visual completa sin añadir un
+paquete de JavaScript del framework al navegador; el CSS minificado (27.811 B)
+fue menor incluso que el cuerpo CSS comprimido medido de Bootstrap (33.466 B).
+La diferencia requiere mantener criterios de clase y agrupar patrones
+repetidos, como hicimos con los tres botones. Bootstrap sigue siendo una opción
+práctica para páginas nuevas que prioricen componentes convencionales y un
+arranque rápido.
+
+Después de la compilación comprobé la landing en 360, 768, 1024 y 1280 px:
+las cards se mostraron en una, dos y tres columnas según breakpoint, el
+encabezado se apiló solo en móvil y no hubo scroll horizontal. También emulé
+`prefers-color-scheme: light` y `dark`: cambiaron fondo, título y superficies,
+los CTA conservaron sus colores y el navegador no reportó errores JavaScript.
