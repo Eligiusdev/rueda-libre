@@ -783,3 +783,21 @@ Reglas compartidas del kit:
 La página de componentes y `index.html` cargan el CSS compilado
 `src/output.css`; los estilos se generan con Tailwind CLI a partir de las
 clases detectadas en los HTML del kit.
+
+23. LAYOUT COMPLETO DE LA LANDING NOCTURNA (2026-10-28)
+--------------------------------------------------------
+
+`nocturna/index.html` organiza la campaña con `header`, `main`, secciones con
+id para las anclas y `footer`. La marca y navegación se distribuyen en fila
+con Flexbox; los enlaces apuntan a Inicio, Rutas, Cómo funciona y Contacto.
+Las cards usan la misma estructura, radios, borde, sombra, jerarquía de datos
+y botón principal definidos en `componentes.html`.
+
+Todas las secciones, el encabezado y el pie comparten el contenedor
+`mx-auto max-w-7xl px-6`. Las tres rutas usan Grid con tres columnas desde
+md: cada ruta ocupa una celda de la misma fila y puede apilarse en pantallas
+estrechas. Los cuatro pasos también usan Grid: representan elementos del
+mismo nivel en dos dimensiones (columnas y filas) y pasan de una a dos y
+cuatro columnas según el ancho; no requieren distribuirse en un único eje.
+El pie usa Flexbox porque distribuye tres bloques a lo largo de una fila y
+puede apilarlos en pantallas estrechas.
