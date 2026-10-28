@@ -977,20 +977,20 @@ Comprobaciones con Chromium local:
 * El valor 0 para acompañantes es válido. Un ejemplo completo con ruta, día,
   experiencia, opción de bicicleta y aceptación quedó válido.
 * Recorrido con Tab, flechas, Espacio y Enter: se completaron los campos y se
-  disparó el evento de envío con el formulario válido. La prueba local interceptó
-  ese evento para no transmitir datos personales. Todos los controles tienen
-  etiqueta asociada.
+  disparó el evento de envío con el formulario válido. El script cancela el POST,
+  muestra un estado accesible y no transmite ni guarda los datos. La página lo
+  informa antes de que se escriban datos. Todos los controles tienen etiqueta.
 * A 360 px el formulario ocupa una columna y no desborda; a 768 px y 1280 px
   los campos se disponen en dos columnas. En esquema oscuro el fondo y los
   controles cambian a Azul Noche.
 
 **Tiempo real:** cronómetro iniciado a las 18:53:21 UTC para un límite de 40
 minutos. Tiempo invertido en construcción y verificación: aproximadamente
-4 minutos (finalizado antes del límite).
+6 minutos (finalizado antes del límite).
 
-**Pendiente para recibir inscripciones:** la landing estática de GitHub Pages no
-incluye un servicio que procese POST. El formulario valida en el navegador, pero
-no se conecta a almacenamiento ni a un destinatario; queda por configurar el
-endpoint o servicio de recepción antes de anunciarlo como canal operativo. El
-texto y la URL de las condiciones tampoco fueron suministrados; la casilla
-registra la aceptación, pero debe enlazarse a las condiciones aprobadas.
+El cliente confirmó que por ahora solo se validan los datos. Por eso la página
+avisa que no se envían ni se guardan, y el controlador cancela el POST aunque la
+validación sea correcta. La recepción podrá conectarse al endpoint o servicio
+que se defina después. El texto y la URL de las condiciones no fueron
+suministrados; la casilla registra la aceptación, pero aún debe enlazarse a las
+condiciones aprobadas.

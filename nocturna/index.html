@@ -137,7 +137,7 @@
             <p class="max-w-2xl text-base leading-6 sm:text-lg sm:leading-7 text-azul-noche/80 dark:text-crema/85">Completa tus datos para reservar tu salida. Todos los campos son obligatorios.</p>
           </header>
 
-          <form class="max-w-4xl space-y-6" method="post">
+          <form id="formulario-inscripcion" class="max-w-4xl space-y-6" method="post">
             <fieldset class="space-y-4 p-4 sm:space-y-6 sm:p-6 rounded-xl border border-verde-ruta/45 dark:border-verde-claro/50">
               <legend class="px-2 font-montserrat text-lg font-bold text-azul-noche dark:text-crema">Tus datos</legend>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -208,7 +208,8 @@
               </label>
             </fieldset>
 
-            <button class="btn-primary" type="submit">Enviar inscripción</button>
+            <button class="btn-primary" type="submit">Validar inscripción</button>
+            <p id="inscripcion-estado" class="rounded-xl border border-verde-ruta bg-verde-claro p-4 text-azul-noche dark:border-verde-claro dark:bg-verde-ruta dark:text-crema" role="status" aria-live="polite" hidden></p>
           </form>
         </div>
       </section>
@@ -231,5 +232,6 @@
         </div>
       </div>
     </footer>
+    <script src="src/inscripcion.js" defer></script>
   </body>
 </html>
