@@ -845,3 +845,39 @@ de desplazamiento; no se observó desbordamiento horizontal.
 | 768 px | En fila | 2 columnas | 2 columnas | Visibles | Visible | No |
 | 1024 px | En fila | 3 columnas | 4 columnas | Visibles | Visible | No |
 | 1280 px | En fila | 3 columnas | 4 columnas | Visibles | Visible | No |
+
+26. TEMA DE MARCA Y MODO OSCURO (2026-10-28)
+--------------------------------------------
+
+En `nocturna/src/input.css` se definieron en `@theme` los tokens Crema
+(`#FAF6EF`), Azul Noche (`#14213D`), Verde Ruta (`#1E7A4F`), Verde Claro
+(`#D7F4E8`), Naranja Pedal (`#F4A261`) y Amarillo Farol (`#FFD166`), junto con
+las familias Montserrat y Open Sans. La landing y el kit cargan esas fuentes
+desde Google Fonts y usan `font-montserrat` en títulos, navegación y acciones,
+y `font-open-sans` para el texto general. Se quitaron las utilidades de color
+genéricas de ambas páginas.
+
+El esquema claro usa fondo Crema, texto Azul Noche, acentos Verde Ruta y
+botones Amarillo Farol. Las clases `dark:` usan la preferencia del sistema
+(Tailwind `prefers-color-scheme` por defecto): Azul Noche como fondo, Crema para
+texto, Verde Claro y Amarillo Farol como acentos; cards, alertas, bordes y
+campos también adaptan sus superficies y límites. El título principal usa
+Amarillo Farol sobre Azul Noche en modo oscuro.
+
+Se verificaron combinaciones con el cálculo de contraste WCAG para texto
+normal (mínimo 4,5:1):
+* Verde Ruta sobre Azul Noche: 3,01:1; no cumple, así que no se usa como texto
+  en el fondo oscuro.
+* Verde Claro sobre Azul Noche: 13,69:1; Amarillo Farol sobre Azul Noche:
+  11,08:1.
+* Crema sobre Verde Ruta y Verde Ruta sobre Crema: 4,93:1.
+* Azul Noche sobre Amarillo Farol: 11,08:1; Azul Noche sobre Naranja Pedal:
+  7,75:1; Azul Noche sobre Verde Claro: 13,69:1.
+* Los textos secundarios y placeholders con opacidad también se comprobaron;
+  los pares usados superan 4,5:1.
+
+La prueba del navegador emuló `prefers-color-scheme` claro y oscuro en la
+landing y `componentes.html`. Confirmó el cambio de fondo, título, card,
+etiqueta y campos; Montserrat y Open Sans se aplican en el navegador. El
+verificador sobre los textos visibles no encontró combinaciones bajo 4,5:1 en
+ninguna de las dos páginas ni en ambos esquemas.

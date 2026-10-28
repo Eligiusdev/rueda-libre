@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  --color-crema: #FAF6EF;
+  --color-azul-noche: #14213D;
+  --color-verde-ruta: #1E7A4F;
+  --color-verde-claro: #D7F4E8;
+  --color-naranja-pedal: #F4A261;
+  --color-amarillo-farol: #FFD166;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
+}
