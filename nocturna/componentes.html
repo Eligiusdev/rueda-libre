@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kit de componentes | Rueda Nocturna</title>
+    <link rel="stylesheet" href="src/output.css" />
+  </head>
+  <body class="bg-slate-950 text-slate-100">
+    <main class="mx-auto max-w-5xl space-y-12 p-8">
+      <header class="space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-widest text-amber-300">Rueda Libre · Rueda Nocturna</p>
+        <h1 class="text-4xl font-bold tracking-tight text-white">Kit de componentes</h1>
+        <p class="max-w-2xl text-lg leading-7 text-slate-300">Botones, cards, alertas y campos con una escala visual compartida.</p>
+      </header>
+
+      <section aria-labelledby="botones-title" class="space-y-6">
+        <h2 id="botones-title" class="text-2xl font-bold text-white">Botones</h2>
+        <div class="flex flex-wrap gap-4">
+          <a class="inline-block rounded-xl bg-amber-300 px-6 py-3 font-bold text-slate-950 shadow-md transition-colors hover:bg-amber-200 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-slate-950" href="#formulario">Principal</a>
+          <a class="inline-block rounded-xl bg-slate-700 px-6 py-3 font-semibold text-white shadow-md transition-colors hover:bg-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-300 focus:ring-offset-2 focus:ring-offset-slate-950" href="#formulario">Secundario</a>
+          <a class="inline-block rounded-xl border border-amber-300 px-6 py-3 font-semibold text-amber-200 shadow-md transition-colors hover:bg-amber-300 hover:text-slate-950 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-slate-950" href="#formulario">Contorno</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="card-title" class="space-y-6">
+        <h2 id="card-title" class="text-2xl font-bold text-white">Card de ruta</h2>
+        <article class="max-w-md overflow-hidden rounded-xl border border-slate-700 bg-slate-900 shadow-lg transition-shadow hover:shadow-xl">
+          <img class="h-56 w-full object-cover" src="../img/bici.jpg" alt="Ciclistas recorren Medellín en bicicleta" />
+          <div class="space-y-5 p-6">
+            <span class="inline-block rounded-full bg-emerald-900 px-3 py-1 text-sm font-semibold text-emerald-200">Nivel fácil</span>
+            <h3 class="text-2xl font-bold text-white">Luces del Centro</h3>
+            <dl class="space-y-4">
+              <div>
+                <dt class="text-sm font-medium text-slate-400">Distancia</dt>
+                <dd class="text-lg font-semibold text-slate-100">10 km</dd>
+              </div>
+              <div>
+                <dt class="text-sm font-medium text-slate-400">Duración</dt>
+                <dd class="text-lg font-semibold text-slate-100">2 h</dd>
+              </div>
+              <div>
+                <dt class="text-sm font-medium text-slate-400">Punto de encuentro</dt>
+                <dd class="text-lg font-semibold text-slate-100">Sede de Rueda Libre</dd>
+              </div>
+            </dl>
+            <p class="text-2xl font-bold text-amber-300">$55.000</p>
+            <a class="inline-block rounded-xl bg-amber-300 px-6 py-3 font-bold text-slate-950 shadow-md transition-colors hover:bg-amber-200 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-slate-900" href="#formulario">Inscríbete</a>
+          </div>
+        </article>
+      </section>
+
+      <section aria-labelledby="alertas-title" class="space-y-6">
+        <h2 id="alertas-title" class="text-2xl font-bold text-white">Alertas</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl border-l-4 border-sky-400 bg-sky-950/60 p-6 shadow-md" role="note">
+            <h3 class="text-lg font-bold text-sky-200">Información</h3>
+            <p class="mt-2 leading-6 text-sky-100">Llega 15 minutos antes de la salida para ajustar tu bicicleta.</p>
+          </div>
+          <div class="rounded-xl border-l-4 border-emerald-400 bg-emerald-950/60 p-6 shadow-md" role="status" aria-live="polite">
+            <h3 class="text-lg font-bold text-emerald-200">Inscripción confirmada</h3>
+            <p class="mt-2 leading-6 text-emerald-100">Tu cupo está reservado. Te esperamos en la sede de Rueda Libre.</p>
+          </div>
+          <div class="rounded-xl border-l-4 border-amber-400 bg-amber-950/60 p-6 shadow-md" role="alert">
+            <h3 class="text-lg font-bold text-amber-200">Advertencia</h3>
+            <p class="mt-2 leading-6 text-amber-100">La ruta de Las Palmas exige experiencia y buena condición física.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="formulario" aria-labelledby="formulario-title" class="max-w-xl space-y-6">
+        <h2 id="formulario-title" class="text-2xl font-bold text-white">Campos de formulario</h2>
+        <form class="space-y-6">
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-200" for="correo">Correo electrónico</label>
+            <input class="block w-full rounded-xl border border-slate-600 bg-slate-900 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-slate-950" id="correo" name="correo" type="email" placeholder="nombre@ejemplo.com" aria-describedby="correo-ayuda" />
+            <p class="text-sm leading-5 text-slate-400" id="correo-ayuda">Usaremos este correo para enviarte la confirmación de la ruta.</p>
+          </div>
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-200" for="celular">Celular</label>
+            <input class="block w-full rounded-xl border border-slate-600 bg-slate-900 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-slate-950" id="celular" name="celular" type="tel" placeholder="300 123 4567" aria-describedby="celular-ayuda" />
+            <p class="text-sm leading-5 text-slate-400" id="celular-ayuda">Incluye el número donde podamos contactarte durante la actividad.</p>
+          </div>
+          <button class="rounded-xl bg-amber-300 px-6 py-3 font-bold text-slate-950 shadow-md transition-colors hover:bg-amber-200 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-slate-950" type="button">Enviar datos</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

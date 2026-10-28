@@ -706,3 +706,80 @@ paginas. La comprobacion visual y funcional local esta hecha y se conservaron
 capturas. El producto queda listo en el commit local de lanzamiento, pero el
 cierre de publicacion no puede darse por terminado hasta sincronizar el
 repositorio y verificar que GitHub Pages sirva la v2.0.
+
+20. PROTOTIPO DE CAMPANA RUEDA NOCTURNA CON TAILWIND (2026-10-28)
+-----------------------------------------------------------------
+
+Se creo `nocturna/prototipo.html` como una seccion principal independiente
+para revisar el estilo de la campana. El documento carga Tailwind mediante su
+Play CDN y usa clases de utilidad para espaciado, ancho maximo, colores y
+tipografia. Incluye la etiqueta "Nuevo · Jueves a sábado", un unico h1
+"Rueda Nocturna", el subtitulo, los datos "3 rutas" y "Desde $55.000", y el
+enlace "Inscríbete".
+
+Comparacion del boton:
+* En la semana 2, el boton se construyo con Bootstrap usando clases de
+  componente como `btn` y una variante como `btn-success`; Bootstrap aplica
+  los estilos del componente predefinido.
+* Hoy, el enlace "Inscríbete" se presenta como boton con utilidades Tailwind
+  de fondo, color de texto, padding, tamano, peso, mayusculas y espaciado
+  entre letras (`bg-amber-300`, `text-slate-950`, `px-6`, `py-3`, entre otras).
+* Diferencia clave: un framework de componentes ofrece piezas preestilizadas
+  con nombres semanticos como `btn-success`; uno utility-first permite
+  construir la apariencia combinando clases pequenas directamente en el
+  marcado, con control mas granular y sin depender de un componente ya
+  definido.
+
+21. TAILWIND CLI Y VARIANTES DE BOTONES (2026-10-28)
+----------------------------------------------------
+
+En `nocturna/` se instalaron `tailwindcss` y `@tailwindcss/cli`. La entrada
+`src/input.css` importa Tailwind con `@import "tailwindcss"`; la CLI se
+ejecuto desde esa carpeta con `npx tailwindcss -i ./src/input.css -o
+./src/output.css --watch=always`. El archivo generado se conserva en el
+repositorio para que el HTML funcione en GitHub Pages sin ejecutar Node.js.
+`.gitignore` excluye `node_modules/`.
+
+Al buscar en `src/output.css`, se encontraron reglas para utilidades usadas
+como `.bg-slate-950` y `.rounded-lg`, asi como selectores de estado como
+`.hover\\:bg-amber-200:hover` y `.focus\\:ring-4:focus`. No se encontro
+`.bg-pink-500`, porque esa clase no aparece en el HTML escaneado. Tailwind CLI
+detecta las clases presentes en los archivos fuente y genera solo el CSS que
+necesitan; omitir clases no usadas reduce el archivo final.
+
+`nocturna/index.html` enlaza `src/output.css` y presenta tres variantes de
+accion: principal, secundaria y de contorno. Cada una usa `hover:` para el
+cambio visual al pasar el puntero y `focus:` con anillo de color y separacion
+para hacer visible el foco al navegar con teclado. Se conservaron los estilos
+de anillo junto a `focus:outline-none`, de modo que el foco nativo solo se
+retira cuando existe un indicador visible de reemplazo. En Chromium, Tab enfoco
+en orden "Inscríbete", "Ver rutas" y "Conocer detalles"; el anillo visible
+aparecio alrededor de cada enlace enfocado.
+
+22. KIT DE COMPONENTES (2026-10-28)
+-----------------------------------
+
+`nocturna/componentes.html` reúne las tres variantes de botón, una card de
+ruta, alertas informativa/de éxito/de advertencia y campos de correo y
+celular. Los campos tienen etiquetas enlazadas por `for`/`id`, texto de ayuda
+asociado y un anillo visible al recibir foco. La alerta de éxito usa
+`role="status"` y `aria-live="polite"` para anunciar el aviso sin interrumpir
+la lectura; la advertencia usa `role="alert"`.
+
+Reglas compartidas del kit:
+* Radios: `rounded-xl` en botones, cards, alertas y campos. Las etiquetas
+  compactas de categoría usan `rounded-full` para distinguirse como badges.
+* Espaciado: se mantiene la escala base de Tailwind en múltiplos de 4 px.
+  Se repiten `p-6` en superficies, `px-6 py-3` en botones, `px-4 py-3` en
+  campos, y `space-y-4`/`space-y-6` para separar elementos y secciones.
+* Colores: `slate-950`, `slate-900`, `slate-700` y `slate-400` forman fondos,
+  texto y bordes neutros; `amber-300` y `amber-200` identifican acciones
+  principales y foco. Las alertas usan acentos semánticos sky (información),
+  emerald (éxito) y amber (advertencia), con fondo y texto del mismo tono.
+* Bordes y elevación: se repiten `border`, `border-slate-700` y `shadow-md`;
+  la card usa `shadow-lg` y aumenta a `shadow-xl` al pasar el puntero, sin
+  transformar ni desplazar su contenido.
+
+La página de componentes y `index.html` cargan el CSS compilado
+`src/output.css`; los estilos se generan con Tailwind CLI a partir de las
+clases detectadas en los HTML del kit.
