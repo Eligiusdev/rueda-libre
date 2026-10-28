@@ -986,11 +986,13 @@ Comprobaciones con Chromium local:
 
 **Tiempo real:** cronómetro iniciado a las 18:53:21 UTC para un límite de 40
 minutos. Tiempo invertido en construcción, verificación y publicación:
-aproximadamente 7 minutos (finalizado antes del límite).
+aproximadamente 9 minutos (finalizado antes del límite).
 
 El cliente confirmó que por ahora solo se validan los datos. Por eso la página
 avisa que no se envían ni se guardan, y el controlador cancela el POST aunque la
 validación sea correcta. La recepción podrá conectarse al endpoint o servicio
 que se defina después. El texto y la URL de las condiciones no fueron
 suministrados; la casilla registra la aceptación, pero aún debe enlazarse a las
-condiciones aprobadas.
+condiciones aprobadas. Tras publicar, la página y `src/inscripcion.js` dieron
+200; una prueba con datos ficticios mostró el aviso de validación y no generó
+ninguna solicitud POST.
