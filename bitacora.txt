@@ -951,3 +951,46 @@ las cards se mostraron en una, dos y tres columnas según breakpoint, el
 encabezado se apiló solo en móvil y no hubo scroll horizontal. También emulé
 `prefers-color-scheme: light` y `dark`: cambiaron fondo, título y superficies,
 los CTA conservaron sus colores y el navegador no reportó errores JavaScript.
+
+
+28. FORMULARIO DE INSCRIPCION DE RUEDA NOCTURNA (2026-10-28)
+------------------------------------------------------------
+
+Se agregó a `nocturna/index.html` una sección de inscripción con tres grupos
+semánticos (`fieldset`/`legend`): datos personales, detalles de salida y
+confirmación. Cada control tiene etiqueta asociada. Hay campos de texto, correo
+y celular, selectores para ruta, día y experiencia, número de acompañantes,
+radios para bicicleta propia y casilla requerida para aceptar condiciones.
+
+Todos los controles son obligatorios. El nombre usa `minlength="3"`; el
+celular aplica `pattern="3[0-9]{9}"` y un `title` que explica el formato; los
+acompañantes usan `min="0"`, `max="3"` y `step="1"`. Los tres selectores
+solo ofrecen las alternativas acordadas. En md el formulario usa dos columnas
+para los campos breves; en móvil mantiene una. Se reutilizaron las superficies,
+radius y estados focus del kit, con campos, radios, checkbox y grupos adaptados
+a `dark:`.
+
+Comprobaciones con Chromium local:
+* Formulario vacío: inválido; los 10 controles requeridos impiden el envío.
+* Datos no válidos: el nombre de dos caracteres, el celular que no empieza
+  por 3 o no tiene 10 dígitos, y cuatro acompañantes quedan rechazados.
+* El valor 0 para acompañantes es válido. Un ejemplo completo con ruta, día,
+  experiencia, opción de bicicleta y aceptación quedó válido.
+* Recorrido con Tab, flechas, Espacio y Enter: se completaron los campos y se
+  disparó el evento de envío con el formulario válido. La prueba local interceptó
+  ese evento para no transmitir datos personales. Todos los controles tienen
+  etiqueta asociada.
+* A 360 px el formulario ocupa una columna y no desborda; a 768 px y 1280 px
+  los campos se disponen en dos columnas. En esquema oscuro el fondo y los
+  controles cambian a Azul Noche.
+
+**Tiempo real:** cronómetro iniciado a las 18:53:21 UTC para un límite de 40
+minutos. Tiempo invertido en construcción y verificación: aproximadamente
+4 minutos (finalizado antes del límite).
+
+**Pendiente para recibir inscripciones:** la landing estática de GitHub Pages no
+incluye un servicio que procese POST. El formulario valida en el navegador, pero
+no se conecta a almacenamiento ni a un destinatario; queda por configurar el
+endpoint o servicio de recepción antes de anunciarlo como canal operativo. El
+texto y la URL de las condiciones tampoco fueron suministrados; la casilla
+registra la aceptación, pero debe enlazarse a las condiciones aprobadas.
