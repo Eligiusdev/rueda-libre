@@ -985,8 +985,8 @@ Comprobaciones con Chromium local:
   controles cambian a Azul Noche.
 
 **Tiempo real:** cronómetro iniciado a las 18:53:21 UTC para un límite de 40
-minutos. Tiempo invertido en construcción y verificación: aproximadamente
-6 minutos (finalizado antes del límite).
+minutos. Tiempo invertido en construcción, verificación y publicación:
+aproximadamente 7 minutos (finalizado antes del límite).
 
 El cliente confirmó que por ahora solo se validan los datos. Por eso la página
 avisa que no se envían ni se guardan, y el controlador cancela el POST aunque la
