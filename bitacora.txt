@@ -1035,3 +1035,22 @@ suministrados; la casilla registra la aceptación, pero aún debe enlazarse a la
 condiciones aprobadas. Tras publicar, la página y `src/inscripcion.js` dieron
 200; una prueba con datos ficticios mostró el aviso de validación y no generó
 ninguna solicitud POST.
+
+Revalidacion del formulario el 2026-10-30 en Chromium:
+* Formulario vacio: al intentar enviarlo con Enter, el navegador bloqueo el
+  envio, enfoco el primer campo requerido y no mostro el estado de exito.
+* Nombre de 2 caracteres, correo invalido, celular con prefijo distinto de 3,
+  celular con 9 digitos y acompañantes -1 o 4 quedaron invalidados por las
+  reglas nativas. Cero acompañantes fue aceptado.
+* Formulario completo con datos ficticios: se recorrieron los controles con
+  Tab, se eligieron las opciones con flechas/Enter, se marco la bicicleta y
+  las condiciones con Espacio, y se activo el boton con Enter. El formulario
+  quedo valido y se mostro el aviso; el controlador cancelo el POST.
+* Los 10 controles requeridos, las etiquetas asociadas y ambos radios se
+  verificaron. El navegador no transmitio ni guardo datos; falta conectar un
+  destino cuando el cliente lo defina.
+
+**Cronometro de esta revalidacion:** inicio 08:28:21, fin 08:29:14
+(hora local UTC-05:00); tiempo real 53 segundos, dentro del limite de 40
+minutos. El formulario ya estaba implementado, por lo que esta pasada se
+dedico a verificarlo y registrar resultados; no se modifico su comportamiento.
