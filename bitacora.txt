@@ -903,27 +903,34 @@ de Montserrat y Open Sans desde Google Fonts.
 27. REFACTORIZACION Y COMPARATIVA DE FRAMEWORKS (2026-10-28)
 -------------------------------------------------------------
 
-Antes de refactorizar, conté las listas completas de clases repetidas en
-`nocturna/index.html`. Las repeticiones principales eran:
+Conté las listas exactas de clases repetidas en `nocturna/index.html`. Las
+repeticiones principales al finalizar la refactorización son:
 
 | Elemento / lista de clases | Apariciones |
 | --- | ---: |
-| Botón principal (misma lista larga de utilidades) | 5 |
-| CTA del encabezado (lista adaptada al tamaño móvil) | 1 |
-| Enlaces de navegación con hover y foco | 4 |
-| Etiquetas de sección y de pasos (dos listas distintas) | 4 cada una |
+| Botón principal (`btn-primary`; cinco sin modificadores y CTA compacto en encabezado) | 6 |
+| Botón secundario (`btn-secondary`) | 1 |
+| Enlaces de navegación con estados hover/focus | 4 |
+| Etiquetas de sección | 4 |
+| Etiquetas de pasos | 4 |
 | Bloques de cada paso (`space-y-3`) | 4 |
-| Títulos de las rutas y descripciones de pasos | 4 cada lista |
+| Títulos de ruta / pasos | 3 / 4 |
 | Card de ruta (contenedor) | 3 |
 | Imagen de ruta | 3 |
 | Interior de la card | 3 |
+| Etiquetas de dificultad | 3 |
 | Etiqueta de dato (`dt`) | 9 |
 | Valor de dato (`dd`) | 9 |
+| Etiquetas de formulario (`label`) | 8 |
+| Selectores y campo numérico con clases de control compartidas | 4 |
 
-La landing tiene seis acciones principales: cinco comparten exactamente la
-lista larga del botón y el CTA del encabezado añade ajustes responsivos. El
-botón secundario aparece una vez. Las cards conservan sus clases del kit y la
-misma estructura; no las convertí en clases propias.
+Las clases compartidas de los botones se extrajeron a `.btn-primary`,
+`.btn-secondary` y `.btn-outline` con `@layer components` y `@apply` en
+`nocturna/src/input.css` (tres clases propias en total). La landing usa
+`btn-primary` en seis acciones, con solo modificadores de tamaño para el CTA
+del encabezado, y `btn-secondary` una vez. Las cards conservan el marcado y las
+clases del kit, repetidas de forma consistente. Las listas de clases se
+ordenaron por layout, espaciado, tipografía, color y estados.
 
 En `src/input.css` encapsulé las tres variantes del kit en `.btn-primary`,
 `.btn-secondary` y `.btn-outline`, usando `@layer components` y `@apply`. Los
@@ -934,41 +941,55 @@ se ordenaron por elemento como layout, espaciado, tipografía, color y estados
 El CTA del encabezado mantiene los ajustes compactos en móvil. Las cards
 siguen compartiendo el mismo marcado y sus clases base.
 
-La CLI generó el CSS de producción con `--minify`. El archivo local
-`nocturna/src/output.css` mide **27.811 bytes (27,2 KiB)**. Para comparar con
-la versión 2.0, cargué `index.html` en Chromium y revisé las respuestas reales
-de Network sin caché en una sesión nueva. La respuesta comprimida Brotli de
-Bootstrap 5.3.8 midió **33.466 bytes de cuerpo CSS** (cabecera
-`Content-Length`: 33.048 bytes) y **25.254 bytes de cuerpo JavaScript**
-(`Content-Length`: 24.469 bytes). Sin compresión, los recursos eran 232.111
-bytes CSS y 80.496 bytes JavaScript. Los bytes de cuerpo reportados por
-Chromium incluyen la transferencia comprimida; no incluyen cabeceras HTTP.
-Tailwind se sirvió localmente sin compresión, por lo que su medida de 27.811
-bytes es el tamaño íntegro del archivo minificado. Bootstrap Icons y otros
-scripts del sitio no se sumaron a Bootstrap.
+La CLI generó el CSS de producción con `--minify`; `nocturna/src/output.css`
+mide **28.220 bytes (27,6 KiB)**. Para comparar con la versión 2.0, revisé en
+Chromium/Network las solicitudes de Bootstrap 5.3.8. Como Resource Timing no
+expone tamaños de recursos cross-origin sin `Timing-Allow-Origin`, confirmé
+las respuestas CDN con `Accept-Encoding: br`: CSS `bootstrap.min.css`,
+**33.048 bytes**; JavaScript `bootstrap.bundle.min.js`, **24.469 bytes**.
+Ambas respuestas devuelven `Content-Encoding: br` y HTTP 200. Sin compresión,
+los archivos miden 232.111 bytes CSS y 80.496 bytes JavaScript. Tailwind se
+entrega como un archivo local minificado de 28.220 bytes sin compresión en esta
+medición; no requiere JavaScript de Tailwind en el navegador. Son tamaños de
+respuesta codificada frente a tamaño local sin comprimir, no una comparación
+con la misma compresión. Bootstrap Icons y otros scripts del sitio no se
+sumaron a Bootstrap.
 
 | Criterio | Bootstrap (sitio v2.0) | Tailwind (landing nocturna) |
 | --- | --- | --- |
 | Curva de aprendizaje | Más directo al reconocer componentes y patrones listos; hay que aprender la estructura y las opciones del framework. | Requiere aprender nombres y composición de utilidades; el prototipo avanzó rápido, pero las listas repetidas pedían una abstracción puntual para los botones. |
 | Personalización | Se adapta mediante variables y estilos añadidos; los componentes prediseñados aportan una apariencia inicial reconocible. | Los tokens `@theme` y las utilidades permitieron aplicar la marca, los breakpoints y el modo oscuro directamente al diseño de la campaña. |
-| Tamaño final medido | El navegador transfirió 33.466 B de CSS y 25.254 B de JavaScript de Bootstrap comprimidos. | La hoja completa minificada mide 27.811 B sin compresión e incluye los estilos detectados para la landing y el kit; no requiere JavaScript de Tailwind en el navegador. |
+| Tamaño final medido | Bootstrap 5.3.8: 33.048 B CSS y 24.469 B JavaScript en respuestas Brotli; sin comprimir, 232.111 B y 80.496 B. | La hoja minificada mide 28.220 B sin compresión e incluye estilos detectados para landing y kit; no requiere JavaScript de Tailwind en el navegador. |
 | Casos de uso que observé | Adecuado para páginas que necesitan componentes habituales rápido y ya siguen el lenguaje visual de Bootstrap. | Adecuado para interfaces con diseño propio y CSS de producción limitado a las utilidades presentes, como la campaña nocturna. |
 
 **Recomendación para Rueda Libre:** usar Tailwind para la siguiente versión
 integral del sitio y mantener el tema y el kit como base común. En esta
 experiencia, la landing pudo llevar la identidad visual completa sin añadir un
-paquete de JavaScript del framework al navegador; el CSS minificado (27.811 B)
-fue menor incluso que el cuerpo CSS comprimido medido de Bootstrap (33.466 B).
-La diferencia requiere mantener criterios de clase y agrupar patrones
+paquete de JavaScript del framework al navegador; su CSS minificado (28.220 B
+sin comprimir) fue menor que el CSS Bootstrap transferido con Brotli (33.048 B).
+La comparación de transferencia es orientativa porque los tamaños usan
+compresiones distintas. La diferencia requiere mantener criterios de clase y agrupar patrones
 repetidos, como hicimos con los tres botones. Bootstrap sigue siendo una opción
 práctica para páginas nuevas que prioricen componentes convencionales y un
 arranque rápido.
 
-Después de la compilación comprobé la landing en 360, 768, 1024 y 1280 px:
-las cards se mostraron en una, dos y tres columnas según breakpoint, el
-encabezado se apiló solo en móvil y no hubo scroll horizontal. También emulé
-`prefers-color-scheme: light` y `dark`: cambiaron fondo, título y superficies,
-los CTA conservaron sus colores y el navegador no reportó errores JavaScript.
+Revalidación en Chromium el 2026-10-30, con viewport móvil/tablet/escritorio y
+`prefers-color-scheme: light`. En los cuatro anchos no hubo scroll horizontal;
+las rutas cambiaron de una a dos columnas desde 640 px y a tres desde 1024 px.
+El encabezado se apiló en móvil, escondió enlaces y conservó el CTA visible; a
+partir de `md` se presentó en fila. Los pasos cambiaron de una a dos columnas
+desde 640 px y cuatro desde 1024 px.
+
+| Viewport | Encabezado | Rutas | Pasos | Enlaces | CTA | Scroll horizontal |
+| --- | --- | --- | --- | --- | --- | --- |
+| 360 px | Apilado | 1 columna | 1 columna | Ocultos | Visible | No |
+| 768 px | En fila | 2 columnas | 2 columnas | Visibles | Visible | No |
+| 1024 px | En fila | 3 columnas | 4 columnas | Visibles | Visible | No |
+| 1280 px | En fila | 3 columnas | 4 columnas | Visibles | Visible | No |
+
+También se emuló `prefers-color-scheme: dark`: el fondo cambió a Azul Noche,
+el título a Amarillo Farol y los CTA conservaron sus colores; el contraste de
+los textos comprobados se mantuvo sobre 4,5:1.
 
 
 28. FORMULARIO DE INSCRIPCION DE RUEDA NOCTURNA (2026-10-28)
