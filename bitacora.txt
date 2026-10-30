@@ -794,13 +794,14 @@ Las cards usan la misma estructura, radios, borde, sombra, jerarquía de datos
 y botón principal definidos en `componentes.html`.
 
 Todas las secciones, el encabezado y el pie comparten el contenedor
-`mx-auto max-w-7xl px-6`. Las tres rutas usan Grid con tres columnas desde
-md: cada ruta ocupa una celda de la misma fila y puede apilarse en pantallas
-estrechas. Los cuatro pasos también usan Grid: representan elementos del
-mismo nivel en dos dimensiones (columnas y filas) y pasan de una a dos y
-cuatro columnas según el ancho; no requieren distribuirse en un único eje.
-El pie usa Flexbox porque distribuye tres bloques a lo largo de una fila y
-puede apilarlos en pantallas estrechas.
+`mx-auto max-w-7xl px-4 sm:px-6`. Las tres rutas usan Grid con una columna
+en móvil, dos desde `sm` y tres desde `lg`: cada ruta ocupa una celda de la
+misma fila en escritorio y puede apilarse en pantallas estrechas. Los cuatro
+pasos también usan Grid: representan elementos del mismo nivel en dos
+dimensiones (columnas y filas) y pasan de una a dos y cuatro columnas según
+el ancho; no requieren distribuirse en un único eje. El pie usa Flexbox
+porque distribuye tres bloques a lo largo de una fila y puede apilarlos en
+pantallas estrechas.
 
 24. REVISION INICIAL MOBILE-FIRST A 360 PX (2026-10-28)
 -------------------------------------------------------
