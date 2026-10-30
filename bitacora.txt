@@ -1121,3 +1121,35 @@ de lanzamiento. Los cambios de esta auditoría aún no están publicados. El
 entorno no dispone de credenciales para push (`unable to get password from
 user`); no se presenta la corrección local como si ya estuviera en GitHub
 Pages.
+
+30. MINI RETO 11: PLANES DE SALIDA (2026-10-30)
+------------------------------------------------
+
+Tras confirmar con el cliente que los planes deben reutilizar la oferta
+publicada, se agregó `id="planes"` a la navegación y una sección comercial
+entre rutas y pasos. Los tres planes reutilizan nivel, distancia, duración,
+punto de encuentro y precio de las rutas existentes; no se añadieron
+beneficios ni tarifas nuevas. El contenido común de inclusión coincide con
+el ya publicado para las salidas.
+
+Las cards reutilizan el patrón visual de ruta del kit: borde, superficie,
+radio, sombra, padding y botón aprobado. Grid distribuye las tarjetas en una
+columna en móvil, dos desde `sm` y tres desde `lg`; Flexbox iguala la
+distribución interior y mantiene las acciones alineadas al fondo. Cada acción
+ancla a inscripción y preselecciona la ruta correspondiente en el selector.
+Las tres rutas fueron probadas; cada CTA dejó el valor correcto y navegó a
+`#inscripcion`.
+
+La landing con planes se volvió a probar a 360, 640, 768, 1024 y 1280 px. No
+hubo desbordamiento horizontal; las rutas y planes cambiaron a 1/2/3 columnas
+y los pasos a 1/2/4. El encabezado se apila en móvil, oculta la navegación y
+mantiene visible Inscríbete; desde `md` pasa a fila con navegación.
+`prefers-color-scheme: dark` mantuvo las superficies oscuras y se actualizaron
+las capturas de escritorio, celular y modo oscuro.
+
+Nu Html Checker 26.10.18 volvió a validar la landing con los planes: cero
+errores y cero avisos. `src/output.css`, compilado con `--minify` desde
+`nocturna/`, pasó de 28.220 a **28.303 bytes** por las utilidades de la nueva
+sección; una segunda compilación produjo exactamente el mismo archivo. Se
+actualizaron `README.md` y esta bitácora. Push y verificación de la versión
+publicada siguen pendientes por falta de credenciales GitHub.

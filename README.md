@@ -26,7 +26,8 @@ Las rutas públicas respondieron HTTP 200 al verificarlas el 30 de octubre de
 - `paginas/tarifas.html`: tarifas de bicicletas y recorridos.
 - `paginas/reservas.html`: formulario validado, opciones de bicicleta y
   recorrido, políticas y datos de contacto.
-- `nocturna/index.html`: hero de campaña, tres rutas, cuatro pasos,
+- `nocturna/index.html`: hero de campaña, tres rutas, sección de planes basada
+  en esas rutas, cuatro pasos,
   inscripción y pie de página con enlaces al sitio.
 - `nocturna/componentes.html`: kit de componentes de Rueda Nocturna.
 
@@ -53,7 +54,7 @@ cd nocturna
 ./node_modules/.bin/tailwindcss -i ./src/input.css -o ./src/output.css --minify
 ```
 
-`nocturna/src/output.css` está versionado y mide **28.220 bytes**. La
+`nocturna/src/output.css` está versionado y mide **28.303 bytes**. La
 compilación reproducida desde `nocturna/` coincide con el archivo entregado.
 
 ## Responsive y accesibilidad
@@ -62,13 +63,13 @@ En Chromium local se revisaron las cuatro páginas principales a 360, 768 y
 1280 px: ninguna presentó desbordamiento horizontal; las imágenes cargaron y
 todas tienen texto alternativo. La landing también se probó a 640 y 1024 px:
 
-| Ancho | Rutas | Pasos | Encabezado de Nocturna |
-| ---: | ---: | ---: | --- |
-| 360 px | 1 columna | 1 columna | Apilado; enlaces ocultos y CTA visible |
-| 640 px | 2 columnas | 2 columnas | Apilado; enlaces ocultos |
-| 768 px | 2 columnas | 2 columnas | En fila; navegación visible |
-| 1024 px | 3 columnas | 4 columnas | En fila |
-| 1280 px | 3 columnas | 4 columnas | En fila |
+| Ancho | Rutas | Planes | Pasos | Encabezado de Nocturna |
+| ---: | ---: | ---: | ---: | --- |
+| 360 px | 1 columna | 1 columna | 1 columna | Apilado; enlaces ocultos y CTA visible |
+| 640 px | 2 columnas | 2 columnas | 2 columnas | Apilado; enlaces ocultos |
+| 768 px | 2 columnas | 2 columnas | 2 columnas | En fila; navegación visible |
+| 1024 px | 3 columnas | 3 columnas | 4 columnas | En fila |
+| 1280 px | 3 columnas | 3 columnas | 4 columnas | En fila |
 
 El formulario de campaña usa `fieldset`, `legend`, etiquetas asociadas y
 validación nativa: nombre de al menos 3 caracteres, correo válido, celular de
@@ -109,7 +110,7 @@ Mediciones anotadas en DevTools y la bitácora:
 | --- | --- | --- |
 | Curva de aprendizaje | Componentes y patrones listos; requiere aprender estructura y opciones. | Requiere aprender utilidades y ordenar clases; la composición aceleró el diseño de la landing. |
 | Personalización | Variables y estilos propios sobre componentes del framework. | `@theme` permitió aplicar directamente colores, fuentes, breakpoints y modo oscuro. |
-| Tamaño medido | CSS 33.048 B y JS 24.469 B transferidos con Brotli; sin comprimir, 232.111 B y 80.496 B. | CSS minificado de 28.220 B sin comprimir; Tailwind no requiere JS del framework en el navegador. |
+| Tamaño medido | CSS 33.048 B y JS 24.469 B transferidos con Brotli; sin comprimir, 232.111 B y 80.496 B. | CSS minificado actual de 28.303 B sin comprimir; Tailwind no requiere JS del framework en el navegador. |
 | Casos de uso | Páginas que priorizan componentes convencionales listos y un arranque rápido. | Interfaces con diseño propio y CSS final limitado a las utilidades detectadas. |
 
 Los tamaños transferidos de Bootstrap comprimido no son directamente
@@ -127,11 +128,11 @@ componentes estándar.
    móviles en participantes de recorridos nocturnos.
 2. **0:25–1:05 — Sitio:** abrir Inicio, enseñar catálogo y promociones, y entrar
    a Rueda Nocturna desde la navegación/carrusel.
-3. **1:05–1:40 — Landing:** recorrer las tres rutas y los cuatro pasos; mostrar
-   que el logo vuelve al sitio.
-4. **1:40–2:15 — Inscripción:** demostrar validación vacía y completar el
-   formulario con teclado. Aclarar que hoy solo valida localmente y aún no
-   recibe datos.
+3. **1:05–1:40 — Landing:** recorrer las rutas y sus planes, los cuatro pasos;
+   mostrar que el logo vuelve al sitio.
+4. **1:40–2:15 — Inscripción:** seleccionar un plan para preelegir su ruta,
+   demostrar validación vacía y completar el formulario con teclado. Aclarar
+   que hoy solo valida localmente y aún no recibe datos.
 5. **2:15–2:40 — Adaptación:** mostrar la vista a 360 px y activar la
    preferencia de color oscuro.
 6. **2:40–3:00 — Decisiones:** explicar el diseño mobile-first y la
@@ -139,6 +140,14 @@ componentes estándar.
 
 **Ensayo y retroalimentación:** pendientes de realizar con un compañero. No se
 atribuye una retroalimentación que todavía no se ha recibido.
+
+## MiniReto 11: planes de salida
+
+La sección de planes reutiliza las tres rutas, duraciones, distancias, niveles
+y precios aprobados, sin crear una oferta nueva. Sus cards combinan Grid para
+distribuirse en una, dos y tres columnas; Flexbox mantiene las acciones
+alineadas y las utilidades de padding, borde y separación resuelven el box
+model. Cada CTA lleva al formulario y preselecciona la ruta correspondiente.
 
 ## Aprendizajes y pendientes de entrega
 
@@ -150,9 +159,6 @@ atribuye una retroalimentación que todavía no se ha recibido.
   claras entre carpetas.
 - La validación del navegador no equivale a recibir una inscripción: falta
   conectar un destino seguro y aprobado.
-- La tabla de rutas no sustituye una sección comercial de **planes**. Aunque
-  esa sección aparece en el resumen de los 12 MiniRetos, no hay contenido
-  aprobado para sus nombres, inclusiones o precios; no se inventó una oferta.
 - Falta autenticar GitHub para subir el commit de lanzamiento y verificar que
   Pages sirva la versión actualizada. La demo está preparada, pero falta
   ensayarla con una persona y registrar su feedback.

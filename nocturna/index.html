@@ -17,6 +17,7 @@
         <nav aria-label="Navegación principal" class="hidden items-center justify-end gap-4 font-montserrat md:flex lg:gap-6">
           <a class="font-semibold text-crema transition-colors hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol focus:ring-offset-2 focus:ring-offset-crema dark:focus:ring-offset-azul-noche" href="#inicio">Inicio</a>
           <a class="font-semibold text-crema transition-colors hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol focus:ring-offset-2 focus:ring-offset-crema dark:focus:ring-offset-azul-noche" href="#rutas">Rutas</a>
+          <a class="font-semibold text-crema transition-colors hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol focus:ring-offset-2 focus:ring-offset-crema dark:focus:ring-offset-azul-noche" href="#planes">Planes</a>
           <a class="font-semibold text-crema transition-colors hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol focus:ring-offset-2 focus:ring-offset-crema dark:focus:ring-offset-azul-noche" href="#como-funciona">Cómo funciona</a>
           <a class="font-semibold text-crema transition-colors hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol focus:ring-offset-2 focus:ring-offset-crema dark:focus:ring-offset-azul-noche" href="#contacto">Contacto</a>
         </nav>
@@ -92,6 +93,63 @@
                 </dl>
                 <p class="text-xl font-bold text-verde-ruta dark:text-amarillo-farol sm:text-2xl">$95.000</p>
                 <a class="btn-primary" href="#inscripcion">Inscríbete</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="planes" aria-labelledby="planes-title">
+        <div class="mx-auto max-w-7xl space-y-6 px-4 sm:space-y-8 sm:px-6">
+          <div class="space-y-2 sm:space-y-3">
+            <p class="text-sm font-semibold uppercase tracking-widest text-verde-ruta dark:text-amarillo-farol">Elige tu salida</p>
+            <h2 id="planes-title" class="font-montserrat text-2xl font-bold tracking-tight text-azul-noche dark:text-crema sm:text-3xl">Planes para rodar</h2>
+            <p class="max-w-2xl text-base leading-6 text-azul-noche/80 dark:text-crema/85 sm:text-lg sm:leading-7">Cada plan corresponde a una de las rutas. Todos incluyen bicicleta, casco, luces LED, chaleco reflectivo y guía.</p>
+          </div>
+
+          <div class="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            <article class="flex w-full max-w-md flex-col overflow-hidden rounded-xl border border-verde-ruta/45 bg-crema shadow-lg transition-shadow hover:shadow-xl dark:border-verde-claro/50 dark:bg-azul-noche/90">
+              <img class="h-48 w-full object-cover sm:h-56" src="../img/bici.jpg" alt="Ciclistas recorren las calles de Medellín" />
+              <div class="flex flex-1 flex-col space-y-4 p-4 sm:space-y-5 sm:p-6">
+                <span class="inline-block self-start rounded-full bg-verde-claro px-3 py-1 text-sm font-semibold text-azul-noche dark:bg-verde-ruta dark:text-crema">Nivel fácil</span>
+                <h3 class="font-montserrat text-xl font-bold text-azul-noche dark:text-crema sm:text-2xl">Luces del Centro</h3>
+                <dl class="space-y-4">
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Distancia</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">10 km</dd></div>
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Duración</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">2 h</dd></div>
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Punto de encuentro</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">Sede de Rueda Libre</dd></div>
+                </dl>
+                <p class="mt-auto pt-2 text-xl font-bold text-verde-ruta dark:text-amarillo-farol sm:text-2xl">$55.000</p>
+                <a class="btn-primary self-start" href="#inscripcion" data-route-choice="luces-del-centro">Inscribirme en esta ruta</a>
+              </div>
+            </article>
+
+            <article class="flex w-full max-w-md flex-col overflow-hidden rounded-xl border border-verde-ruta/45 bg-crema shadow-lg transition-shadow hover:shadow-xl dark:border-verde-claro/50 dark:bg-azul-noche/90">
+              <img class="h-48 w-full object-cover sm:h-56" src="../img/bici.jpg" alt="Ciclistas recorren los miradores de Medellín" />
+              <div class="flex flex-1 flex-col space-y-4 p-4 sm:space-y-5 sm:p-6">
+                <span class="inline-block self-start rounded-full bg-naranja-pedal px-3 py-1 text-sm font-semibold text-azul-noche dark:bg-naranja-pedal dark:text-azul-noche">Nivel medio</span>
+                <h3 class="font-montserrat text-xl font-bold text-azul-noche dark:text-crema sm:text-2xl">Miradores de la Ciudad</h3>
+                <dl class="space-y-4">
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Distancia</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">16 km</dd></div>
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Duración</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">3 h</dd></div>
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Punto de encuentro</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">Sede de Rueda Libre</dd></div>
+                </dl>
+                <p class="mt-auto pt-2 text-xl font-bold text-verde-ruta dark:text-amarillo-farol sm:text-2xl">$75.000</p>
+                <a class="btn-primary self-start" href="#inscripcion" data-route-choice="miradores-de-la-ciudad">Inscribirme en esta ruta</a>
+              </div>
+            </article>
+
+            <article class="flex w-full max-w-md flex-col overflow-hidden rounded-xl border border-verde-ruta/45 bg-crema shadow-lg transition-shadow hover:shadow-xl dark:border-verde-claro/50 dark:bg-azul-noche/90">
+              <img class="h-48 w-full object-cover sm:h-56" src="../img/bici.jpg" alt="Ciclistas listos para subir hacia Las Palmas" />
+              <div class="flex flex-1 flex-col space-y-4 p-4 sm:space-y-5 sm:p-6">
+                <span class="inline-block self-start rounded-full bg-verde-ruta px-3 py-1 text-sm font-semibold text-crema dark:bg-verde-claro dark:text-azul-noche">Nivel difícil</span>
+                <h3 class="font-montserrat text-xl font-bold text-azul-noche dark:text-crema sm:text-2xl">Luna en Las Palmas</h3>
+                <dl class="space-y-4">
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Distancia</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">22 km</dd></div>
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Duración</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">3,5 h</dd></div>
+                  <div><dt class="text-sm font-medium text-azul-noche/70 dark:text-crema/75">Punto de encuentro</dt><dd class="text-base font-semibold text-azul-noche dark:text-crema sm:text-lg">Sede de Rueda Libre</dd></div>
+                </dl>
+                <p class="mt-auto pt-2 text-xl font-bold text-verde-ruta dark:text-amarillo-farol sm:text-2xl">$95.000</p>
+                <a class="btn-primary self-start" href="#inscripcion" data-route-choice="luna-en-las-palmas">Inscribirme en esta ruta</a>
               </div>
             </article>
           </div>
@@ -223,6 +281,7 @@
         </div>
         <nav aria-label="Enlaces del pie" class="flex flex-col gap-3 text-crema">
           <a class="hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol" href="#rutas">Ver rutas</a>
+          <a class="hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol" href="#planes">Ver planes</a>
           <a class="hover:text-amarillo-farol focus:outline-none focus:ring-4 focus:ring-amarillo-farol" href="#como-funciona">Cómo funciona</a>
         </nav>
         <div class="space-y-2 text-sm text-crema/85">
