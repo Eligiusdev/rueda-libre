@@ -891,6 +891,15 @@ etiqueta y campos; Montserrat y Open Sans se aplican en el navegador. El
 verificador sobre los textos visibles no encontró combinaciones bajo 4,5:1 en
 ninguna de las dos páginas ni en ambos esquemas.
 
+Revalidacion en Chromium el 2026-10-30 con la emulacion de
+`prefers-color-scheme: dark`. En la landing, los 86 textos visibles revisados
+superan 4,5:1 en ambos esquemas; el minimo fue 4,93:1 y no hubo fallos. El kit
+tambien paso en claro y oscuro; el boton Contorno usa Verde Claro sobre Azul
+Noche (13,69:1). Verde Ruta sobre Azul Noche conserva 3,01:1 y se evita como
+color de texto en esa combinacion. Se confirmaron los fondos del esquema claro
+(Crema) y oscuro (Azul Noche), el titulo amarillo en oscuro y la carga efectiva
+de Montserrat y Open Sans desde Google Fonts.
+
 27. REFACTORIZACION Y COMPARATIVA DE FRAMEWORKS (2026-10-28)
 -------------------------------------------------------------
 
