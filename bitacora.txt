@@ -1062,3 +1062,62 @@ modo oscuro descritas arriba. Tiempo real desde el inicio de la solicitud a las
 08:26:45 hasta el cierre a las 08:30:12 (UTC-05:00): **3 minutos y 27
 segundos**, dentro del limite de 40 minutos. Sigue pendiente conectar el
 destino de recepcion si el cliente decide activar la captura de inscripciones.
+
+Nueva pasada de verificacion del formulario, 2026-10-30:
+* Se repitieron con datos ficticios las pruebas de formulario vacio, nombre
+  menor de 3 caracteres, correo invalido, prefijo y longitud de celular no
+  validos, limite superior de acompañantes y valor cero valido.
+* El flujo completo con teclado (Tab, flechas, Espacio y Enter) se valido sin
+  desbordamiento horizontal a 360 px. La emulacion oscura mostro el fondo y
+  controles en Azul Noche; el envio siguio cancelado y no guardo ni transmitio
+  datos.
+* Cronometro iniciado a las 08:32:31 y cerrado a las 08:33:09 (UTC-05:00):
+  **38 segundos**. No se cambio el comportamiento porque el cliente confirmo
+  que esta version solo debe validar en el navegador.
+
+29. AUDITORIA DE LANZAMIENTO Y README (2026-10-30)
+---------------------------------------------------
+
+Se revisaron Inicio, Tarifas, Reservas y Rueda Nocturna en Chromium local a
+360, 768 y 1280 px. No hubo desbordamiento horizontal; las imagenes cargaron y
+todas tienen atributo `alt`. En la landing, la comprobacion adicional a 640,
+1024 y 1280 px confirmo rutas en 1/2/3 columnas desde 360/640/1024, pasos en
+1/2/4 columnas y encabezado apilado en movil y en fila desde 768 px. Las
+capturas reproducibles se guardaron en `img/capturas/nocturna-escritorio.png`,
+`img/capturas/nocturna-celular.png` y `img/capturas/nocturna-oscuro.png`.
+
+El chequeo de enlaces relativos y anclas de las cinco paginas HTML (incluido
+el kit de componentes) no encontro destinos locales rotos. No se encontraron
+atributos `style` ni bloques `<style>` en esas paginas. Las URL publicadas de
+Inicio, Tarifas, Reservas, Nocturna, CSS principal, `output.css`, controlador
+del formulario e imagen de campaña respondieron HTTP 200.
+
+Nu Html Checker 26.10.18: las copias locales de la landing y de Reservas
+terminaron sin errores ni avisos. El archivo publicado de Reservas tenia un
+error de `aria-labelledby` en el contenedor del modal; se añadió
+`role="dialog"` en la copia local y se subió esa copia al validador para
+confirmar la corrección. La landing local solo obtuvo mensajes informativos
+por barras de cierre en elementos vacíos, sin errores ni avisos. La copia
+publicada no se ha actualizado, así que el error remoto persistirá hasta el
+push de estos cambios.
+
+La recompilación de Tailwind desde `nocturna/` con `--minify` produjo 28.220
+bytes, idénticos a `src/output.css`. La primera comparación ejecutada desde la
+raíz del repositorio incluyó rutas de escaneo distintas y dio un tamaño
+distinto; se repitió desde el directorio del proyecto y se confirmó la
+coincidencia exacta. El archivo compilado está versionado.
+
+Se completó `README.md` con enlaces publicados, mapa de páginas, tecnologías,
+comparativa Bootstrap/Tailwind, mediciones, capturas, pruebas y guion de demo.
+La demo se dejó preparada, pero no se ensayó frente a un compañero y no se
+inventó feedback. La landing tampoco contiene la sección comercial de planes
+mencionada en el resumen de MiniRetos; faltan nombres, contenido y precios
+aprobados. El formulario de campaña sigue validando sin enviar ni almacenar;
+falta un destino autorizado para recibir inscripciones.
+
+Estado de publicación al 2026-10-30: las URL anteriores responden, pero el
+`main` local está seis commits por delante de `origin/main` antes del commit
+de lanzamiento. Los cambios de esta auditoría aún no están publicados. El
+entorno no dispone de credenciales para push (`unable to get password from
+user`); no se presenta la corrección local como si ya estuviera en GitHub
+Pages.
