@@ -84,38 +84,100 @@
                         <div class="invalid-feedback">Selecciona una fecha entre el 1 de noviembre y el 31 de diciembre de 2026.</div>
                     </div>
                     <fieldset class="form-options">
-                        <legend>Tipo de bicicleta *</legend>
-                        <div class="opciones-bicicleta d-flex flex-wrap align-items-center gap-3">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="bici-urbana-clasica" name="tipo_bicicleta" value="urbana_clasica" required>
-                                <label for="bici-urbana-clasica" class="form-label--inline form-check-label">Urbana Clásica</label>
-                                <div class="invalid-feedback">Selecciona una bicicleta.</div>
+                        <legend>Tipos de bicicleta *</legend>
+                        <p class="form-text">Selecciona uno o varios tipos e indica cuántas bicicletas necesitas de cada uno (máximo 6 en total).</p>
+                        <div class="opciones-bicicleta row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+                            <div class="col">
+                              <div class="bike-option border rounded p-3 h-100">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bici-urbana-clasica" name="tipo_bicicleta" value="urbana_clasica" required>
+                                <label for="bici-urbana-clasica" class="form-check-label">Urbana Clásica</label>
+                                <div class="invalid-feedback">Selecciona al menos un tipo de bicicleta.</div>
+                                </div>
+                                <div class="bike-quantity d-none mt-3">
+                                    <label class="form-label" for="cantidad-urbana-clasica">Cantidad de bicicletas:</label>
+                                    <input class="form-control" type="number" id="cantidad-urbana-clasica" name="cantidad_bicicletas[urbana_clasica]" min="1" max="6" inputmode="numeric">
+                                    <div class="invalid-feedback">Indica una cantidad entre 1 y 6. El total no puede superar 6 bicicletas.</div>
+                                </div>
+                              </div>
                             </div>
-                            
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="bici-urbana-plegable" name="tipo_bicicleta" value="urbana_plegable">
-                                <label for="bici-urbana-plegable" class="form-label--inline form-check-label">Urbana Plegable</label>
+                            <div class="col">
+                              <div class="bike-option border rounded p-3 h-100">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bici-urbana-plegable" name="tipo_bicicleta" value="urbana_plegable">
+                                <label for="bici-urbana-plegable" class="form-check-label">Urbana Plegable</label>
+                                </div>
+                                <div class="bike-quantity d-none mt-3">
+                                    <label class="form-label" for="cantidad-urbana-plegable">Cantidad de bicicletas:</label>
+                                    <input class="form-control" type="number" id="cantidad-urbana-plegable" name="cantidad_bicicletas[urbana_plegable]" min="1" max="6" inputmode="numeric">
+                                    <div class="invalid-feedback">Indica una cantidad entre 1 y 6. El total no puede superar 6 bicicletas.</div>
+                                </div>
+                              </div>
                             </div>
-                            
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="bici-montana-trail" name="tipo_bicicleta" value="montana_trail">
-                                <label for="bici-montana-trail" class="form-label--inline form-check-label">Montaña Trail</label>
+                            <div class="col">
+                              <div class="bike-option border rounded p-3 h-100">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bici-montana-trail" name="tipo_bicicleta" value="montana_trail">
+                                <label for="bici-montana-trail" class="form-check-label">Montaña Trail</label>
+                                </div>
+                                <div class="bike-quantity d-none mt-3">
+                                    <label class="form-label" for="cantidad-montana-trail">Cantidad de bicicletas:</label>
+                                    <input class="form-control" type="number" id="cantidad-montana-trail" name="cantidad_bicicletas[montana_trail]" min="1" max="6" inputmode="numeric">
+                                    <div class="invalid-feedback">Indica una cantidad entre 1 y 6. El total no puede superar 6 bicicletas.</div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="bici-gravel-aventura" name="tipo_bicicleta" value="gravel_aventura">
-                                <label for="bici-gravel-aventura" class="form-label--inline form-check-label">Gravel Aventura</label>
+                            <div class="col">
+                              <div class="bike-option border rounded p-3 h-100">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bici-gravel-aventura" name="tipo_bicicleta" value="gravel_aventura">
+                                <label for="bici-gravel-aventura" class="form-check-label">Gravel Aventura</label>
+                                </div>
+                                <div class="bike-quantity d-none mt-3">
+                                    <label class="form-label" for="cantidad-gravel-aventura">Cantidad de bicicletas:</label>
+                                    <input class="form-control" type="number" id="cantidad-gravel-aventura" name="cantidad_bicicletas[gravel_aventura]" min="1" max="6" inputmode="numeric">
+                                    <div class="invalid-feedback">Indica una cantidad entre 1 y 6. El total no puede superar 6 bicicletas.</div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="bici-electrica-urbana" name="tipo_bicicleta" value="electrica_urbana">
-                                <label for="bici-electrica-urbana" class="form-label--inline form-check-label">Eléctrica Urbana</label>
+                            <div class="col">
+                              <div class="bike-option border rounded p-3 h-100">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bici-electrica-urbana" name="tipo_bicicleta" value="electrica_urbana">
+                                <label for="bici-electrica-urbana" class="form-check-label">Eléctrica Urbana</label>
+                                </div>
+                                <div class="bike-quantity d-none mt-3">
+                                    <label class="form-label" for="cantidad-electrica-urbana">Cantidad de bicicletas:</label>
+                                    <input class="form-control" type="number" id="cantidad-electrica-urbana" name="cantidad_bicicletas[electrica_urbana]" min="1" max="6" inputmode="numeric">
+                                    <div class="invalid-feedback">Indica una cantidad entre 1 y 6. El total no puede superar 6 bicicletas.</div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="bici-infantil" name="tipo_bicicleta" value="infantil">
-                                <label for="bici-infantil" class="form-label--inline form-check-label">Infantil</label>
+                            <div class="col">
+                              <div class="bike-option border rounded p-3 h-100">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bici-infantil" name="tipo_bicicleta" value="infantil">
+                                <label for="bici-infantil" class="form-check-label">Infantil</label>
+                                </div>
+                                <div class="bike-quantity d-none mt-3">
+                                    <label class="form-label" for="cantidad-infantil">Cantidad de bicicletas:</label>
+                                    <input class="form-control" type="number" id="cantidad-infantil" name="cantidad_bicicletas[infantil]" min="1" max="6" inputmode="numeric">
+                                    <div class="invalid-feedback">Indica una cantidad entre 1 y 6. El total no puede superar 6 bicicletas.</div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="bici-tandem" name="tipo_bicicleta" value="tandem">
-                                <label for="bici-tandem" class="form-label--inline form-check-label">Tándem</label>
+                            <div class="col">
+                              <div class="bike-option border rounded p-3 h-100">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bici-tandem" name="tipo_bicicleta" value="tandem">
+                                <label for="bici-tandem" class="form-check-label">Tándem</label>
+                                </div>
+                                <div class="bike-quantity d-none mt-3">
+                                    <label class="form-label" for="cantidad-tandem">Cantidad de bicicletas:</label>
+                                    <input class="form-control" type="number" id="cantidad-tandem" name="cantidad_bicicletas[tandem]" min="1" max="6" inputmode="numeric">
+                                    <div class="invalid-feedback">Indica una cantidad entre 1 y 6. El total no puede superar 6 bicicletas.</div>
+                                </div>
+                              </div>
                             </div>
                         </div>
                     </fieldset>
@@ -128,11 +190,6 @@
                             <option value="dia_completo">Día completo</option>
                         </select>
                         <div class="invalid-feedback">Selecciona un plan de alquiler.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="cantidad">Cantidad de bicicletas *:</label>
-                        <input class="form-control" type="number" id="cantidad" name="cantidad_bicicletas" required min="1" max="6" value="1">
-                        <div class="invalid-feedback">La cantidad debe estar entre 1 y 6 bicicletas.</div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="recorrido">Recorrido guiado:</label>
