@@ -242,7 +242,8 @@ h2 {
 .fleet-card-image {
     height: 12rem;
     padding: 0.75rem;
-    background-color: #F3F6F4;
+    background-color: #FFFFFF;
+    mix-blend-mode: multiply;
     object-fit: contain;
 }
 
